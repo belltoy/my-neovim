@@ -1,25 +1,5 @@
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
-vim.g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
-  git = {
-    unstaged = "",
-    staged = "S",
-    unmerged = "",
-    renamed = "➜",
-    deleted = "",
-    untracked = "U",
-    ignored = "◌",
-  },
-  folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-  },
-}
 
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
@@ -43,9 +23,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 nvim_tree.setup {
+  prefer_startup_root = true,
   disable_netrw = true,
   hijack_netrw = true,
-  open_on_setup = false,
+  open_on_setup = true,
+  open_on_setup_file = true,
   ignore_ft_on_setup = {
     "startify",
     "dashboard",
@@ -53,7 +35,8 @@ nvim_tree.setup {
   },
   open_on_tab = false,
   hijack_cursor = false,
-  update_cwd = true,
+  update_cwd = false,
+  respect_buf_cwd = true,
   diagnostics = {
     enable = true,
     icons = {
@@ -65,7 +48,8 @@ nvim_tree.setup {
   },
   update_focused_file = {
     enable = true,
-    update_cwd = true,
+    update_cwd = false,
+    update_root = false,
     ignore_list = {},
   },
   system_open = {
@@ -73,13 +57,38 @@ nvim_tree.setup {
     args = {},
   },
   filters = {
-    dotfiles = false,
+    dotfiles = true,
     custom = {},
   },
   git = {
     enable = true,
     ignore = true,
     timeout = 500,
+  },
+  renderer = {
+    icons = {
+      git_placement = "after",
+      glyphs = {
+        default = "",
+        symlink = "",
+        git = {
+          unstaged = "",
+          staged = "S",
+          unmerged = "",
+          renamed = "➜",
+          deleted = "",
+          untracked = "U",
+          ignored = "◌",
+        },
+        folder = {
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+        },
+      }
+    }
   },
   view = {
     width = 30,
@@ -92,6 +101,10 @@ nvim_tree.setup {
         { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
         { key = "h", cb = tree_cb "close_node" },
         { key = "v", cb = tree_cb "vsplit" },
+        { key = "s", cb = tree_cb "split" },
+        { key = "O", cb = tree_cb "system_open" },
+        { key = "?", cb = tree_cb "toggle_help" },
+        { key = "t", cb = tree_cb "tabnew" },
       },
     },
     number = false,
@@ -103,7 +116,7 @@ nvim_tree.setup {
   },
   actions = {
     open_file = {
-      quit_on_open = true,
+      quit_on_open = false,
       window_picker = {
             enable = false,
       },

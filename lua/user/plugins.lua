@@ -21,6 +21,7 @@ vim.cmd [[
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
+  set conceallevel=3
 ]]
 
 -- Use a protected call so we don't error out on first use
@@ -37,6 +38,23 @@ packer.init {
     end,
   },
 }
+
+vim.g.vim_markdown_folding_disabled = 1
+vim.g.startify_change_to_dir = 0
+vim.g.webdevicons_enable_airline_tabline = 1
+vim.g.webdevicons_enable_airline_statusline = 1
+vim.g.airline_powerline_fonts=1
+
+vim.cmd [[
+let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#promptline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#tab_nr_type= 1
+let g:airline#extensions#tabline#show_tab_type = 1
+let g:airline#extensions#tabline#tabs_label = ''
+
+]]
 
 -- Install your plugins here
 return packer.startup(function(use)
@@ -55,13 +73,29 @@ return packer.startup(function(use)
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
-  use "goolord/alpha-nvim"
+  -- use "goolord/alpha-nvim"
+  use "mhinz/vim-startify"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
+
+  use "godlygeek/tabular"
+  use "preservim/vim-markdown"
+
+  -- Maybe conflict with nvim-treesitter
+  use "sheerun/vim-polyglot"
+
+  use "github/copilot.vim"
+  use "junegunn/vim-easy-align"
+
+  -- tmux integration
+  use "tmux-plugins/vim-tmux"
+  use "christoomey/vim-tmux-navigator"
+  use "edkolev/tmuxline.vim"
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
+  use "tomasr/molokai"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -82,7 +116,12 @@ return packer.startup(function(use)
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   -- Telescope
-  use "nvim-telescope/telescope.nvim"
+  use {
+    "nvim-telescope/telescope.nvim",
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  use "BurntSushi/ripgrep"
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Treesitter
   use {
@@ -93,6 +132,10 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+  use "tpope/vim-fugitive"
+
+  use 'vim-airline/vim-airline'
+  use 'vim-airline/vim-airline-themes'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -32,26 +32,64 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<A-l>", ":bnext<CR>", opts)
+keymap("n", "<A-h>", ":bprevious<CR>", opts)
+
+-- split buffers
+keymap("n", "<Leader>h", ":vsplit<CR>", opts)
+keymap("n", "<Leader>v", ":split<CR>", opts)
+
+-- EasyAlign
+keymap("v", "<Enter>", "<Plug>(EasyAlign)", opts)
+keymap("n", "<Leader><space>a", "<Plug>(EasyAlign)", opts)
+
+-- Telescope
+keymap("n", "<Leader>ff", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<Leader>fb", "<cmd>Telescope buffers<CR>", opts)
+keymap("n", "<Leader>gb", "<cmd>Git blame<CR>", opts)
+-- keymap("n", "<Leader>fb", "<cmd>Telescope help_tags", opts)
+keymap("n", "<Leader><space>s", "<cmd>Startify<CR>", opts)
+
+-- GUI Tools integration
+keymap("n", "<Leader>tw", "!tower .<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
+-- Only current buffer
+keymap("n", "<Leader>on", ":only<CR>", opts)
+
 -- Insert --
--- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
+-- Press jj fast to enter
+-- timeout in 300ms
+vim.opt.timeoutlen = 300
+keymap("i", "jj", "<ESC>", opts)
+keymap("i", "uu", "_", opts)
+keymap("i", "..", "->", opts)
+keymap("i", ",,", "<-", opts)
+keymap("i", "hh", "=>", opts)
+keymap("i", "aa", "@", opts)
+keymap("i", "<up>", "<C-o>gk", opts)
+keymap("i", "<down>", "<C-o>gj", opts)
 
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+keymap("n", ">", "v><Esc>", opts)
+keymap("n", "<", "v<<Esc>", opts)
 
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
+
+keymap("v", "/", "y/<C-R>\"<CR>", opts)
+keymap("v", "?", "y?<C-R>\"<CR>", opts)
+-- turn off highlight search
+keymap("n", "<Leader>.", ":nohlsearch<CR>", opts)
 
 -- Visual Block --
 -- Move text up and down
