@@ -35,13 +35,14 @@ M.setup = function()
 
   vim.diagnostic.config(config)
 
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  local popup_opts = {
     border = "rounded",
-  })
+    max_width = 100,  -- should be worked
+    max_height = 80,
+  }
 
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
-  })
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, popup_opts)
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, popup_opts)
 end
 
 local function lsp_highlight_document(client)
@@ -51,6 +52,10 @@ local function lsp_highlight_document(client)
       return
     end
     illuminate.on_attach(client)
+
+    vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
+    vim.api.nvim_command [[ hi def link LspReferenceWrite CursorLine ]]
+    vim.api.nvim_command [[ hi def link LspReferenceRead CursorLine ]]
   -- end
 end
 
@@ -66,26 +71,30 @@ local function lsp_keymaps(bufnr)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-  vim.api.nvim_buf_set_keymap(
-    bufnr,
-    "n",
-    "gl",
-    '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>',
-    opts
-  )
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
+local function aerial_setup(client, bufnr)
+    local status_ok, aerial = pcall(require, "aerial")
+    if not status_ok then
+      return
+    end
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>t', '<cmd>AerialToggle!<CR>', {})
+    aerial.on_attach(client, bufnr)
+end
+
 M.on_attach = function(client, bufnr)
--- vim.notify(client.name .. " starting...")
+  -- vim.notify(client.name .. " starting...")
 -- TODO: refactor this into a method that checks if string in list
   if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
+  aerial_setup(client, bufnr)
 end
 
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()

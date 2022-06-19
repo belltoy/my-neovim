@@ -24,6 +24,13 @@ vim.cmd [[
   set conceallevel=3
 ]]
 
+-- vim.cmd [[
+--   augroup illuminate_augroup
+--     autocmd!
+--     autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline
+--   augroup END
+-- ]]
+
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -81,6 +88,8 @@ return packer.startup(function(use)
   use "godlygeek/tabular"
   use "preservim/vim-markdown"
 
+  use "RRethy/vim-illuminate"
+
   -- Maybe conflict with nvim-treesitter
   use "sheerun/vim-polyglot"
 
@@ -130,12 +139,50 @@ return packer.startup(function(use)
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
 
+  use "p00f/nvim-ts-rainbow"
+
+  -- Smooth scrolling
+  use "declancm/cinnamon.nvim"
+
+  -- Smooth escaping
+  use "max397574/better-escape.nvim"
+
   -- Git
   use "lewis6991/gitsigns.nvim"
   use "tpope/vim-fugitive"
 
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
+
+  -- use {
+  --   'rcarriga/nvim-notify',
+  --   event = "BufEnter",
+  --   config = function()
+  --     require "configs.notify"
+  --   end,
+  -- }
+
+  use {
+    'stevearc/aerial.nvim',
+    config = function() require('aerial').setup() end
+  }
+
+  use 'norcalli/nvim-colorizer.lua'
+
+  use 'simrat39/rust-tools.nvim'
+
+  -- Debugging
+  use 'nvim-lua/plenary.nvim'
+  use {
+    'saecki/crates.nvim',
+    tag = "v0.2.1",
+    requires = { 'nvim-lua/plenary.nvim' },
+    event = { "BufRead Cargo.toml" },
+    config = function()
+        require('crates').setup()
+    end,
+  }
+  -- use 'mfussenegger/nvim-dap'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

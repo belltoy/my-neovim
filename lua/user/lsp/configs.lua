@@ -6,16 +6,24 @@ end
 local lspconfig = require("lspconfig")
 
 local servers = {
+  "clojure_lsp",
+  "ccls",
   "cssls",
   "cssmodules_ls",
+  "dockerls",
+  "eslint",
+  "grammarly",
   "html",
   "jsonls",
+  "jdtls",         -- Java
   "sumneko_lua",
+  "sourcekit",     -- Swift
   "rust_analyzer",
   "tsserver",
   "pyright",
   "yamlls",
   "bashls",
+  "taplo",  -- Toml
   "erlangls",
   "elixirls",
 }
@@ -29,9 +37,12 @@ for _, server in pairs(servers) do
 		on_attach = require("user.lsp.handlers").on_attach,
 		capabilities = require("user.lsp.handlers").capabilities,
 	}
+
 	local has_custom_opts, server_custom_opts = pcall(require, "user.lsp.settings." .. server)
+
 	if has_custom_opts then
 	 	opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
 	end
+
 	lspconfig[server].setup(opts)
 end
