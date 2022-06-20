@@ -51,6 +51,7 @@ vim.g.startify_change_to_dir = 0
 vim.g.webdevicons_enable_airline_tabline = 1
 vim.g.webdevicons_enable_airline_statusline = 1
 vim.g.airline_powerline_fonts=1
+vim.g.Illuminate_ftblacklist = {'nerdtree', 'NvimTree'}
 
 vim.cmd [[
 let g:airline#extensions#tmuxline#enabled = 0
