@@ -155,13 +155,19 @@ return packer.startup(function(use)
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
 
-  -- use {
-  --   'rcarriga/nvim-notify',
-  --   event = "BufEnter",
-  --   config = function()
-  --     require "configs.notify"
-  --   end,
-  -- }
+  use 'rcarriga/nvim-notify'
+
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
 
   use {
     'stevearc/aerial.nvim',
