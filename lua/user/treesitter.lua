@@ -6,12 +6,13 @@ end
 configs.setup {
   -- ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ensure_installed = {
-    'rust', 'c', 'go', 'vim', 'lua',
+    'rust', 'c', 'cpp', 'cmake', 'go', 'gomod', 'vim', 'lua',
     'clojure', 'cpp', 'elixir', 'erlang',
     'elm', 'java', 'json', 'json5', 'jsonc',
+    'fish', 'comment', 'http', 'html',
     'make', 'python', 'ruby',
     'regex', 'typescript', 'javascript', 'yaml', 'toml',
-    'scala', 'proto', 'markdown'
+    'swift', 'scala', 'proto', 'markdown'
   },
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "" }, -- List of parsers to ignore installing
