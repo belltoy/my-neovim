@@ -43,6 +43,17 @@ M.setup = function()
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, popup_opts)
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, popup_opts)
+
+  -- table from lsp severity to vim severity.
+  local severity = {
+    "error",
+    "warn",
+    "info",
+    "info", -- map both hint and info to info?
+  }
+  vim.lsp.handlers["window/showMessage"] = function(err, method, params, client_id)
+    vim.notify(method.message, severity[params.type])
+  end
 end
 
 local function lsp_highlight_document(client)
@@ -88,7 +99,7 @@ local function aerial_setup(client, bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  -- vim.notify(client.name .. " starting...")
+  vim.notify(client.name .. " starting...")
 -- TODO: refactor this into a method that checks if string in list
   if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false

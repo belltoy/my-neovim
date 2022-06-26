@@ -11,7 +11,7 @@ configs.setup {
     'elm', 'java', 'json', 'json5', 'jsonc',
     'make', 'python', 'ruby',
     'regex', 'typescript', 'javascript', 'yaml', 'toml',
-    'scala', 'proto'
+    'scala', 'proto', 'markdown'
   },
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "" }, -- List of parsers to ignore installing
@@ -32,5 +32,10 @@ configs.setup {
     enable = true,
     extended_mode = true,
     max_file_lines = nil,
+  },
+  matchup = {
+    enable = true,              -- mandatory, false will disable the whole extension
+    disable = {},  -- optional, list of language that will be disabled
+    -- [options]
   },
 }

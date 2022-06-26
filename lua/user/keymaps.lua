@@ -52,7 +52,7 @@ keymap("n", "<Leader>gb", "<cmd>Git blame<CR>", opts)
 keymap("n", "<Leader><space>s", "<cmd>Startify<CR>", opts)
 
 -- GUI Tools integration
-keymap("n", "<Leader>tw", "!tower .<CR>", opts)
+keymap("n", "<Leader>tw", "<cmd>!tower .<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)

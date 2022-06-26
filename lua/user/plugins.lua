@@ -47,6 +47,10 @@ packer.init {
 }
 
 vim.g.vim_markdown_folding_disabled = 1
+-- vim.cmd [[
+-- let g:markdown_fenced_languages = [ 'bash=sh', 'javascript', 'js=javascript', 'json=javascript', 'typescript', 'ts=typescript', 'php', 'html', 'css', 'rust', 'sql']
+-- let g:vim_markdown_fenced_languages = [ 'bash=sh', 'javascript', 'js=javascript', 'json=javascript', 'typescript', 'ts=typescript', 'php', 'html', 'css', 'rust', 'sql']
+-- ]]
 vim.g.startify_change_to_dir = 0
 vim.g.webdevicons_enable_airline_tabline = 1
 vim.g.webdevicons_enable_airline_statusline = 1
@@ -87,6 +91,9 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
 
   use "godlygeek/tabular"
+
+  use 'simrat39/rust-tools.nvim'
+  use 'rust-lang/rust.vim'
   use "preservim/vim-markdown"
 
   use "RRethy/vim-illuminate"
@@ -176,7 +183,7 @@ return packer.startup(function(use)
 
   use 'norcalli/nvim-colorizer.lua'
 
-  use 'simrat39/rust-tools.nvim'
+  use 'andymass/vim-matchup'
 
   -- Debugging
   use 'nvim-lua/plenary.nvim'
