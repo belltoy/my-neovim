@@ -13,9 +13,11 @@ local servers = {
   "dockerls",
   "eslint",
   "grammarly",
+  "gopls",
   "html",
   "jsonls",
   "jdtls",         -- Java
+  "marksman",      -- Markdown
   "sumneko_lua",
   "sourcekit",     -- Swift
   "rust_analyzer",
@@ -29,7 +31,8 @@ local servers = {
 }
 
 lsp_installer.setup {
-	ensure_installed = servers
+	ensure_installed = servers,
+    -- log_level = vim.log.levels.DEBUG,
 }
 
 for _, server in pairs(servers) do

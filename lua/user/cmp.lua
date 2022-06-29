@@ -93,6 +93,17 @@ cmp.setup {
       "i",
       "s",
     }),
+
+    -- Use <C-o> to accept Copilot suggestions.
+    ['<C-o>'] = cmp.mapping(function(fallback)
+        local fallback_key = vim.api.nvim_replace_termcodes('<Tab>', true, true, true)
+        local resolved_key = vim.fn['copilot#Accept'](fallback)
+        if fallback_key == resolved_key then
+          cmp.confirm({ select = true })
+        else
+          vim.api.nvim_feedkeys(resolved_key, 'n', true)
+        end
+      end),
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -129,3 +140,27 @@ cmp.setup {
     native_menu = false,
   },
 }
+
+-- for _, cmd_type in ipairs({':', '/', '?', '@'}) do
+--   cmp.setup.cmdline(cmd_type, {
+--     sources = {
+--       -- { name = 'cmdline_history' },
+--       { name = 'buffer' }
+--     },
+--   })
+-- end
+
+cmp.setup.cmdline(':', {
+  completion = { autocomplete = false },
+  sources = {
+    { name = 'cmdline' }
+  }
+})
+
+cmp.setup.cmdline('/', {
+  completion = { autocomplete = false },
+  sources = {
+    -- { name = 'buffer' }
+    { name = 'buffer' }
+  }
+})

@@ -51,7 +51,7 @@ vim.g.vim_markdown_folding_disabled = 1
 -- let g:markdown_fenced_languages = [ 'bash=sh', 'javascript', 'js=javascript', 'json=javascript', 'typescript', 'ts=typescript', 'php', 'html', 'css', 'rust', 'sql']
 -- let g:vim_markdown_fenced_languages = [ 'bash=sh', 'javascript', 'js=javascript', 'json=javascript', 'typescript', 'ts=typescript', 'php', 'html', 'css', 'rust', 'sql']
 -- ]]
-vim.g.startify_change_to_dir = 0
+-- vim.g.startify_change_to_dir = 0
 vim.g.webdevicons_enable_airline_tabline = 1
 vim.g.webdevicons_enable_airline_statusline = 1
 vim.g.airline_powerline_fonts=1
@@ -92,11 +92,9 @@ return packer.startup(function(use)
 
   use "godlygeek/tabular"
 
-  use 'simrat39/rust-tools.nvim'
-  use 'rust-lang/rust.vim'
+  use "simrat39/rust-tools.nvim"
+  use "rust-lang/rust.vim"
   use "preservim/vim-markdown"
-
-  use "RRethy/vim-illuminate"
 
   -- Maybe conflict with nvim-treesitter
   use "sheerun/vim-polyglot"
@@ -107,20 +105,23 @@ return packer.startup(function(use)
   -- tmux integration
   use "tmux-plugins/vim-tmux"
   use "christoomey/vim-tmux-navigator"
-  use "edkolev/tmuxline.vim"
+  -- use "edkolev/tmuxline.vim"
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
+  use { "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" }
   use "tomasr/molokai"
 
   -- cmp plugins
-  -- use "hrsh7th/nvim-cmp" -- The completion plugin
-  -- use "hrsh7th/cmp-buffer" -- buffer completions
-  -- use "hrsh7th/cmp-path" -- path completions
-  -- use "hrsh7th/cmp-cmdline" -- cmdline completions
-  -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  -- use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/nvim-cmp" -- The completion plugin
+  use "hrsh7th/cmp-buffer" -- buffer completions
+  use "hrsh7th/cmp-path" -- path completions
+  use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use "uga-rosa/cmp-dictionary" -- dictionary completions
+  use "hrsh7th/cmp-nvim-lsp"
+  use "dmitmel/cmp-cmdline-history"
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -131,22 +132,28 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  -- Vim plugin for automatically highlighting other uses of the word under the cursor.
+  -- Integrates with Neovim's LSP client for intelligent highlighting.
+  use "RRethy/vim-illuminate"
 
   -- Telescope
   use {
     "nvim-telescope/telescope.nvim",
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { {"nvim-lua/plenary.nvim"} }
   }
   use "BurntSushi/ripgrep"
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
+  use "nvim-treesitter/nvim-treesitter-textobjects"
+  use "nvim-treesitter/playground"
+  -- use matchup for now
+  -- use "theHamsta/nvim-treesitter-pairs"
   use "JoosepAlviste/nvim-ts-context-commentstring"
-
   use "p00f/nvim-ts-rainbow"
 
   -- Smooth scrolling
@@ -159,10 +166,10 @@ return packer.startup(function(use)
   use "lewis6991/gitsigns.nvim"
   use "tpope/vim-fugitive"
 
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+  use "vim-airline/vim-airline"
+  use "vim-airline/vim-airline-themes"
 
-  use 'rcarriga/nvim-notify'
+  use "rcarriga/nvim-notify"
 
   use {
     "folke/todo-comments.nvim",
@@ -177,26 +184,29 @@ return packer.startup(function(use)
   }
 
   use {
-    'stevearc/aerial.nvim',
-    config = function() require('aerial').setup() end
+    "stevearc/aerial.nvim",
+    config = function() require("aerial").setup() end
   }
 
-  use 'norcalli/nvim-colorizer.lua'
+  use "norcalli/nvim-colorizer.lua"
 
-  use 'andymass/vim-matchup'
+  use "andymass/vim-matchup"
+
+  use "segeljakt/vim-silicon"  -- Generate a image of selected source codes
+
+  use "wakatime/vim-wakatime"
 
   -- Debugging
-  use 'nvim-lua/plenary.nvim'
   use {
-    'saecki/crates.nvim',
+    "saecki/crates.nvim",
     tag = "v0.2.1",
-    requires = { 'nvim-lua/plenary.nvim' },
+    requires = { "nvim-lua/plenary.nvim" },
     event = { "BufRead Cargo.toml" },
     config = function()
-        require('crates').setup()
+        require("crates").setup()
     end,
   }
-  -- use 'mfussenegger/nvim-dap'
+  -- use "mfussenegger/nvim-dap"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

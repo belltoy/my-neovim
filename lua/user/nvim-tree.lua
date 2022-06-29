@@ -28,10 +28,11 @@ nvim_tree.setup {
   hijack_netrw = true,
   open_on_setup = true,
   open_on_setup_file = true,
+  ignore_buffer_on_setup = true,
   ignore_ft_on_setup = {
     "gitcommit",
     "gitrebase",
-    "startify",
+    -- "startify",
     "dashboard",
     "alpha",
   },
@@ -55,7 +56,7 @@ nvim_tree.setup {
     ignore_list = {},
   },
   system_open = {
-    cmd = nil,
+    cmd = "open",
     args = {},
   },
   filters = {

@@ -6,13 +6,18 @@ end
 configs.setup {
   -- ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ensure_installed = {
-    'rust', 'c', 'cpp', 'cmake', 'go', 'gomod', 'vim', 'lua',
+    'rust',
+    'bash', 'latex',
+    'css', 'c', 'cmake', 'go', 'gomod', 'vim', 'lua',
     'clojure', 'cpp', 'elixir', 'erlang',
+    'dockerfile', 'eex',
     'elm', 'java', 'json', 'json5', 'jsonc',
-    'fish', 'comment', 'http', 'html',
+    'fish', 'http', 'html',
     'make', 'python', 'ruby',
     'regex', 'typescript', 'javascript', 'yaml', 'toml',
-    'swift', 'scala', 'proto', 'markdown'
+    'swift', 'scala', 'proto',
+    -- 'markdown', -- temporarily disabled due to a code block syntax highlight bug in nvim-treesitter
+    'markdown_inline',
   },
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "" }, -- List of parsers to ignore installing
@@ -21,7 +26,7 @@ configs.setup {
   },
   highlight = {
     enable = true, -- false will disable the whole extension
-    disable = { "" }, -- list of language that will be disabled
+    disable = {}, -- list of language that will be disabled
     additional_vim_regex_highlighting = true,
   },
   indent = { enable = true, disable = { "yaml" } },
