@@ -6,8 +6,10 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
+-- keymap("", "<Space>", "<Nop>", opts)
+-- vim.g.mapleader = " "
+keymap("", ",", "<Nop>", opts)
+vim.g.mapleader = ","
 vim.g.maplocalleader = " "
 
 -- Modes
@@ -44,12 +46,15 @@ keymap("v", "<Enter>", "<Plug>(EasyAlign)", opts)
 keymap("n", "<Leader><space>a", "<Plug>(EasyAlign)", opts)
 
 -- Telescope
-keymap("n", "<Leader>ff", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<CR>", opts)
-keymap("n", "<Leader>fb", "<cmd>Telescope buffers<CR>", opts)
+keymap("n", "<Leader>f", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<Leader>r", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<Leader>u", "<cmd>Telescope urlview<CR>", opts)
+keymap("n", "<Leader>b", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", "<Leader>gb", "<cmd>Git blame<CR>", opts)
 -- keymap("n", "<Leader>fb", "<cmd>Telescope help_tags", opts)
-keymap("n", "<Leader><space>s", "<cmd>Startify<CR>", opts)
+keymap("n", "<Leader>s", "<cmd>Startify<CR>", opts)
+
+keymap("n", "<Leader>n", "<cmd>NvimTreeToggle<CR>", opts)
 
 -- GUI Tools integration
 keymap("n", "<Leader>tw", "<cmd>!tower .<CR>", opts)

@@ -1,6 +1,6 @@
 local opts = {
     cmd = {
-        "nvm exec default grammarly-languageserver",
+        "grammarly-languageserver",
         "--stdio",
     },
 }
