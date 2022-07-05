@@ -48,6 +48,7 @@ keymap("n", "<Leader><space>a", "<Plug>(EasyAlign)", opts)
 -- Telescope
 keymap("n", "<Leader>f", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<Leader>r", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<Leader>F", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<Leader>u", "<cmd>Telescope urlview<CR>", opts)
 keymap("n", "<Leader>b", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", "<Leader>gb", "<cmd>Git blame<CR>", opts)

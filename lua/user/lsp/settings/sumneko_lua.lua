@@ -1,4 +1,5 @@
 return {
+    filetypes = { 'lua' },
     settings = {
 
         Lua = {
@@ -10,6 +11,10 @@ return {
                     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                     [vim.fn.stdpath("config") .. "/lua"] = true,
                 },
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+                enabled = false,
             },
         },
     },

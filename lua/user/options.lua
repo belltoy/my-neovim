@@ -51,7 +51,10 @@ vim.g.copilot_node_command = '~/.nvm/versions/node/v17.8.0/bin/node'
 vim.g.neovide_remember_window_size = true
 vim.g.neovide_remember_window_position = true
 
-vim.g.extra_whitespace_ignored_filetypes = { 'NvimTree', 'alpha', 'dashboard', 'TelescopePrompt', 'lspinfo' }
+vim.g.extra_whitespace_ignored_filetypes = {
+    'NvimTree', 'alpha', 'dashboard', 'TelescopePrompt', 'lspinfo',
+    'Trouble',
+}
 
 -- Neovide
 vim.cmd([[
@@ -68,13 +71,5 @@ au BufRead,BufNewFile *.log{.\d}\\\{0,\} setlocal ft=log
 
 au BufRead,BufNewFile *.eco setlocal filetype=html
 
-au BufRead,BufNewFile {ci{.*}\|sys{.*}\|rebar\|reltool\|vars{.*}\|elvis\|app{.*}}.config{.script\|.example\|.src}\\\{0,1\} setlocal ft=erlang
-au BufRead,BufNewFile {ci\|sys\|rebar\|reltool\|vars\|elvis\|app}{.*}\\\{0,1\}.config setlocal ft=erlang
-au BufRead,BufNewFile rebar.lock setlocal ft=erlang
-au BufRead,BufNewFile *.app.src setlocal ft=erlang
-au BufRead,BufNewFile */priv/*.schema setlocal ft=erlang
-au BufRead,BufNewFile vm{.*}\\\{0,1\}.args setlocal ft=config
-autocmd BufReadPost erlang_ls.config setlocal filetype=yaml
-au BufRead,BufNewFile */_build/**/{RELEASES\|*.{rel\|script\|config}} setlocal ft=erlang
-
 ]])
+
