@@ -44,6 +44,7 @@ packer.init({
             return require('packer.util').float({ border = 'rounded' })
         end,
     },
+    max_jobs = 50,
 })
 
 vim.g.vim_markdown_folding_disabled = 1
@@ -56,17 +57,6 @@ vim.g.webdevicons_enable_airline_tabline = 1
 vim.g.webdevicons_enable_airline_statusline = 1
 vim.g.airline_powerline_fonts = 1
 vim.g.Illuminate_ftblacklist = { 'nerdtree', 'NvimTree' }
-
-vim.cmd([[
-let g:airline#extensions#tmuxline#enabled = 0
-let g:airline#extensions#promptline#enabled = 0
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_tab_nr = 1
-let g:airline#extensions#tabline#tab_nr_type= 1
-let g:airline#extensions#tabline#show_tab_type = 1
-let g:airline#extensions#tabline#tabs_label = ''
-
-]])
 
 -- Install your plugins here
 return packer.startup(function(use)
@@ -115,17 +105,18 @@ return packer.startup(function(use)
     use('lunarvim/darkplus.nvim')
     use({ 'folke/tokyonight.nvim', commit = '8223c970677e4d88c9b6b6d81bda23daf11062bb' })
     use('tomasr/molokai')
+    use('xiyaowong/nvim-transparent')
 
     -- Conflict with Copilot, disable for now
-    -- -- cmp plugins
-    -- use "hrsh7th/nvim-cmp" -- The completion plugin
-    -- use "hrsh7th/cmp-buffer" -- buffer completions
-    -- use "hrsh7th/cmp-path" -- path completions
-    -- use "hrsh7th/cmp-cmdline" -- cmdline completions
-    -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
-    -- use "uga-rosa/cmp-dictionary" -- dictionary completions
-    -- use "hrsh7th/cmp-nvim-lsp"
-    -- use "dmitmel/cmp-cmdline-history"
+    -- cmp plugins
+    use "hrsh7th/nvim-cmp" -- The completion plugin
+    use "hrsh7th/cmp-buffer" -- buffer completions
+    use "hrsh7th/cmp-path" -- path completions
+    use "hrsh7th/cmp-cmdline" -- cmdline completions
+    use "saadparwaiz1/cmp_luasnip" -- snippet completions
+    use "uga-rosa/cmp-dictionary" -- dictionary completions
+    use "hrsh7th/cmp-nvim-lsp"
+    use "dmitmel/cmp-cmdline-history"
 
     -- snippets
     use('L3MON4D3/LuaSnip') --snippet engine
@@ -140,6 +131,9 @@ return packer.startup(function(use)
     -- Integrates with Neovim's LSP client for intelligent highlighting.
     use('RRethy/vim-illuminate')
 
+    use('ckipp01/stylua-nvim')
+    use('gpanders/editorconfig.nvim')
+
     -- Telescope
     use({
         'nvim-telescope/telescope.nvim',
@@ -147,6 +141,7 @@ return packer.startup(function(use)
     })
     use('BurntSushi/ripgrep')
     use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
+    use('nathom/filetype.nvim')
 
     -- Treesitter
     use({
@@ -161,13 +156,26 @@ return packer.startup(function(use)
     use('p00f/nvim-ts-rainbow')
 
     -- Smooth scrolling
-    use('declancm/cinnamon.nvim')
+    -- use({'declancm/cinnamon.nvim',
+    --     config = function()
+    --         require('cinnamon').setup({})
+    --     end
+    -- })
+    -- use({'karb94/neoscroll.nvim',
+    --     config = function()
+    --         require('neoscroll').setup({
+    --             easing_function = 'sine',
+    --         })
+    --     end
+    -- })
 
     -- Smooth escaping
     use('max397574/better-escape.nvim')
 
     -- Url viewer
     use('axieax/urlview.nvim')
+
+    use('rainbowhxch/accelerated-jk.nvim')
 
     -- Git
     use('lewis6991/gitsigns.nvim')
@@ -181,6 +189,10 @@ return packer.startup(function(use)
             require('agitator')
         end,
     })
+
+    -- airline need fugitive
+    use 'tpope/vim-fugitive'
+    use 'shumphrey/fugitive-gitlab.vim'
 
     use('vim-airline/vim-airline')
     use('vim-airline/vim-airline-themes')
@@ -199,12 +211,7 @@ return packer.startup(function(use)
         end,
     })
 
-    use({
-        'stevearc/aerial.nvim',
-        config = function()
-            require('aerial').setup()
-        end,
-    })
+    use('stevearc/aerial.nvim')
 
     use('norcalli/nvim-colorizer.lua')
 
@@ -214,26 +221,35 @@ return packer.startup(function(use)
 
     use('wakatime/vim-wakatime')
 
-    -- use "stevearc/aerial.nvim"
-    use('simrat39/symbols-outline.nvim')
-
     use('bronson/vim-trailing-whitespace')
 
     use('nvim-telescope/telescope-ui-select.nvim')
 
     use('brymer-meneses/grammar-guard.nvim')
 
-    use {
-      "folke/trouble.nvim",
-      requires = "kyazdani42/nvim-web-devicons",
-      config = function()
-        require("trouble").setup {
-          -- your configuration comes here
-          -- or leave it empty to use the default settings
-          -- refer to the configuration section below
-        }
-      end
-    }
+    use({
+        'folke/trouble.nvim',
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function()
+            require('trouble').setup({
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            })
+        end,
+    })
+
+    use 'folke/zen-mode.nvim'
+    -- use "Pocco81/TrueZen.nvim"
+    use 'folke/twilight.nvim'
+
+    use({
+        'j-hui/fidget.nvim',
+        config = function() require('fidget').setup({}) end
+    })
+    use 'ron-rs/ron.vim'
+
+    -- use "alexghergh/nvim-tmux-navigation"
 
     -- Debugging
     use({

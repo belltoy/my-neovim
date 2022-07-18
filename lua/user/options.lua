@@ -50,18 +50,30 @@ vim.g.copilot_node_command = '~/.nvm/versions/node/v17.8.0/bin/node'
 
 vim.g.neovide_remember_window_size = true
 vim.g.neovide_remember_window_position = true
+vim.g.neovide_input_use_logo = 1
 
 vim.g.extra_whitespace_ignored_filetypes = {
     'NvimTree', 'alpha', 'dashboard', 'TelescopePrompt', 'lspinfo',
-    'Trouble',
+    'Trouble', 'aerial', 'lsp-installer', 'help',
 }
+vim.g.tmux_navigator_disable_when_zoomed = 1
 
 -- Neovide
 vim.cmd([[
-let g:neovide_fullscreen=v:true
+let g:neovide_fullscreen=v:false
 let g:neovide_transparency=0.9
 let g:neovide_input_use_logo=v:true
 let g:neovide_remember_window_size = v:true
+
+" Airline
+let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#promptline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#tab_nr_type= 1
+let g:airline#extensions#tabline#show_tab_type = 1
+let g:airline#extensions#tabline#tabs_label = ''
+let g:airline#extensions#hunks#enabled = 1
 
 au BufRead,BufNewFile *.edc setlocal filetype=edc
 au BufRead,BufNewFile *.qml setlocal filetype=qml

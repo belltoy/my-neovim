@@ -53,7 +53,9 @@ cmp.setup({
     },
     mapping = {
         ['<C-k>'] = cmp.mapping.select_prev_item(),
+        ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-j>'] = cmp.mapping.select_next_item(),
+        ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
         ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
@@ -95,6 +97,7 @@ cmp.setup({
         }),
 
         -- Use <C-o> to accept Copilot suggestions.
+        -- https://github.com/hrsh7th/nvim-cmp/discussions/1034#discussioncomment-2991086
         ['<C-o>'] = cmp.mapping(function(fallback)
             local fallback_key = vim.api.nvim_replace_termcodes('<Tab>', true, true, true)
             local resolved_key = vim.fn['copilot#Accept'](fallback)

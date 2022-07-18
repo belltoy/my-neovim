@@ -37,9 +37,14 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<A-l>", ":bnext<CR>", opts)
 keymap("n", "<A-h>", ":bprevious<CR>", opts)
 
+-- Illuminate
+-- You can cycle through these document highlights with these mappings:
+keymap('n', '<a-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', opts)
+keymap('n', '<a-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', opts)
+
 -- split buffers
-keymap("n", "<Leader>h", ":vsplit<CR>", opts)
-keymap("n", "<Leader>v", ":split<CR>", opts)
+keymap("n", "<Leader>v", ":vsplit<CR>", opts)
+keymap("n", "<Leader>s", ":split<CR>", opts)
 
 -- EasyAlign
 keymap("v", "<Enter>", "<Plug>(EasyAlign)", opts)
@@ -53,7 +58,7 @@ keymap("n", "<Leader>u", "<cmd>Telescope urlview<CR>", opts)
 keymap("n", "<Leader>b", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", "<Leader>gb", "<cmd>Git blame<CR>", opts)
 -- keymap("n", "<Leader>fb", "<cmd>Telescope help_tags", opts)
-keymap("n", "<Leader>s", "<cmd>Startify<CR>", opts)
+keymap("n", "<Leader><space>", "<cmd>Startify<CR>", opts)
 
 keymap("n", "<Leader>n", "<cmd>NvimTreeToggle<CR>", opts)
 
@@ -104,10 +109,34 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- Terminal --
--- Better terminal navigation
+-- Copy Paste --
+-- system clipboard
+-- vim.cmd([[
+--     nmap <c-c> "+y
+--     vmap <c-c> "+y
+--     nmap <c-v> "+p
+--     inoremap <c-v> <c-r>+
+--     cnoremap <c-v> <c-r>+
+--     " use <c-r> to insert original character without triggering things like auto-pairs
+--     inoremap <c-r> <c-v>
+-- ]])
+-- keymap("n", "<C-c>", '"+y', opts)
+-- keymap("v", "<C-c>", '"+y', opts)
+-- keymap("n", "<C-v>", '"+p', opts)
+-- keymap("i", "<C-v>", '<C-r>+', opts)
+-- keymap("c", "<C-v>", '<C-r>+', opts)
+-- keymap("i", "<C-r>", '<C-v>', opts)
+
+-- <D-v> on Mac means Cmd+v
+keymap("i", "<D-v>", '<C-r>+', opts)
+keymap("v", "<D-c>", '"+y', opts)
+
+-- -- Terminal --
+-- -- Better terminal navigation
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 -- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+vim.api.nvim_set_keymap('n', 'j', '<Plug>(accelerated_jk_gj)', {})
+vim.api.nvim_set_keymap('n', 'k', '<Plug>(accelerated_jk_gk)', {})

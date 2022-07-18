@@ -28,6 +28,18 @@ vim.cmd([[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
+
+"function! MyHi() abort
+"    hi SignColumn guibg=NONE
+"    hi VertSplit guibg=NONE
+"    hi LineNr guibg=NONE
+"    hi Normal guibg=NONE
+"endfunction
+"
+"augroup MyColors
+"    autocmd!
+"    autocmd ColorScheme molokai call MyHi()
+"augroup END
 ]])
 
 -- Autoformat

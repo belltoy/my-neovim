@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 notify.setup({
+    background_colour = '#000000',
     stages = 'fade',
     max_width = 70,
     max_height = 50,

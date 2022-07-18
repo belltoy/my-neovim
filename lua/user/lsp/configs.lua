@@ -13,6 +13,9 @@ local servers = {
     'dockerls',
     'eslint',
 
+    'denols',
+    'cssmodules_ls',
+
     -- See:
     -- - https://github.com/znck/grammarly/tree/main/packages/grammarly-languageserver
     -- - https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/grammarly.lua

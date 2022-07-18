@@ -14,6 +14,11 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 })
 
 vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+    pattern = '*.json{.*}\\=',
+    command = 'setlocal filetype=json',
+})
+
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
     pattern = 'erlang_ls.config',
     command = 'setlocal filetype=yaml',
 })

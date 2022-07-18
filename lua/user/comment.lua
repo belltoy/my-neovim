@@ -19,4 +19,17 @@ comment.setup({
             location = location,
         })
     end,
+
+    ---LHS of toggle mappings in NORMAL + VISUAL mode
+    ---@type table
+    toggler = {
+        ---Line-comment toggle keymap
+        line = 'gcc',
+        ---Block-comment toggle keymap
+        block = 'gbc',
+    },
 })
+
+local ft = require('Comment.ft')
+
+ft.json5 = '//%s'

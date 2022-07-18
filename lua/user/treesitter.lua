@@ -51,7 +51,7 @@ configs.setup({
     },
     highlight = {
         enable = true, -- false will disable the whole extension
-        disable = {}, -- list of language that will be disabled
+        disable = { "json" }, -- list of language that will be disabled
         additional_vim_regex_highlighting = true,
     },
     indent = { enable = true, disable = { 'yaml' } },
@@ -61,6 +61,7 @@ configs.setup({
     },
     rainbow = {
         enable = true,
+        disable = { "json" },
         extended_mode = true,
         max_file_lines = nil,
     },
