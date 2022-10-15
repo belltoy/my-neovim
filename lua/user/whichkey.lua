@@ -79,9 +79,10 @@ local opts = {
 }
 
 local mappings = {
+    ["<space>"] = { '<cmd>Startify<CR>', "Startify" },
     -- ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
     ['b'] = {
-        '<cmd>Telescope buffers<cr>',
+        '<cmd>Telescope buffers<CR>',
         -- "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
         'Buffers',
     },
@@ -96,8 +97,11 @@ local mappings = {
         'Find files',
     },
     -- ['F'] = { '<cmd>Telescope live_grep theme=ivy<cr>', 'Find Text' },
-    ['F'] = { '<cmd>Telescope live_grep<cr>', 'Find Text' },
+    ['r'] = { '<cmd>Telescope live_grep<cr>', 'Find Text' },
     ['P'] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", 'Projects' },
+    ['u'] = { "<cmd>UrlView<CR>", 'Open URL' },
+    ['s'] = { '<cmd>split<CR>', "Split window"},
+    ['v'] = { '<cmd>vsplit<CR>', "Vertically split window"},
 
     p = {
         name = 'Packer',
@@ -122,9 +126,9 @@ local mappings = {
             "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
             'Undo Stage Hunk',
         },
-        o = { '<cmd>Telescope git_status<cr>', 'Open changed file' },
-        b = { '<cmd>Telescope git_branches<cr>', 'Checkout branch' },
-        c = { '<cmd>Telescope git_commits<cr>', 'Checkout commit' },
+        -- o = { '<cmd>Telescope git_status<cr>', 'Open changed file' },
+        -- b = { '<cmd>Telescope git_branches<cr>', 'Checkout branch' },
+        -- c = { '<cmd>Telescope git_commits<cr>', 'Checkout commit' },
         d = {
             '<cmd>Gitsigns diffthis HEAD<cr>',
             'Diff',

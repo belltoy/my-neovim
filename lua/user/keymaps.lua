@@ -27,15 +27,21 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+-- Navigate tabs
+-- keymap("n", "<M-1>", "gT", opts)
+-- keymap("n", "<M-2>", "gt", opts)
+
+-- Navigate buffers
+keymap("n", "<M-1>", ":bnext<CR>", opts)
+keymap("n", "<M-2>", ":bprevious<CR>", opts)
+keymap("n", "<A-l>", ":bnext<CR>", opts)
+keymap("n", "<A-h>", ":bprevious<CR>", opts)
+
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
-
--- Navigate buffers
-keymap("n", "<A-l>", ":bnext<CR>", opts)
-keymap("n", "<A-h>", ":bprevious<CR>", opts)
 
 -- Illuminate
 -- You can cycle through these document highlights with these mappings:
@@ -43,22 +49,25 @@ keymap('n', '<a-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>
 keymap('n', '<a-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', opts)
 
 -- split buffers
-keymap("n", "<Leader>v", ":vsplit<CR>", opts)
-keymap("n", "<Leader>s", ":split<CR>", opts)
+-- keymap("n", "<Leader>v", ":vsplit<CR>", opts)
+-- keymap("n", "<Leader>s", ":split<CR>", opts)
 
 -- EasyAlign
 keymap("v", "<Enter>", "<Plug>(EasyAlign)", opts)
-keymap("n", "<Leader><space>a", "<Plug>(EasyAlign)", opts)
+keymap("n", "<Leader>aa", "<Plug>(EasyAlign)", opts)
+vim.cmd([[
+" Align GitHub-flavored Markdown tables
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+]])
 
 -- Telescope
-keymap("n", "<Leader>f", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<Leader>r", "<cmd>Telescope live_grep<CR>", opts)
-keymap("n", "<Leader>F", "<cmd>Telescope live_grep<CR>", opts)
-keymap("n", "<Leader>u", "<cmd>Telescope urlview<CR>", opts)
-keymap("n", "<Leader>b", "<cmd>Telescope buffers<CR>", opts)
+-- keymap("n", "<Leader>f", "<cmd>Telescope find_files<CR>", opts)
+-- keymap("n", "<Leader>r", "<cmd>Telescope live_grep<CR>", opts)
+-- keymap("n", "<Leader>F", "<cmd>Telescope live_grep<CR>", opts)
+-- keymap("n", "<Leader>b", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", "<Leader>gb", "<cmd>Git blame<CR>", opts)
 -- keymap("n", "<Leader>fb", "<cmd>Telescope help_tags", opts)
-keymap("n", "<Leader><space>", "<cmd>Startify<CR>", opts)
+-- keymap("n", "<Leader><space>", "<cmd>Startify<CR>", opts)
 
 keymap("n", "<Leader>n", "<cmd>NvimTreeToggle<CR>", opts)
 
@@ -101,6 +110,9 @@ keymap("v", "/", "y/<C-R>\"<CR>", opts)
 keymap("v", "?", "y?<C-R>\"<CR>", opts)
 -- turn off highlight search
 keymap("n", "<Leader>.", ":nohlsearch<CR>", opts)
+
+-- Range Format
+keymap("v", "F", ":lua vim.lsp.buf.range_formatting()<CR>", opts)
 
 -- Visual Block --
 -- Move text up and down
