@@ -56,6 +56,9 @@ vim.g.vim_markdown_folding_disabled = 1
 vim.g.webdevicons_enable_airline_tabline = 1
 vim.g.webdevicons_enable_airline_statusline = 1
 vim.g.airline_powerline_fonts = 1
+vim.cmd [[
+let g:airline#extensions#tabline#enabled = 1
+]]
 vim.g.Illuminate_ftblacklist = { 'nerdtree', 'NvimTree' }
 
 -- Install your plugins here
@@ -70,7 +73,6 @@ return packer.startup(function(use)
     use('kyazdani42/nvim-tree.lua')
     use('akinsho/bufferline.nvim')
     use('moll/vim-bbye')
-    use('nvim-lualine/lualine.nvim')
     use('akinsho/toggleterm.nvim')
     use('ahmedkhalf/project.nvim')
     use('lewis6991/impatient.nvim')
@@ -194,6 +196,7 @@ return packer.startup(function(use)
     use 'tpope/vim-fugitive'
     use 'shumphrey/fugitive-gitlab.vim'
 
+    -- use('nvim-lualine/lualine.nvim')
     use('vim-airline/vim-airline')
     use('vim-airline/vim-airline-themes')
 
