@@ -62,7 +62,14 @@ for _, server in pairs(servers) do
     local rust_tools_status_ok, rust_tools = pcall(require, 'rust-tools')
     if server == 'rust_analyzer' and rust_tools_status_ok then
         local rust_opts = require('user.rust-tools')
-        rust_opts.server.on_attach = opts.on_attach
+        -- rust_opts.server.on_attach = opts.on_attach
+        rust_opts.server.on_attach = function(client, bufnr)
+            opts.on_attach(client, bufnr)
+            -- Hover actions
+              vim.keymap.set("n", "K", rust_tools.hover_actions.hover_actions, { buffer = bufnr })
+              -- Code action groups
+              vim.keymap.set("n", "<Leader>a", rust_tools.code_action_group.code_action_group, { buffer = bufnr })
+        end
         rust_tools.setup(rust_opts)
     else
         lspconfig[server].setup(opts)
