@@ -47,10 +47,13 @@ packer.init({
     max_jobs = 50,
 })
 
-vim.g.vim_markdown_folding_disabled = 1
+-- vim.g.vim_markdown_folding_disabled = 1
+-- vim.cmd[[
+-- let g:vim_markdown_fenced_languages = [ 'sh=bash' ]
+-- ]]
 -- vim.cmd [[
 -- let g:markdown_fenced_languages = [ 'bash=sh', 'javascript', 'js=javascript', 'json=javascript', 'typescript', 'ts=typescript', 'php', 'html', 'css', 'rust', 'sql']
--- let g:vim_markdown_fenced_languages = [ 'bash=sh', 'javascript', 'js=javascript', 'json=javascript', 'typescript', 'ts=typescript', 'php', 'html', 'css', 'rust', 'sql']
+-- let g:vim_markdown_fenced_languages = [ 'sh=bash', 'javascript', 'js=javascript', 'json=javascript', 'typescript', 'ts=typescript', 'php', 'html', 'css', 'rust', 'sql']
 -- ]]
 -- vim.g.startify_change_to_dir = 0
 vim.g.webdevicons_enable_airline_tabline = 1
@@ -111,14 +114,14 @@ return packer.startup(function(use)
 
     -- Conflict with Copilot, disable for now
     -- cmp plugins
-    use "hrsh7th/nvim-cmp" -- The completion plugin
-    use "hrsh7th/cmp-buffer" -- buffer completions
-    use "hrsh7th/cmp-path" -- path completions
-    use "hrsh7th/cmp-cmdline" -- cmdline completions
-    use "saadparwaiz1/cmp_luasnip" -- snippet completions
-    use "uga-rosa/cmp-dictionary" -- dictionary completions
-    use "hrsh7th/cmp-nvim-lsp"
-    use "dmitmel/cmp-cmdline-history"
+    -- use "hrsh7th/nvim-cmp" -- The completion plugin
+    -- use "hrsh7th/cmp-buffer" -- buffer completions
+    -- use "hrsh7th/cmp-path" -- path completions
+    -- use "hrsh7th/cmp-cmdline" -- cmdline completions
+    -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
+    -- use "uga-rosa/cmp-dictionary" -- dictionary completions
+    -- use "hrsh7th/cmp-nvim-lsp"
+    -- use "dmitmel/cmp-cmdline-history"
 
     -- snippets
     use('L3MON4D3/LuaSnip') --snippet engine
@@ -199,6 +202,12 @@ return packer.startup(function(use)
     -- use('nvim-lualine/lualine.nvim')
     use('vim-airline/vim-airline')
     use('vim-airline/vim-airline-themes')
+    use({
+        'tiagovla/scope.nvim',
+        config = function()
+            require('scope').setup()
+        end,
+    })
 
     use('rcarriga/nvim-notify')
 
@@ -242,7 +251,9 @@ return packer.startup(function(use)
         end,
     })
 
-    use 'folke/zen-mode.nvim'
+    -- Scala
+    use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
+
     -- use "Pocco81/TrueZen.nvim"
     use 'folke/twilight.nvim'
 
@@ -251,6 +262,9 @@ return packer.startup(function(use)
         config = function() require('fidget').setup({}) end
     })
     use 'ron-rs/ron.vim'
+    use 'folke/zen-mode.nvim'
+    -- use 'nicwest/vim-http'
+    use 'skreuzer/vim-prometheus'
 
     -- use "alexghergh/nvim-tmux-navigation"
 
