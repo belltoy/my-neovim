@@ -95,7 +95,7 @@ nvim_tree.setup({
     },
     view = {
         width = 30,
-        height = 30,
+        -- height = 30,
         hide_root_folder = false,
         side = 'left',
         mappings = {
@@ -128,6 +128,7 @@ nvim_tree.setup({
     actions = {
         open_file = {
             quit_on_open = false,
+            resize_window = false,
             window_picker = {
                 enable = false,
             },

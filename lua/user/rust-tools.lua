@@ -10,12 +10,7 @@ local opts = {
         -- opened file. For now, write to the file to trigger a reapplication of
         -- the hints or just run :RustSetInlayHints.
         -- default: true
-        autoSetHints = false,
-
-        -- whether to show hover actions inside the hover window
-        -- this overrides the default hover handler so something like lspsaga.nvim's hover would be overriden by this
-        -- default: true
-        hover_with_actions = true,
+        autoSetHints = true,
 
         -- how to execute terminal commands
         -- options right now: termopen / quickfix
@@ -25,11 +20,14 @@ local opts = {
         -- The callback receives one parameter indicating the `health` of the server: "ok" | "warning" | "error"
         on_initialized = nil,
 
+        -- automatically call RustReloadWorkspace when writing to a Cargo.toml file.
+        reload_workspace_from_cargo_toml = true,
+
         -- These apply to the default RustSetInlayHints command
         inlay_hints = {
 
             -- Only show inlay hints for the current line
-            only_current_line = false,
+            only_current_line = true,
 
             -- Event which triggers a refersh of the inlay hints.
             -- You can make this "CursorMoved" or "CursorMoved,CursorMovedI" but
@@ -96,7 +94,7 @@ local opts = {
             -- Backend used for displaying the graph
             -- see: https://graphviz.org/docs/outputs/
             -- default: x11
-            backend = "x11",
+            backend = "png",
             -- where to store the output, nil for no output stored (relative
             -- path from pwd)
             -- default: nil

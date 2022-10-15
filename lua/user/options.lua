@@ -52,11 +52,13 @@ vim.g.neovide_remember_window_size = true
 vim.g.neovide_remember_window_position = true
 vim.g.neovide_input_use_logo = 1
 
+vim.g.vim_markdown_folding_disabled = 1
+
 vim.g.extra_whitespace_ignored_filetypes = {
     'NvimTree', 'alpha', 'dashboard', 'TelescopePrompt', 'lspinfo',
     'Trouble', 'aerial', 'lsp-installer', 'help',
 }
-vim.g.tmux_navigator_disable_when_zoomed = 1
+vim.g.tmux_navigator_disable_when_zoomed = 0
 
 -- Neovide
 vim.cmd([[
@@ -83,5 +85,7 @@ au BufRead,BufNewFile *.log{.\d}\\\{0,\} setlocal ft=log
 
 au BufRead,BufNewFile *.eco setlocal filetype=html
 
+let g:vim_markdown_fenced_languages = [ 'sh=bash', 'erlang-repl=erlang', 'ini=dosini' ]
+let g:markdown_fenced_languages = [ 'sh=bash', 'erlang-repl=erlang', 'ini=dosini' ]
 ]])
 
