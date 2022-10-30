@@ -223,6 +223,7 @@ return packer.startup(function(use)
         end,
     })
 
+    -- Neovim plugin for a code outline window
     use('stevearc/aerial.nvim')
 
     use('norcalli/nvim-colorizer.lua')

@@ -51,7 +51,7 @@ M.setup = function()
         'info',
         'info', -- map both hint and info to info?
     }
-    vim.lsp.handlers['window/showMessage'] = function(err, method, params, client_id)
+    vim.lsp.handlers['window/showMessage'] = function(_ --[[ err ]], method, params, _ --[[ client_id ]])
         vim.notify(method.message, severity[params.type])
     end
 end
@@ -95,8 +95,8 @@ local function lsp_keymaps(bufnr)
     vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 end
 
-local function aerial_setup(client, bufnr)
-    local status_ok, aerial = pcall(require, 'aerial')
+local function aerial_setup(_, bufnr)
+    local status_ok, _ = pcall(require, 'aerial')
     if not status_ok then
         return
     end

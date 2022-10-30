@@ -10,7 +10,7 @@ local opts = {
     default_action = 'system',
 }
 
-local tele_status_ok, telescope = pcall(require, 'telescope')
+local tele_status_ok, _ --[[ telescope ]] = pcall(require, 'telescope')
 if tele_status_ok then
   opts.default_packer = 'telescope'
 end
