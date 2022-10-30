@@ -100,8 +100,8 @@ local function aerial_setup(client, bufnr)
     if not status_ok then
         return
     end
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>t', '<cmd>AerialToggle!<CR>', {})
-    aerial.on_attach(client, bufnr)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>t', '<cmd>AerialToggle!<CR>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>l', '<cmd>AerialToggle!<CR>', {})
 end
 
 M.on_attach = function(client, bufnr)
