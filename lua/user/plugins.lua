@@ -209,7 +209,7 @@ return packer.startup(function(use)
         end,
     })
 
-    use('rcarriga/nvim-notify')
+    -- use('rcarriga/nvim-notify')
 
     use({
         'folke/todo-comments.nvim',
