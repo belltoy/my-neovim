@@ -1,12 +1,13 @@
 vim.api.nvim_create_augroup('erlang_config', { clear = true })
 
+-- \\= equivalent to \\\{0,1\} in vimscript
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
     pattern = {
         '{ci{.*}\\=,sys{.*}\\=,rebar,reltool,vars{.*}\\=,elvis,app{.*}\\=}.config{.script,.example,.src}\\=',
         '{ci,sys,rebar,reltool,vars,elvis,app}{.*}\\=.config',
         '*/_build/**/{RELEASES,*.{rel,script,config}}',
         'rebar.lock',
-        '*.app.src',
+        '*.app.src{.script}\\=',
         '*/priv/*.schema',
     },
     group = 'erlang_config',

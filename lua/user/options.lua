@@ -79,9 +79,11 @@ let g:airline#extensions#hunks#enabled = 1
 
 au BufRead,BufNewFile *.edc setlocal filetype=edc
 au BufRead,BufNewFile *.qml setlocal filetype=qml
-autocmd BufReadPost *.rs setlocal filetype=rust
+au BufReadPost *.rs setlocal filetype=rust
 
 au BufRead,BufNewFile *.log{.\d}\\\{0,\} setlocal ft=log
+au BufRead,BufNewFile *.tmux.conf setlocal ft=tmux
+au BufRead,BufNewFile *.conf setlocal ft=dosini
 
 au BufRead,BufNewFile *.eco setlocal filetype=html
 

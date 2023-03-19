@@ -3,14 +3,15 @@ if not status_ok then
     return
 end
 
-vim.g.transparent_enabled = true
+vim.g.transparent_enabled = false
 transparent.setup({
-    enable = true,
+    groups = {
+    },
     extra_groups = {
         'WinSeparator',
         'VertSplit',
         'Pmenu',
         'PmenuSbar',
     },
-    exclude = {},
+    exclude_groups = {},
 })

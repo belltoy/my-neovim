@@ -61,8 +61,10 @@ vim.g.webdevicons_enable_airline_statusline = 1
 vim.g.airline_powerline_fonts = 1
 vim.cmd [[
 let g:airline#extensions#tabline#enabled = 1
+let g:polyglot_disabled = ['autoindent']
 ]]
 vim.g.Illuminate_ftblacklist = { 'nerdtree', 'NvimTree' }
+vim.g.polyglot_disabled = {'autoindent'}
 
 -- Install your plugins here
 return packer.startup(function(use)
@@ -78,7 +80,10 @@ return packer.startup(function(use)
     use('moll/vim-bbye')
     use('akinsho/toggleterm.nvim')
     use('ahmedkhalf/project.nvim')
+
+    -- Speed up loading Lua modules in Neovim to improve startup time.
     use('lewis6991/impatient.nvim')
+
     use('lukas-reineke/indent-blankline.nvim')
     use('antoinemadec/FixCursorHold.nvim') -- This is needed to fix lsp doc highlight
     use('folke/which-key.nvim')
@@ -94,6 +99,9 @@ return packer.startup(function(use)
     use('rust-lang/rust.vim')
     use('preservim/vim-markdown')
 
+    -- vim-polyglot
+    -- A sold language pack for vim
+    -- Including ftdetect, indent, syntax, and plugins for many languages
     -- Maybe conflict with nvim-treesitter
     use('sheerun/vim-polyglot')
 
@@ -188,6 +196,8 @@ return packer.startup(function(use)
         'ruifm/gitlinker.nvim',
         requires = 'nvim-lua/plenary.nvim',
     })
+
+    -- agitator is a neovim/lua plugin providing some git-related functions
     use({
         'emmanueltouzery/agitator.nvim',
         config = function()
@@ -202,6 +212,7 @@ return packer.startup(function(use)
     -- use('nvim-lualine/lualine.nvim')
     use('vim-airline/vim-airline')
     use('vim-airline/vim-airline-themes')
+
     use({
         'tiagovla/scope.nvim',
         config = function()
@@ -236,7 +247,7 @@ return packer.startup(function(use)
 
     use('bronson/vim-trailing-whitespace')
 
-    use('nvim-telescope/telescope-ui-select.nvim')
+    -- use('nvim-telescope/telescope-ui-select.nvim')
 
     use('brymer-meneses/grammar-guard.nvim')
 
@@ -258,6 +269,7 @@ return packer.startup(function(use)
     -- use "Pocco81/TrueZen.nvim"
     use 'folke/twilight.nvim'
 
+    -- Standalone UI for nvim-lsp progress
     use({
         'j-hui/fidget.nvim',
         config = function() require('fidget').setup({}) end
@@ -280,6 +292,12 @@ return packer.startup(function(use)
         end,
     })
     -- use "mfussenegger/nvim-dap"
+
+    use('mrjones2014/smart-splits.nvim')
+
+    use('gleam-lang/gleam.vim')
+
+    use('belltoy/prom.vim')
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

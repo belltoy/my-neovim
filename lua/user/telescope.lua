@@ -129,10 +129,12 @@ telescope.setup({
     },
 })
 
--- local fzf_status_ok, _ = pcall(require, "fzf_lib")
--- if fzf_status_ok then
---   telescope.load_extension('fzf')
--- end
-telescope.load_extension('fzf')
+local fzf_status_ok, _ = pcall(require, "fzf_lib")
+if fzf_status_ok then
+  telescope.load_extension('fzf')
+end
 
-telescope.load_extension('ui-select')
+local ui_select_status_ok, _ = pcall(require, 'ui-select')
+if ui_select_status_ok then
+    telescope.load_extension('ui-select')
+end

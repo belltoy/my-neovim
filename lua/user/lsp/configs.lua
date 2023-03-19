@@ -20,15 +20,16 @@ local servers = {
     -- - https://github.com/znck/grammarly/tree/main/packages/grammarly-languageserver
     -- - https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/grammarly.lua
     -- - https://github.com/williamboman/nvim-lsp-installer/discussions/805
-    -- "grammarly",
-    'ltex',
+    "grammarly",
+    -- 'ltex',
 
     'gopls',
     'html',
     'jsonls',
     'jdtls', -- Java
     'marksman', -- Markdown
-    'sumneko_lua',
+    -- 'sumneko_lua',
+    'lua_ls',
     'sourcekit', -- Swift
     'rust_analyzer',
     'tsserver',

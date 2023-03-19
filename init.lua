@@ -32,3 +32,6 @@ require "user.rust-tools"
 require "user.aerial"
 require "user.transparent"
 require "user.filetype"
+require "user.smart-splits"
+
+require "user.myerlang"

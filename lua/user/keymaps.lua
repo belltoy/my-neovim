@@ -1,6 +1,6 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
+-- local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -38,10 +38,11 @@ keymap("n", "<A-l>", ":bnext<CR>", opts)
 keymap("n", "<A-h>", ":bprevious<CR>", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+-- keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+-- keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+-- keymap("n", "<A->>", ":vertical resize -2<CR>", opts)
+-- keymap("n", "<A-lt>", ":vertical resize +2<CR>", opts)
+-- Use smart-splits instead
 
 -- Illuminate
 -- You can cycle through these document highlights with these mappings:
@@ -112,7 +113,11 @@ keymap("v", "?", "y?<C-R>\"<CR>", opts)
 keymap("n", "<Leader>.", ":nohlsearch<CR>", opts)
 
 -- Range Format
-keymap("v", "F", ":lua vim.lsp.buf.range_formatting()<CR>", opts)
+-- keymap("v", "F", ":lua vim.lsp.buf.formatexpr()<CR>", opts)
+keymap("v", "F", "<ESC><cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
+-- vim.keymap.set('n', 'F', function() vim.lsp.buf.format { async = true } end, {noremap = true, silent = true})
+-- keymap("v", "F", ":lua vim.lsp.buf.code_action({range = vim.lsp.util.compute_range()})<CR>", opts)
+-- keymap("v", "gf", ":lua vim.lsp.buf.format()<CR>", {buffer = true})
 
 -- Visual Block --
 -- Move text up and down

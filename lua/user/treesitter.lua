@@ -19,7 +19,7 @@ configs.setup({
         'clojure',
         'cpp',
         'elixir',
-        'erlang',
+        -- 'erlang',
         'dockerfile',
         'eex',
         'elm',
@@ -55,6 +55,14 @@ configs.setup({
         disable = { "json", "rust" }, -- list of language that will be disabled
         additional_vim_regex_highlighting = true,
     },
+    custom_captures = {
+      -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+      ["callback"] = "ErlangCallback",
+      -- ["function.builtin.otp"] = "Constant",
+      -- ["function.built.otp"] = "Constant",
+      ["callback.export"] = "ErlangCallback",
+      ["behaviour"] = "ErlangBehaviour",
+    },
     indent = { enable = true, disable = { 'yaml' } },
     context_commentstring = {
         enable = true,
@@ -72,3 +80,9 @@ configs.setup({
         -- [options]
     },
 })
+
+vim.cmd[[
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set nofoldenable                     " Disable folding at startup.
+]]
