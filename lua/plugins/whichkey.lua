@@ -1,8 +1,3 @@
-local status_ok, which_key = pcall(require, 'which-key')
-if not status_ok then
-    return
-end
-
 local setup = {
     plugins = {
         marks = true, -- shows a list of your marks on ' and `
@@ -193,5 +188,17 @@ local mappings = {
     },
 }
 
-which_key.setup(setup)
-which_key.register(mappings, opts)
+return {
+  'folke/which-key.nvim',
+  event = "VeryLazy",
+  init = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+  end,
+  opts = setup,
+  config = function()
+    local which_key = require('which-key')
+    which_key.setup(setup)
+    which_key.register(mappings, opts)
+  end
+}

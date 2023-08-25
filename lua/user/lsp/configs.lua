@@ -1,4 +1,4 @@
-local status_ok, lsp_installer = pcall(require, 'nvim-lsp-installer')
+local status_ok, mason_lspconfig = pcall(require, 'mason-lspconfig')
 if not status_ok then
     return
 end
@@ -6,14 +6,14 @@ end
 local lspconfig = require('lspconfig')
 
 local servers = {
-    'clojure_lsp',
-    'ccls',
+    -- 'clojure_lsp',
+    -- 'clangd',  -- C
     'cssls',
     'cssmodules_ls',
     'dockerls',
     'eslint',
 
-    'denols',
+    -- 'denols',
     'cssmodules_ls',
 
     -- See:
@@ -30,7 +30,7 @@ local servers = {
     'marksman', -- Markdown
     -- 'sumneko_lua',
     'lua_ls',
-    'sourcekit', -- Swift
+    -- 'sourcekit', -- Swift
     'rust_analyzer',
     'tsserver',
     'pyright',
@@ -41,7 +41,7 @@ local servers = {
     'elixirls',
 }
 
-lsp_installer.setup({
+mason_lspconfig.setup({
     ensure_installed = servers,
     -- log_level = vim.log.levels.DEBUG,
 })
@@ -62,16 +62,16 @@ for _, server in pairs(servers) do
     -- See https://github.com/simrat39/rust-tools.nvim/issues/183
     local rust_tools_status_ok, rust_tools = pcall(require, 'rust-tools')
     if server == 'rust_analyzer' and rust_tools_status_ok then
-        local rust_opts = require('user.rust-tools')
-        -- rust_opts.server.on_attach = opts.on_attach
-        rust_opts.server.on_attach = function(client, bufnr)
-            opts.on_attach(client, bufnr)
-            -- Hover actions
-              vim.keymap.set("n", "K", rust_tools.hover_actions.hover_actions, { buffer = bufnr })
-              -- Code action groups
-              vim.keymap.set("n", "<Leader>a", rust_tools.code_action_group.code_action_group, { buffer = bufnr })
-        end
-        rust_tools.setup(rust_opts)
+        -- local rust_opts = require('user.rust-tools')
+        -- -- rust_opts.server.on_attach = opts.on_attach
+        -- rust_opts.server.on_attach = function(client, bufnr)
+        --     opts.on_attach(client, bufnr)
+        --     -- Hover actions
+        --       vim.keymap.set("n", "K", rust_tools.hover_actions.hover_actions, { buffer = bufnr })
+        --       -- Code action groups
+        --       vim.keymap.set("n", "<Leader>a", rust_tools.code_action_group.code_action_group, { buffer = bufnr })
+        -- end
+        -- rust_tools.setup(rust_opts)
     else
         lspconfig[server].setup(opts)
     end
