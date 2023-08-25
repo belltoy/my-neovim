@@ -28,3 +28,8 @@ vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
     pattern = 'vm{.*}\\=.args{.*}\\=',
     command = 'setlocal filetype=config',
 })
+
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+    pattern = '*.vrl',
+    command = 'setlocal filetype=vrl',
+})
