@@ -40,7 +40,6 @@ require('lazy').setup('plugins')
 -- -- Disabled nvim-cmp temporarily because it's not working well with Github copilot
 -- require "user.cmp"
 require "user.lsp"
--- -- require "user.lualine"
 -- require "user.alpha"
 require "user.autocommands"
 -- require "user.notify"

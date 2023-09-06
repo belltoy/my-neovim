@@ -92,8 +92,8 @@ return {
     'shumphrey/fugitive-gitlab.vim',
 
     -- 'nvim-lualine/lualine.nvim',
-    'vim-airline/vim-airline',
-    'vim-airline/vim-airline-themes',
+    -- 'vim-airline/vim-airline',
+    -- 'vim-airline/vim-airline-themes',
 
     {
         'tiagovla/scope.nvim',
