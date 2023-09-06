@@ -37,19 +37,14 @@ vim.g.polyglot_disabled = {'autoindent'}
 require('lazy').setup('plugins')
 
 
-require "user.colorscheme"
 -- -- Disabled nvim-cmp temporarily because it's not working well with Github copilot
 -- require "user.cmp"
 require "user.lsp"
-require "user.telescope"
-require "user.treesitter"
 -- -- require "user.lualine"
-require "user.indentline"
 -- require "user.alpha"
 require "user.autocommands"
 -- require "user.notify"
 -- require "user.silicon"
-require "user.git"
 -- require "user.urlview"
 -- require "user.rust-tools"
 -- require "user.transparent"

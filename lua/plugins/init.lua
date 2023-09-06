@@ -5,6 +5,7 @@ return {
     'nvim-lua/plenary.nvim', -- Useful lua functions used ny lots of plugins
     'nvim-tree/nvim-web-devicons',
 
+    -- Bbye allows you to do delete buffers (close files) without closing your windows or messing up your layout.
     'moll/vim-bbye',
 
     -- Speed up loading Lua modules in Neovim to improve startup time.
@@ -12,7 +13,6 @@ return {
     -- vim.loader.enable()
     --'lewis6991/impatient.nvim',
 
-    'lukas-reineke/indent-blankline.nvim',
     'antoinemadec/FixCursorHold.nvim', -- This is needed to fix lsp doc highlight
 
     -- Start screen
@@ -36,13 +36,12 @@ return {
     -- tmux integration
     'tmux-plugins/vim-tmux',
     'christoomey/vim-tmux-navigator',
+    -- "alexghergh/nvim-tmux-navigation",
     -- "edkolev/tmuxline.vim",
 
     -- Colorschemes
-    -- "lunarvim/colorschemes", -- A bunch of colorschemes you can try out
     'lunarvim/darkplus.nvim',
     { 'folke/tokyonight.nvim', commit = '8223c970677e4d88c9b6b6d81bda23daf11062bb' },
-    'tomasr/molokai',
 
     -- Conflict with Copilot, disable for now
     -- cmp plugins
@@ -72,25 +71,6 @@ return {
     'ckipp01/stylua-nvim',
     'gpanders/editorconfig.nvim',
 
-    -- Telescope
-    {
-        'nvim-telescope/telescope.nvim',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-    },
-    'BurntSushi/ripgrep',
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-
-    -- Treesitter
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate',
-    },
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    'nvim-treesitter/playground',
-    -- use matchup for now
-    -- "theHamsta/nvim-treesitter-pairs",
-    'JoosepAlviste/nvim-ts-context-commentstring',
-
     -- Smooth scrolling
     -- {'declancm/cinnamon.nvim',
     --     config = function()
@@ -105,26 +85,7 @@ return {
     --     end
     -- },
 
-    -- Smooth escaping
-    'max397574/better-escape.nvim',
-
-    -- Url viewer
-    'axieax/urlview.nvim',
-
     'rainbowhxch/accelerated-jk.nvim',
-
-    {
-        'ruifm/gitlinker.nvim',
-        dependencies = 'nvim-lua/plenary.nvim',
-    },
-
-    -- agitator is a neovim/lua plugin providing some git-related functions
-    {
-        'emmanueltouzery/agitator.nvim',
-        config = function()
-            require('agitator')
-        end,
-    },
 
     -- airline need fugitive
     'tpope/vim-fugitive',
@@ -153,28 +114,6 @@ return {
 
     'bronson/vim-trailing-whitespace',
 
-    -- 'nvim-telescope/telescope-ui-select.nvim',
-
-    'brymer-meneses/grammar-guard.nvim',
-
-    {
-        'folke/trouble.nvim',
-        dependencies = 'nvim-tree/nvim-web-devicons',
-        config = function()
-            require('trouble').setup({
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            })
-        end,
-    },
-
-    -- Scala
-    {'scalameta/nvim-metals', dependencies = { "nvim-lua/plenary.nvim" }},
-
-    -- "Pocco81/TrueZen.nvim",
-    'folke/twilight.nvim',
-
     -- Standalone UI for nvim-lsp progress
     {
         'j-hui/fidget.nvim',
@@ -184,24 +123,13 @@ return {
           -- options
         },
     },
+
+    -- Rusty Object Notation
     'ron-rs/ron.vim',
+
     'folke/zen-mode.nvim',
     -- 'nicwest/vim-http',
     'skreuzer/vim-prometheus',
-
-    -- "alexghergh/nvim-tmux-navigation",
-
-    -- Debugging
-    {
-        'saecki/crates.nvim',
-        tag = 'v0.2.1',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-        event = { 'BufRead Cargo.toml' },
-        config = function()
-            require('crates').setup()
-        end,
-    },
-    -- "mfussenegger/nvim-dap",
 
     'mrjones2014/smart-splits.nvim',
 
@@ -209,5 +137,5 @@ return {
 
     'belltoy/prom.vim',
 
-    'kylechui/nvim-surround',
+    -- 'f-person/git-blame.nvim',
 }

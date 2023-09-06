@@ -74,7 +74,7 @@ local opts = {
 
   highlights = {
       fill = {
-          fg = { attribute = 'fg', highlight = '#ff0000' },
+          fg = { attribute = 'fg', highlight = 'TabLine' },
           bg = { attribute = 'bg', highlight = 'TabLine' },
       },
       background = {
@@ -169,8 +169,9 @@ local opts = {
 }
 
 return {
-    'akinsho/bufferline.nvim',
-    config = function()
-      require('bufferline').setup(opts)
-    end
+  'akinsho/bufferline.nvim',
+  config = function()
+    require('bufferline').setup(opts)
+  end,
+  dependencies = 'nvim-tree/nvim-web-devicons'
 }

@@ -2,9 +2,24 @@ local on_attach = require('user.lsp.handlers').on_attach;
 
 return {
   'rust-lang/rust.vim',
+
+  -- Debugging
+  -- "mfussenegger/nvim-dap",
+
+  {
+    'saecki/crates.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    event = { 'BufRead Cargo.toml' },
+    tag = 'v0.3.0',
+    config = function()
+      require('crates').setup()
+    end,
+  },
+
   {
     'simrat39/rust-tools.nvim',
     config = function()
+      local rust_tools = require('rust-tools')
       local opts = {
           tools = { -- rust-tools options
               -- automatically set inlay hints (type hints)
@@ -192,6 +207,10 @@ return {
               },
               on_attach = function(client, bufnr)
                   on_attach(client, bufnr)
+                  -- Hover actions
+                  vim.keymap.set("n", "K", rust_tools.hover_actions.hover_actions, { buffer = bufnr })
+                  -- Code action groups
+                  vim.keymap.set("n", "<Leader>a", rust_tools.code_action_group.code_action_group, { buffer = bufnr })
               end
           }, -- rust-analyer options
 
