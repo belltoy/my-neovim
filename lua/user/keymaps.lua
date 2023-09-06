@@ -66,7 +66,7 @@ au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 -- keymap("n", "<Leader>r", "<cmd>Telescope live_grep<CR>", opts)
 -- keymap("n", "<Leader>F", "<cmd>Telescope live_grep<CR>", opts)
 -- keymap("n", "<Leader>b", "<cmd>Telescope buffers<CR>", opts)
-keymap("n", "<Leader>gb", "<cmd>Git blame<CR>", opts)
+-- keymap("n", "<Leader>gb", "<cmd>Git blame<CR>", opts)
 -- keymap("n", "<Leader>fb", "<cmd>Telescope help_tags", opts)
 -- keymap("n", "<Leader><space>", "<cmd>Startify<CR>", opts)
 
