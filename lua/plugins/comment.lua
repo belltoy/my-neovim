@@ -1,3 +1,5 @@
+-- https://github.com/numToStr/Comment.nvim/issues/167
+-- https://github.com/folke/which-key.nvim/issues/218
 return {
   'numToStr/Comment.nvim', -- Easily comment stuff
   {
@@ -13,32 +15,37 @@ return {
       require('Comment').setup({
 
         pre_hook = function(ctx)
-            local U = require('Comment.utils')
+          local U = require('Comment.utils')
 
-            local location = nil
-            if ctx.ctype == U.ctype.blockwise then
-                location = require('ts_context_commentstring.utils').get_cursor_location()
-            elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
-                location = require('ts_context_commentstring.utils').get_visual_start_location()
-            end
+          local location = nil
+          if ctx.ctype == U.ctype.blockwise then
+            location = require('ts_context_commentstring.utils').get_cursor_location()
+          elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
+            location = require('ts_context_commentstring.utils').get_visual_start_location()
+          end
 
-            return require('ts_context_commentstring.internal').calculate_commentstring({
-                key = ctx.ctype == U.ctype.linewise and '__default' or '__multiline',
-                location = location,
-            })
+          return require('ts_context_commentstring.internal').calculate_commentstring({
+            key = ctx.ctype == U.ctype.linewise and '__default' or '__multiline',
+            location = location,
+          })
         end,
+
+        opleader = {
+          -- line = 'gc',
+          -- block = 'gb',
+        },
 
         ---LHS of toggle mappings in NORMAL + VISUAL mode
         ---@type table
         toggler = {
-            ---Line-comment toggle keymap
-            line = 'gcc',
-            ---Block-comment toggle keymap
-            block = 'gbc',
+          ---Line-comment toggle keymap
+          line = 'gcc',
+          ---Block-comment toggle keymap
+          block = 'gbc',
         },
       })
 
-      ft = require('Comment.ft')
+      local ft = require('Comment.ft')
       ft.json5 = '//%s'
     end,
   }
