@@ -106,8 +106,6 @@ return {
 
     'norcalli/nvim-colorizer.lua',
 
-    'andymass/vim-matchup',
-
     'segeljakt/vim-silicon', -- Generate a image of selected source codes
 
     'wakatime/vim-wakatime',
