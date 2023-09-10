@@ -32,10 +32,10 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- keymap("n", "<M-2>", "gt", opts)
 
 -- Navigate buffers
-keymap("n", "<M-1>", ":bnext<CR>", opts)
-keymap("n", "<M-2>", ":bprevious<CR>", opts)
-keymap("n", "<A-l>", ":bnext<CR>", opts)
-keymap("n", "<A-h>", ":bprevious<CR>", opts)
+keymap("n", "<M-1>", ":bprevious<CR>", opts)
+keymap("n", "<M-2>", ":bnext<CR>", opts)
+keymap("n", "<M-h>", ":bprevious<CR>", opts)
+keymap("n", "<M-l>", ":bnext<CR>", opts)
 
 -- Resize with arrows
 -- keymap("n", "<C-Up>", ":resize -2<CR>", opts)

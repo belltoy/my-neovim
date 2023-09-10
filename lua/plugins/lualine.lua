@@ -65,7 +65,8 @@ return {
     lualine.setup({
       options = {
         icons_enabled = true,
-        theme = "powerline_dark",
+        -- theme = "powerline_dark",
+        theme = "powerline",
         -- component_separators = { left = "", right = "" },
         -- section_separators = { left = "", right = "" },
         disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
@@ -74,7 +75,9 @@ return {
       sections = {
         lualine_a = { branch, diagnostics },
         lualine_b = { mode },
-        lualine_c = {},
+        lualine_c = {
+          'buffers',
+        },
         -- lualine_x = { "encoding", "fileformat", "filetype" },
         lualine_x = { diff, spaces, "encoding", filetype },
         lualine_y = { location },
@@ -89,12 +92,12 @@ return {
         lualine_z = {},
       },
       tabline = {
-        lualine_a = {},
-        lualine_b = { 'branch' },
-        lualine_c = { 'filename' },
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
+        -- lualine_a = { 'buffers' },
+        -- lualine_b = { 'branch' },
+        -- lualine_c = { 'filename' },
+        -- lualine_x = {},
+        -- lualine_y = {},
+        -- lualine_z = { 'tabs'},
       },
       extensions = {},
     })

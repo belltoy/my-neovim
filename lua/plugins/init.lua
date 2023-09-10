@@ -59,11 +59,10 @@ return {
     'rafamadriz/friendly-snippets', -- a bunch of snippets to use
 
     -- LSP
-    'neovim/nvim-lspconfig', -- enable LSP
-    'williamboman/mason.nvim', -- simple to use language server installer, replaced williamboman/nvim-lsp-installer
-    'williamboman/mason-lspconfig.nvim',
+    -- 'neovim/nvim-lspconfig', -- enable LSP
+    -- 'williamboman/mason.nvim', -- simple to use language server installer, replaced williamboman/nvim-lsp-installer
+    -- 'williamboman/mason-lspconfig.nvim',
     -- 'tamago324/nlsp-settings.nvim', -- language server settings defined in json for
-    'jose-elias-alvarez/null-ls.nvim', -- for formatters and linters
     -- Vim plugin for automatically highlighting other uses of the word under the cursor.
     -- Integrates with Neovim's LSP client for intelligent highlighting.
     'RRethy/vim-illuminate',

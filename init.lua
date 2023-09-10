@@ -34,12 +34,14 @@ vim.g.Illuminate_ftblacklist = { 'nerdtree', 'NvimTree' }
 vim.g.polyglot_disabled = {'autoindent'}
 
 -- Install your plugins here
-require('lazy').setup('plugins')
+require('lazy').setup({
+  { import = 'plugins' },
+  { import = 'plugins.lsp' },
+})
 
 
 -- -- Disabled nvim-cmp temporarily because it's not working well with Github copilot
 -- require "user.cmp"
-require "user.lsp"
 -- require "user.alpha"
 require "user.autocommands"
 -- require "user.notify"
