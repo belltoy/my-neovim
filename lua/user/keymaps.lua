@@ -28,12 +28,12 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Navigate tabs
--- keymap("n", "<M-1>", "gT", opts)
--- keymap("n", "<M-2>", "gt", opts)
+keymap("n", "<M-1>", "gT", opts)
+keymap("n", "<M-2>", "gt", opts)
 
 -- Navigate buffers
-keymap("n", "<M-1>", ":bprevious<CR>", opts)
-keymap("n", "<M-2>", ":bnext<CR>", opts)
+-- keymap("n", "<M-1>", ":bprevious<CR>", opts)
+-- keymap("n", "<M-2>", ":bnext<CR>", opts)
 keymap("n", "<M-h>", ":bprevious<CR>", opts)
 keymap("n", "<M-l>", ":bnext<CR>", opts)
 
