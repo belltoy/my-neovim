@@ -1,5 +1,6 @@
+-- Neovim plugin for a code outline window
+
 return {
-  -- Neovim plugin for a code outline window
   'stevearc/aerial.nvim',
   opts = {},
   -- Optional dependencies
@@ -16,7 +17,7 @@ return {
       },
 
       layout = {
-          min_width = 40,
+          min_width = 60,
       },
 
       filter_kind = false,

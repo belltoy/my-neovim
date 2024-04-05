@@ -1,10 +1,12 @@
 local servers = {
   -- 'clojure_lsp',
-  -- 'clangd',  -- C
+  'clangd',  -- C
   'cssls',
   'cssmodules_ls',
   'dockerls',
   'eslint',
+  'bufls',
+  'jqls',
 
   -- 'denols',
   'cssmodules_ls',
@@ -15,6 +17,11 @@ local servers = {
   -- - https://github.com/williamboman/nvim-lsp-installer/discussions/805
   "grammarly",
   -- 'ltex',
+
+  -- python
+  -- 'debugpy',
+  -- 'black',
+  -- 'ruff',
 
   'gopls',
   'html',
@@ -30,7 +37,8 @@ local servers = {
   'yamlls',
   'bashls',
   'taplo', -- Toml
-  'erlangls',
+  -- 'erlangls',
+  'elp',
   'elixirls',
 }
 
