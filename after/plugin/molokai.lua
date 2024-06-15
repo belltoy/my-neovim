@@ -27,50 +27,55 @@ vim.cmd [[
     hi link @map_key erlangMap
     hi link @map_update DiffChange
     hi link @function.builtin Constant
-    hi GitSignsStagedAdd guibg=#afdf00
-    hi GitSignsStagedChange guifg=#44403e guibg=#4581FF
-    hi GitSignsStagedDelete guifg=#4b0028 guibg=#FF4545
 
+    " hi GitSignsStagedAdd guibg=#afdf00
+    " hi GitSignsStagedChange guifg=#44403e guibg=#4581FF
+    " hi GitSignsStagedDelete guifg=#4b0028 guibg=#FF4545
+
+    " hi LineNr guibg=#232526
     hi link GitSignsAdd GitSignsStagedAdd
     hi link GitSignsChange GitSignsStagedChange
     hi link GitSignsDelete GitSignsStagedDelete
+    hi GitSignsUntracked guifg=#fd971f
+
+    hi BufferLineHintSelected guibg=#afdf00 guifg=#4581FF
+    hi BufferLineWarningSelected guifg=#B3800C
+
+    " hi link DiagnosticError ErrorMsg
+    hi DiagnosticError guifg=#f92672
+    hi DiagnosticHint guifg=#8cf8f7 guibg=#232526
+    " hi link DiagnosticSignError ErrorMsg
+
+    hi Added guifg=#afdf00 guibg=#232526
+    hi GitSignsStagedAdd guifg=#afdf00 guibg=#232526
+    hi Changed guifg=#4581FF guibg=#232526
+    hi GitSignsStagedChange guifg=#4581FF guibg=#232526
+    hi Removed guifg=#FF4545 guibg=#232526
+    hi GitSignsStagedDelete guifg=#FF4545 guibg=#232526
+
+    hi TodoBgFIX gui=bold guifg=#1b1d1e guibg=red
+    hi TodoFgFiX guifg=red
+    hi TodoSignFIX guifg=red
+
+    hi link TroublePreview Visual
+
+    " hi TelescopePreviewLine ctermbg=118 guibg=#616365
+    " hi TelescopePreviewLine ctermbg=238 guibg=#403d3d
+    hi! link TelescopePreviewLine IncSearch
+
+    " Hide | split border
+    " NOTE: note the significant whitespace after the '\' character
+    set fillchars+=vert:\ 
+
+    hi CurSearch gui=bold guifg=#005f00 guibg=#afdf00
+    hi! link IncSearch CurSearch
+
+    " hi TodoFgNOTE     guifg=#a6dbff
+    " hi TodoFgNOTE     guifg=red
+    " hi DiagnosticInfo guifg=red
 
     "GitSignsStagedAdd xxx guibg=#afdf00
     "GitSignsStagedChange xxx guifg=#44403e guibg=#4581ff
     "GitSignsStagedDelete xxx guifg=#4b0028 guibg=#ff4545
 "
 ]]
-
---" GitSignsAdd    xxx cterm= gui=
---"                    links to DiffAdd
---" GitSignsChange xxx cterm= gui=
---"                    links to DiffChange
---" GitSignsDelete xxx cterm= gui=
---"                    links to DiffDelete
---" GitSignsChangedelete xxx cterm= gui=
---"                    links to GitSignsChange
---" GitSignsTopdelete xxx cterm= gui=
---"                    links to GitSignsDelete
---" GitSignsUntracked xxx cterm= gui=
---"                    links to GitSignsAdd
---" GitSignsAddNr  xxx cterm= gui=
---"                    links to GitSignsAdd
---" GitSignsChangeNr xxx cterm= gui=
---"                    links to GitSignsChange
---" GitSignsDeleteNr xxx cterm= gui=
---"                    links to GitSignsDelete
---" GitSignsChangedeleteNr xxx cterm= gui=
---"                    links to GitSignsChangeNr
---" GitSignsTopdeleteNr xxx cterm= gui=
---"                    links to GitSignsDeleteNr
---" GitSignsUntrackedNr xxx cterm= gui=
---"                    links to GitSignsAddNr
---" GitSignsAddLn  xxx cterm= gui=
---"                    links to DiffAdd
---" GitSignsChangeLn xxx cterm= gui=
---"                    links to DiffChange
---" GitSignsChangedeleteLn xxx cterm= gui=
---"                    links to GitSignsChangeLn
---" GitSignsUntrackedLn xxx cterm= gui=
---"                    links to GitSignsAddLn
---"
