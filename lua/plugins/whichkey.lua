@@ -178,15 +178,16 @@ local mappings = {
         C = { '<cmd>Telescope commands<cr>', 'Commands' },
     },
 
-    t = {
-        name = 'Terminal',
-        n = { '<cmd>lua _NODE_TOGGLE()<cr>', 'Node' },
-        u = { '<cmd>lua _NCDU_TOGGLE()<cr>', 'NCDU' },
-        t = { '<cmd>lua _HTOP_TOGGLE()<cr>', 'Htop' },
-        p = { '<cmd>lua _PYTHON_TOGGLE()<cr>', 'Python' },
-        f = { '<cmd>ToggleTerm direction=float<cr>', 'Float' },
-        h = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', 'Horizontal' },
-        v = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', 'Vertical' },
+    x = {
+      name = "Trouble",
+      x = { '<cmd>lua require("trouble").toggle()<cr>', "Open/Close trouble list" },
+      t = { '<cmd>lua require("trouble").toggle("todo")<cr>', "Open TODOs in trouble" },
+      q = { '<cmd>TodoQuickFix<cr>', "Open TODOs for quickfix" },
+      -- n = { '<cmd>TodoTrouble keywords=INFO,NOTE<cr>', "Open INFOs NOTEs in trouble" },
+      n = { '<cmd>lua require"trouble".toggle({mode = "todo", keywords = "NOTE,INFO"})<cr>', "Open INFOs NOTEs in trouble" },
+      -- f = { '<cmd>TodoTrouble keywords=TODO,FIXME,FIX,WARN,WARNING<cr>', "Open TODOs, FIXes, WARNINGs in trouble" },
+      f = { '<cmd>lua require"trouble".toggle({mode = "todo", keywords = "TODO,FIXME,FIX,WARN,WARNING"})<cr>', "Open TODOs, FIXes, WARNINGs in trouble" },
+      w = { '<cmd>lua require("trouble").toggle("workspace_diagnostics")<cr>', "Open trouble list for workspace diagnostics" },
     },
 }
 

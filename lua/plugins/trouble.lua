@@ -9,6 +9,8 @@ return {
   config = function()
     require('trouble').setup({
       position = "right", -- position of the list can be: bottom, top, left, right
+      width = 80,
+      mode = "todo",
       auto_fold = true, -- automatically fold a file trouble list at creation
       action_keys = {
         jump = { "<cr>", "<tab>", "<2-leftmouse>" }, -- jump to the diagnostic or open / close folds

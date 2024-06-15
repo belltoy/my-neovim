@@ -1,7 +1,7 @@
 local options = {
     backup = false,                            -- creates a backup file
     clipboard = 'unnamedplus',                 -- allows neovim to access the system clipboard
-    cmdheight = 2,                             -- more space in the neovim command line for displaying messages
+    cmdheight = 1,                             -- more space in the neovim command line for displaying messages
     completeopt = { 'menuone', 'noselect' },   -- mostly just for cmp
     conceallevel = 0,                          -- so that `` is visible in markdown files
     fileencoding = 'utf-8',                    -- the encoding written to a file
@@ -33,7 +33,8 @@ local options = {
     wrap = false,                              -- display lines as one long line
     scrolloff = 0,                             -- is one of my fav
     sidescrolloff = 8,
-    guifont = 'DejaVuSansMono Nerd Font:h13',  -- the font used in graphical neovim applications
+    -- guifont = 'DejaVuSansMono Nerd Font:h13',  -- the font used in graphical neovim applications
+    guifont = 'DejaVuSansM Nerd Font Mono:h13',  -- the font used in graphical neovim applications
     mousemoveevent = true,
 }
 
@@ -50,9 +51,21 @@ vim.cmd([[set colorcolumn=100]])
 
 vim.g.copilot_node_command = '~/.nvm/versions/node/v17.8.0/bin/node'
 
-vim.g.neovide_remember_window_size = true
-vim.g.neovide_remember_window_position = true
-vim.g.neovide_input_use_logo = 1
+if vim.g.neovide then
+  vim.g.neovide_remember_window_size = true
+  vim.g.neovide_remember_window_position = true
+  vim.g.neovide_input_use_logo = 1
+  vim.g.neovide_window_blurred = true
+  vim.g.neovide_fullscreen = false
+  -- vim.g.neovide_cursor_animation_length = 0.03
+  vim.g.neovide_transparency = 0.8
+  vim.g.neovide_hide_mouse_when_typing = true
+  -- macOS meta key
+  vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
+
+  local keymap = vim.api.nvim_set_keymap
+  keymap('n', '<M-f>', '<cmd>lua vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen<cr>', { noremap = true, silent = true })
+end
 
 vim.g.vim_markdown_folding_disabled = 1
 
@@ -80,6 +93,7 @@ let g:airline#extensions#tabline#tabs_label = ''
 let g:airline#extensions#hunks#enabled = 1
 
 au BufRead,BufNewFile *.edc setlocal filetype=edc
+au BufRead,BufNewFile *.kdl setlocal filetype=kdl
 au BufRead,BufNewFile *.qml setlocal filetype=qml
 au BufReadPost *.rs setlocal filetype=rust
 

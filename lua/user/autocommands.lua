@@ -29,6 +29,12 @@ vim.cmd([[
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
 
+  augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
+  augroup end
+
 "function! MyHi() abort
 "    hi SignColumn guibg=NONE
 "    hi VertSplit guibg=NONE

@@ -16,6 +16,8 @@ return {
           markdown = {"markdown"},
       },
 
+      disable_max_lines = 25000,
+
       layout = {
           min_width = 60,
       },

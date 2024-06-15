@@ -33,6 +33,8 @@ let g:polyglot_disabled = ['autoindent']
 vim.g.Illuminate_ftblacklist = { 'nerdtree', 'NvimTree' }
 vim.g.polyglot_disabled = {'autoindent'}
 
+vim.g.copilot_node_command = 'node'
+
 -- Install your plugins here
 require('lazy').setup({
   { import = 'plugins' },

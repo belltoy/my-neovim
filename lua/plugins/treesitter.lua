@@ -61,10 +61,6 @@ local setup = function(configs)
         ["behaviour"] = "ErlangBehaviour",
       },
       indent = { enable = true, disable = { 'yaml' } },
-      context_commentstring = {
-          enable = true,
-          enable_autocmd = false,
-      },
       rainbow = {
           enable = true,
           disable = { },
@@ -91,5 +87,7 @@ return {
   config = function()
     local configs = require('nvim-treesitter.configs')
     setup(configs)
+    require('nvim-treesitter.configs').setup {}
+    -- nvim-ts-context-commentstring is set up automatically
   end
 }

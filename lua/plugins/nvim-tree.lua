@@ -134,12 +134,20 @@ return {
           timeout = 500,
         },
         renderer = {
+          special_files = {
+          "Cargo.toml", "Makefile", "README.md", "readme.md",
+          "package.json", "yarn.lock", "package-lock.json",
+          "rebar.config", "mix.exs", "Dockerfile", "docker-compose.yml",
+          },
+          highlight_opened_files = 'name',
+          highlight_diagnostics = 'icon',
           -- root_folder_label = false,
           icons = {
             git_placement = 'after',
             glyphs = {
               default = '',
               symlink = '',
+              modified = "●",
               git = {
                 unstaged = '',
                 staged = 'S',

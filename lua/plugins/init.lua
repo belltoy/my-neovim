@@ -134,5 +134,11 @@ return {
 
     'belltoy/prom.vim',
 
+    'belltoy/vrl.vim',
+
+    'imsnif/kdl.vim',
+
+    -- { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+
     -- 'f-person/git-blame.nvim',
 }

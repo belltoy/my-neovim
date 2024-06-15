@@ -14,7 +14,6 @@ local opts = {
     --   style = 'icon',
     -- },
     color_icons = true,
-    -- buffer_close_icon = '',
     -- buffer_close_icon = '',
     buffer_close_icon = '󰅖',
     modified_icon = '●',
@@ -80,105 +79,125 @@ local opts = {
   },
 
   highlights = {
-      fill = {
-          fg = { attribute = 'fg', highlight = 'TabLine' },
-          bg = { attribute = 'bg', highlight = 'TabLine' },
-      },
-      background = {
-          fg = { attribute = 'fg', highlight = 'TabLine' },
-          bg = { attribute = 'bg', highlight = 'TabLine' },
+    fill = {
+      fg = { attribute = 'fg', highlight = 'TabLine' },
+      bg = { attribute = 'bg', highlight = 'TabLine' },
+    },
+    background = {
+      fg = { attribute = 'fg', highlight = 'TabLine' },
+      bg = { attribute = 'bg', highlight = 'TabLine' },
+    },
+
+    buffer_selected = {
+      -- fg = {attribute='fg', highlight='Visual'},
+      -- bg = '#303030',
+      fg = '#005f00',
+      -- fg = {attribute='fg', highlight='lualine_a_normal'},
+      bg = '#afdf00',
+      -- gui = 'none'
+    },
+    buffer_visible = {
+      fg = { attribute = 'fg', highlight = 'TabLine' },
+      bg = { attribute = 'bg', highlight = 'TabLine' },
+    },
+
+    close_button = {
+      fg = { attribute = 'fg', highlight = 'TabLine' },
+      bg = { attribute = 'bg', highlight = 'TabLine' },
+    },
+    close_button_visible = {
+      fg = { attribute = 'fg', highlight = 'TabLine' },
+      bg = { attribute = 'bg', highlight = 'TabLine' },
+    },
+    close_button_selected = {
+      fg = {attribute='fg', highlight='TabLineSel'},
+      -- bg ={attribute='bg', highlight='TabLineSel'}
+      -- bg ={attribute='bg', highlight='#303030'},
+      -- bg = "#303030",
+        bg = '#afdf00'
       },
 
-      buffer_selected = {
-        fg = {attribute='fg', highlight='Visual'},
-        -- bg = {attribute='bg', highlight='Visual'},
-        -- fg = { attribute = 'fg', highlight = 'TabLineSel' },
-        -- bg = { attribute = 'bg', highlight = 'CursorLine' },
-        -- bg = { attribute = 'bg', highlight = '#303030' },
-        -- fg = '#000000',
-        bg = '#303030',
-        -- gui = 'none'
-      },
-      buffer_visible = {
-          fg = { attribute = 'fg', highlight = 'TabLine' },
-          bg = { attribute = 'bg', highlight = 'TabLine' },
-      },
+    error_selected = {
+      fg = 'red',
+      bg = '#afdf00',
+    },
 
-      close_button = {
-          fg = { attribute = 'fg', highlight = 'TabLine' },
-          bg = { attribute = 'bg', highlight = 'TabLine' },
-      },
-      close_button_visible = {
-          fg = { attribute = 'fg', highlight = 'TabLine' },
-          bg = { attribute = 'bg', highlight = 'TabLine' },
-      },
-      close_button_selected = {
-        fg = {attribute='fg', highlight='TabLineSel'},
-        -- bg ={attribute='bg', highlight='TabLineSel'}
-        -- bg ={attribute='bg', highlight='#303030'},
-        bg = "#303030",
-        },
+    warning_selected = {
+      fg = '#DFA200',
+      bg = '#afdf00',
+      -- bg = '#e6db74',
+    },
 
-      tab_selected = {
-          fg = { attribute = 'fg', highlight = 'Normal' },
-          bg = { attribute = 'bg', highlight = 'Normal' },
-      },
-      tab = {
-          fg = { attribute = 'fg', highlight = 'TabLine' },
-          bg = { attribute = 'bg', highlight = 'TabLine' },
-      },
-      tab_close = {
-          -- fg = {attribute='fg',highlight='LspDiagnosticsDefaultError'},
-          fg = { attribute = 'fg', highlight = 'TabLineSel' },
-          bg = { attribute = 'bg', highlight = 'Normal' },
-      },
+    tab_selected = {
+      fg = { attribute = 'fg', highlight = 'Normal' },
+      bg = { attribute = 'bg', highlight = 'Normal' },
+    },
+    tab = {
+      fg = { attribute = 'fg', highlight = 'TabLine' },
+      bg = { attribute = 'bg', highlight = 'TabLine' },
+    },
+    tab_close = {
+      -- fg = {attribute='fg',highlight='LspDiagnosticsDefaultError'},
+      fg = { attribute = 'fg', highlight = 'TabLineSel' },
+      bg = { attribute = 'bg', highlight = 'Normal' },
+    },
 
-      duplicate_selected = {
-          fg = { attribute = 'fg', highlight = 'TabLineSel' },
-          bg = { attribute = 'bg', highlight = 'TabLineSel' },
-          --[[ underline = true, undercurl = true, ]]
-          italic = true
-      },
-      duplicate_visible = {
-          fg = { attribute = 'fg', highlight = 'TabLine' },
-          bg = { attribute = 'bg', highlight = 'TabLine' },
-          italic = true
-      },
-      duplicate = {
-          fg = { attribute = 'fg', highlight = 'TabLine' },
-          bg = { attribute = 'bg', highlight = 'TabLine' },
-          italic = true
-      },
+    duplicate_selected = {
+      fg = { attribute = 'fg', highlight = 'TabLineSel' },
+      bg = { attribute = 'bg', highlight = 'TabLineSel' },
+      --[[ underline = true, undercurl = true, ]]
+      italic = true
+    },
+    duplicate_visible = {
+      fg = { attribute = 'fg', highlight = 'TabLine' },
+      bg = { attribute = 'bg', highlight = 'TabLine' },
+      italic = true
+    },
+    duplicate = {
+      fg = { attribute = 'fg', highlight = 'TabLine' },
+      bg = { attribute = 'bg', highlight = 'TabLine' },
+      italic = true
+    },
 
-      modified = {
-          fg = { attribute = 'fg', highlight = 'TabLine' },
-          bg = { attribute = 'bg', highlight = 'TabLine' },
-      },
-      modified_selected = {
-          fg = { attribute = 'fg', highlight = 'Normal' },
-          bg = { attribute = 'bg', highlight = 'Normal' },
-      },
-      modified_visible = {
-          fg = { attribute = 'fg', highlight = 'TabLine' },
-          bg = { attribute = 'bg', highlight = 'TabLine' },
-      },
+    modified = {
+      fg = { attribute = 'fg', highlight = 'TabLine' },
+      bg = { attribute = 'bg', highlight = 'TabLine' },
+    },
+    modified_selected = {
+      fg = { attribute = 'fg', highlight = 'Normal' },
+      bg = { attribute = 'bg', highlight = 'Normal' },
+    },
+    modified_visible = {
+      fg = { attribute = 'fg', highlight = 'TabLine' },
+      bg = { attribute = 'bg', highlight = 'TabLine' },
+    },
 
-      separator = {
-          fg = { attribute = 'bg', highlight = 'TabLine' },
-          bg = { attribute = 'bg', highlight = 'TabLine' },
-      },
-      separator_selected = {
-          fg = { attribute = 'bg', highlight = 'Normal' },
-          bg = { attribute = 'bg', highlight = 'Normal' },
-      },
-      -- separator_visible = {
-      --   fg = {attribute='bg',highlight='TabLine'},
-      --   bg = {attribute='bg',highlight='TabLine'}
-      --   },
-      indicator_selected = {
-          fg = { attribute = 'fg', highlight = 'LspDiagnosticsDefaultHint' },
-          bg = { attribute = 'bg', highlight = 'Normal' },
-      },
+    separator = {
+      -- fg = 'red',
+      fg = { attribute = 'bg', highlight = 'TabLine' },
+      bg = { attribute = 'bg', highlight = 'TabLine' },
+    },
+    separator_selected = {
+      -- fg = '#afdf00',
+      -- fg = { attribute = 'bg', highlight = 'Normal' },
+      -- bg = { attribute = 'bg', highlight = 'Normal' },
+      fg = { attribute = 'bg', highlight = 'lualine_a_normal' },
+      bg = { attribute = 'bg', highlight = 'lualine_a_normal' },
+      -- fg = '#afdf00',
+      -- bg = '#afdf00',
+    },
+    -- separator_visible = {
+    --   fg = {attribute='bg',highlight='TabLine'},
+    --   bg = {attribute='bg',highlight='TabLine'}
+    --   },
+    indicator_selected = {
+      -- fg = { attribute = 'fg', highlight = 'LspDiagnosticsDefaultHint' },
+      -- bg = { attribute = 'bg', highlight = 'Normal' },
+      -- fg = '#afdf00',
+      -- fg = { attribute = 'bg', highlight = 'lualine_a_normal' },
+      fg = '#afdf00',
+      bg = '#afdf00',
+    },
   },
 }
 
