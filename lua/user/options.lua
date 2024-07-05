@@ -82,16 +82,6 @@ let g:neovide_transparency=0.9
 let g:neovide_input_use_logo=v:true
 let g:neovide_remember_window_size = v:true
 
-" Airline
-let g:airline#extensions#tmuxline#enabled = 0
-let g:airline#extensions#promptline#enabled = 0
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_tab_nr = 1
-let g:airline#extensions#tabline#tab_nr_type= 1
-let g:airline#extensions#tabline#show_tab_type = 1
-let g:airline#extensions#tabline#tabs_label = ''
-let g:airline#extensions#hunks#enabled = 1
-
 au BufRead,BufNewFile *.edc setlocal filetype=edc
 au BufRead,BufNewFile *.kdl setlocal filetype=kdl
 au BufRead,BufNewFile *.qml setlocal filetype=qml

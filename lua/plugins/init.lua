@@ -40,8 +40,15 @@ return {
     -- "edkolev/tmuxline.vim",
 
     -- Colorschemes
-    'lunarvim/darkplus.nvim',
-    { 'folke/tokyonight.nvim', commit = '8223c970677e4d88c9b6b6d81bda23daf11062bb' },
+    -- 'lunarvim/darkplus.nvim',
+    'EdenEast/nightfox.nvim',
+    'folke/tokyonight.nvim',
+    {
+      'belltoy/molokai',
+      config = function()
+        vim.cmd('colorscheme molokai')
+      end
+    },
 
     -- Conflict with Copilot, disable for now
     -- cmp plugins
