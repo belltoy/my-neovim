@@ -22,6 +22,10 @@ return {
       local opts = {
         -- Plugin configuration
         tools = {
+          float_win_config = {
+            width = 80,
+            border = "rounded",
+          }
         },
         -- LSP configuration
         server = {

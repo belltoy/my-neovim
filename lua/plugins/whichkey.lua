@@ -97,8 +97,9 @@ local mappings = {
     -- ['P'] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", 'Projects' },
     ['u'] = { "<cmd>UrlView<CR>", 'Open URL' },
     ['o'] = { '<cmd>AerialToggle<CR>', 'Toggle Outline (Aerial)' },
-    ['s'] = { '<cmd>split<CR>', "Split window - "},
+    ['s'] = { '<cmd>split<CR>', "Split window — "},
     ['v'] = { '<cmd>vsplit<CR>', "Split window | "},
+    ['V'] = { '<cmd>vsplit +Startify<CR>', "Split window | "},
     ['W'] = { '<cmd>FixWhitespace<<CR>', "Fix Whitespace"},
 
     G = {
@@ -142,7 +143,7 @@ local mappings = {
         },
         f = { '<cmd>lua vim.lsp.buf.format { async = true }<cr>', 'Format' },
         i = { '<cmd>LspInfo<cr>', 'Info' },
-        I = { '<cmd>LspInstallInfo<cr>', 'Installer Info' },
+        I = { '<cmd>Mason<cr>', 'Installer Info' },
         j = {
             '<cmd>lua vim.diagnostic.goto_next()<CR>',
             'Next Diagnostic',
