@@ -1,3 +1,5 @@
+-- Generate a image of selected source codes
+
 vim.cmd [[
 let g:silicon = {
       \   'theme':              'OneHalfDark',
@@ -15,5 +17,9 @@ let g:silicon = {
       \   'window-controls':       v:true,
       \ }
 
-let g:silicon['output'] = '~/Desktop/silicon-{time:%Y-%m-%d-%H%M%S}.png'
+let g:silicon['output'] = '~/Downloads/silicon-{time:%Y-%m-%d-%H%M%S}.png'
 ]]
+
+return {
+  'segeljakt/vim-silicon',
+}

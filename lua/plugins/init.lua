@@ -105,8 +105,6 @@ return {
 
     'norcalli/nvim-colorizer.lua',
 
-    'segeljakt/vim-silicon', -- Generate a image of selected source codes
-
     'wakatime/vim-wakatime',
 
     'bronson/vim-trailing-whitespace',
