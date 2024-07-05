@@ -2,36 +2,84 @@ return {
   "folke/trouble.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons", "folke/todo-comments.nvim" },
   opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  },
-  config = function()
-    require('trouble').setup({
-      position = "right", -- position of the list can be: bottom, top, left, right
-      width = 80,
-      mode = "todo",
-      auto_fold = true, -- automatically fold a file trouble list at creation
-      action_keys = {
-        jump = { "<cr>", "<tab>", "<2-leftmouse>" }, -- jump to the diagnostic or open / close folds
-        jump_close = {}, -- jump to the diagnostic and close the list
-        toggle_fold = {"o", "zA", "za"}, -- toggle fold of current file
+    modes = {
+      all = {
+        mode = "symbols",
+        win = {
+          position = "right",
+          size = 50,
+          fixed = false,
+          padding = { top = 0, left = 0 },
+        },
       },
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    })
-  end,
+
+      diagnostics_right = {
+        mode = "diagnostics",
+        win = {
+          position = "right",
+          size = 50,
+          fixed = false,
+          padding = { top = 0, left = 0 },
+        },
+      },
+
+      todo_right = {
+        mode = "todo",
+        win = {
+          position = "right",
+          size = 50,
+          fixed = false,
+          padding = { top = 0, left = 0 },
+        }
+      },
+    },
+  },
 
   keys = {
-    -- this is a table of key mappings
-    -- you can call "map" here, it will be called after the plugin is loaded
-    -- please refer to the mappings section below
-    { "<leader>xx", "<cmd>TroubleToggle<cr>", desc = "Open/close trouble list"},
-    { "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc ="Open trouble list for workspace diagnostics"},
-    { "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Open trouble list for document diagnostics"},
-    { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Open trouble list for quickfix"},
-    { "<leader>xl", "<cmd>TroubleToggle loclist<cr>", desc = "Open trouble list for loclist"},
-    { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Open todos in trouble"},
+    {
+      "<leader>xx",
+      "<cmd>Trouble diagnostics toggle focus=true win.size=30<cr>",
+      desc = "Diagnostics (Trouble)",
+    },
+    {
+      "<leader>xX",
+      "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+      desc = "Buffer Diagnostics (Trouble)",
+    },
+    {
+      "<leader>xa",
+      "<cmd>Trouble all toggle focus=true<cr>",
+      desc = "Symbols (Trouble)",
+    },
+    {
+      "<leader>xo",
+      "<cmd>Trouble all toggle focus=true<cr>",
+      desc = "Symbols/Outline (Trouble)",
+    },
+    {
+      "<leader>xs",
+      "<cmd>Trouble diagnostics_right toggle focus=true<cr>",
+      desc = "Diagnostics (Trouble)",
+    },
+    {
+      "<leader>xt",
+      "<cmd>Trouble todo_right toggle focus=true<cr>",
+      desc = "Todo (Trouble)",
+    },
+    {
+      "<leader>xl",
+      "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+      desc = "LSP Definitions / references / ... (Trouble)",
+    },
+    {
+      "<leader>xL",
+      "<cmd>Trouble loclist toggle<cr>",
+      desc = "Location List (Trouble)",
+    },
+    {
+      "<leader>xQ",
+      "<cmd>Trouble qflist toggle<cr>",
+      desc = "Quickfix List (Trouble)",
+    },
   },
 }

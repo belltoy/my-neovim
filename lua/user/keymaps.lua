@@ -73,7 +73,7 @@ au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 keymap("n", "<Leader>n", "<cmd>NvimTreeToggle<CR>", opts)
 
 -- GUI Tools integration
-keymap("n", "<Leader>tw", "<cmd>!tower .<CR>", opts)
+keymap("n", "<Leader>tw", "<cmd>!tower .<CR><CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)

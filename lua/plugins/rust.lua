@@ -1,5 +1,3 @@
-local on_attach = require('user.mason_settings').on_attach;
-
 return {
   'rust-lang/rust.vim',
 

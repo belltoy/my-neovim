@@ -22,6 +22,8 @@ return {
           min_width = 60,
       },
 
+      manage_folds = true,
+
       filter_kind = false,
     })
   end

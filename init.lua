@@ -2,7 +2,7 @@ require "user.options"
 require "user.keymaps"
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
@@ -23,13 +23,8 @@ vim.opt.rtp:prepend(lazypath)
 -- let g:vim_markdown_fenced_languages = [ 'sh=bash', 'javascript', 'js=javascript', 'json=javascript', 'typescript', 'ts=typescript', 'php', 'html', 'css', 'rust', 'sql']
 -- ]]
 -- vim.g.startify_change_to_dir = 0
-vim.g.webdevicons_enable_airline_tabline = 1
-vim.g.webdevicons_enable_airline_statusline = 1
-vim.g.airline_powerline_fonts = 1
-vim.cmd [[
-let g:airline#extensions#tabline#enabled = 1
-let g:polyglot_disabled = ['autoindent']
-]]
+vim.g.polyglot_disabled = { 'autoindent' }
+
 vim.g.Illuminate_ftblacklist = { 'nerdtree', 'NvimTree' }
 vim.g.polyglot_disabled = {'autoindent'}
 
@@ -37,8 +32,14 @@ vim.g.copilot_node_command = 'node'
 
 -- Install your plugins here
 require('lazy').setup({
-  { import = 'plugins' },
-  { import = 'plugins.lsp' },
+  spec = {
+    { import = 'plugins' },
+    { import = 'plugins.lsp' },
+  },
+  change_detection = {
+    enabled = false,
+    notify = false,
+  }
 })
 
 
@@ -47,7 +48,6 @@ require('lazy').setup({
 -- require "user.alpha"
 require "user.autocommands"
 -- require "user.notify"
--- require "user.silicon"
 -- require "user.urlview"
 -- require "user.rust-tools"
 -- require "user.transparent"

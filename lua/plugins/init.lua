@@ -73,7 +73,7 @@ return {
     -- Integrates with Neovim's LSP client for intelligent highlighting.
     'RRethy/vim-illuminate',
 
-    'ckipp01/stylua-nvim',
+    'ckipp01/stylua-nvim', -- Lua code formatter
     'gpanders/editorconfig.nvim',
 
     -- Smooth scrolling
