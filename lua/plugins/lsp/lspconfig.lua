@@ -59,10 +59,6 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
   { "antosha417/nvim-lsp-file-operations", config = true },
-    -- 'williamboman/nvim-lsp-installer',
-    -- 'folke/lua-dev.nvim',
-    -- 'folke/lsp-colors.nvim',
-    -- 'folke/trouble.nvim',
   },
   config = function()
     setup()

@@ -1,6 +1,5 @@
 return {
     -- My plugins here
-    -- 'wbthomason/packer.nvim', -- Have packer manage itself
     'nvim-lua/popup.nvim', -- An implementation of the Popup API from vim in Neovim
     'nvim-lua/plenary.nvim', -- Useful lua functions used ny lots of plugins
     'nvim-tree/nvim-web-devicons',
@@ -93,22 +92,7 @@ return {
 
     'rainbowhxch/accelerated-jk.nvim',
 
-    -- airline need fugitive
-    'tpope/vim-fugitive',
-    'shumphrey/fugitive-gitlab.vim',
-
-    -- 'nvim-lualine/lualine.nvim',
-    -- 'vim-airline/vim-airline',
-    -- 'vim-airline/vim-airline-themes',
-
-    {
-        'tiagovla/scope.nvim',
-        config = function()
-            require('scope').setup()
-        end,
-    },
-
-    -- 'rcarriga/nvim-notify',
+    'tiagovla/scope.nvim',
 
     'norcalli/nvim-colorizer.lua',
 
