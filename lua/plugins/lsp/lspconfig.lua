@@ -32,6 +32,8 @@ local setup = function()
 
   vim.diagnostic.config(config)
 
+  require('lspconfig.ui.windows').default_options.border = 'rounded'
+
   local popup_opts = {
       border = 'rounded',
       max_width = 100, -- should be worked
@@ -58,7 +60,7 @@ return {
   'neovim/nvim-lspconfig', -- enable LSP
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-  { "antosha417/nvim-lsp-file-operations", config = true },
+    { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
     setup()
