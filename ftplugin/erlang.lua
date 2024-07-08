@@ -5,9 +5,5 @@ vim.cmd [[
   endif
 ]]
 
-vim.cmd [[
-  " hi @erlang.spec guibg=#333000
-  hi @erlang.spec guibg=#00044B
-  hi @erlang.record_decl guibg=#333666
-  hi @erlang.record_decl guibg=#3C2600
-]]
+vim.api.nvim_set_hl(0, "@comment.erlang", {})
+vim.api.nvim_set_hl(0, "@comment.documentation.erlang", {})

@@ -49,7 +49,7 @@ local setup = function(configs)
       highlight = {
           enable = true, -- false will disable the whole extension
           -- disabled rust to prevent code block highlighting in comments
-          disable = { "json", "rust" }, -- list of language that will be disabled
+          -- disable = { "json" }, -- list of language that will be disabled
           additional_vim_regex_highlighting = true,
       },
       indent = { enable = true, disable = { 'yaml' } },

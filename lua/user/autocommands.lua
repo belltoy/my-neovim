@@ -34,18 +34,6 @@ vim.cmd([[
     autocmd WinEnter * set cul
     autocmd WinLeave * set nocul
   augroup end
-
-"function! MyHi() abort
-"    hi SignColumn guibg=NONE
-"    hi VertSplit guibg=NONE
-"    hi LineNr guibg=NONE
-"    hi Normal guibg=NONE
-"endfunction
-"
-"augroup MyColors
-"    autocmd!
-"    autocmd ColorScheme molokai call MyHi()
-"augroup END
 ]])
 
 -- Autoformat

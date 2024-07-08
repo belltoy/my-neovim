@@ -29,3 +29,18 @@
     (#lua-match? @comment.documentation "^[%%][%%] @doc")
     (#set! "priority" 101)
 )
+
+(
+    (feature_attribute
+      (atom) @features.feature
+      ((atom) @features.feature.enable
+       (#match? @features.feature.enable "enable")
+      )
+    ) @features
+)
+
+(
+    (behaviour_attribute
+      (atom) @behavirour
+    )
+)
