@@ -23,9 +23,9 @@ return {
         --   sign = { namespace = { "todo-signs" }, name = { ".*" }, maxwidth = 2, auto = true },
         --   click = "v:lua.ScSa"
         -- },
-        { text = { builtin.lnumfunc }, click = "v:lua.ScLa", },
+        { text = { builtin.lnumfunc }, click = "v:lua.ScLa", auto = false },
         {
-          sign = { namespace = { "gitsigns" }, maxwidth = 1, colwidth = 1, auto = true, wrap = true },
+          sign = { namespace = { "gitsigns" }, maxwidth = 1, colwidth = 1, auto = false, wrap = true },
           click = "v:lua.ScSa"
         },
         -- { text = { builtin.foldfunc }, click = "v:lua.ScFa", auto = true, maxwidth = 1,
