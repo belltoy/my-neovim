@@ -24,7 +24,7 @@ local opts = {
 
     -- Don't calculate root dir on specific directories
     -- Ex: { "~/.cargo/*", ... }
-    exclude_dirs = { "~/.cargo/*", "_build/*", "/opt/*" },
+    exclude_dirs = { "~/.cargo/*", "_build/*", "/opt/*", "target/*" },
 
 
     ---@ Show hidden files in telescope when searching for files in a project
