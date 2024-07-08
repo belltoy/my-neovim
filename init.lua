@@ -29,6 +29,7 @@ vim.g.Illuminate_ftblacklist = { 'nerdtree', 'NvimTree' }
 vim.g.polyglot_disabled = {'autoindent'}
 
 vim.g.copilot_node_command = 'node'
+vim.g.loaded_perl_provider = 0
 
 -- Install your plugins here
 require('lazy').setup({
