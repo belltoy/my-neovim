@@ -46,6 +46,9 @@ return {
       'belltoy/molokai',
       config = function()
         vim.cmd('colorscheme molokai')
+        vim.cmd [[
+          hi! link @variable Identifier
+        ]]
       end
     },
 

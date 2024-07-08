@@ -1,4 +1,3 @@
-;; copy from erlang/highlights.scm
 ((atom) @constant
   (#set! "priority" "90"))
 
@@ -12,8 +11,8 @@
 
 (comment) @comment @spell
 
-((comment) @comment.documentation
-  (#lua-match? @comment.documentation "^[%%][%%]"))
+;; ((comment) @comment.documentation
+;;   (#lua-match? @comment.documentation "^[%%][%%]"))
 
 ; keyword
 [
@@ -183,20 +182,3 @@
 
 (fa
   fun: (atom) @function)
-;; End of copy from erlang/highlights.scm
-
-;; extends
-
-((spec) @erlang.spec)
-((record_decl) @erlang.record_decl)
-
-(macro_call_expr
-  ((var) @macro_name
-            (#match? @macro_name "^LOG_")
-  )
-) @log
-
-(macro_call_expr
-   ((var) @constant.macro)
-   (#set! "priority" 110)
-)
