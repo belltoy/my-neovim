@@ -15,7 +15,7 @@ local setup = function(configs)
           'clojure',
           'cpp',
           'elixir',
-          -- 'erlang',
+          'erlang',
           'dockerfile',
           'eex',
           'elm',
@@ -52,14 +52,6 @@ local setup = function(configs)
           disable = { "json", "rust" }, -- list of language that will be disabled
           additional_vim_regex_highlighting = true,
       },
-      custom_captures = {
-        -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
-        ["callback"] = "ErlangCallback",
-        -- ["function.builtin.otp"] = "Constant",
-        -- ["function.built.otp"] = "Constant",
-        ["callback.export"] = "ErlangCallback",
-        ["behaviour"] = "ErlangBehaviour",
-      },
       indent = { enable = true, disable = { 'yaml' } },
       rainbow = {
           enable = true,
@@ -87,7 +79,6 @@ return {
   config = function()
     local configs = require('nvim-treesitter.configs')
     setup(configs)
-    require('nvim-treesitter.configs').setup {}
     -- nvim-ts-context-commentstring is set up automatically
   end
 }
