@@ -77,11 +77,6 @@ vim.g.tmux_navigator_disable_when_zoomed = 0
 
 -- Neovide
 vim.cmd([[
-let g:neovide_fullscreen=v:false
-let g:neovide_transparency=0.9
-let g:neovide_input_use_logo=v:true
-let g:neovide_remember_window_size = v:true
-
 au BufRead,BufNewFile *.edc setlocal filetype=edc
 au BufRead,BufNewFile *.kdl setlocal filetype=kdl
 au BufRead,BufNewFile *.qml setlocal filetype=qml
