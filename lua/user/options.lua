@@ -56,7 +56,7 @@ if vim.g.neovide then
   vim.g.neovide_remember_window_position = true
   vim.g.neovide_input_use_logo = 1
   vim.g.neovide_window_blurred = true
-  vim.g.neovide_fullscreen = false
+  vim.g.neovide_fullscreen = true
   -- vim.g.neovide_cursor_animation_length = 0.03
   vim.g.neovide_transparency = 0.8
   vim.g.neovide_hide_mouse_when_typing = true
