@@ -101,6 +101,7 @@ return {
     })
 
     telescope.load_extension('fzf')
+    telescope.load_extension('projects')
 
     -- Keybindings
     local keymap = vim.keymap
