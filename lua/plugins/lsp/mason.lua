@@ -1,15 +1,14 @@
 local servers = {
   -- 'clojure_lsp',
   'clangd',  -- C
-  'cssls',
-  'cssmodules_ls',
+  -- 'cssls',
+  -- 'cssmodules_ls',
   'dockerls',
-  'eslint',
+  -- 'eslint',
   'bufls',
   'jqls',
 
   -- 'denols',
-  'cssmodules_ls',
 
   'ltex',
 
@@ -28,7 +27,7 @@ local servers = {
   -- 'sourcekit', -- Swift
   -- 'rust_analyzer',
   'tsserver',
-  'pyright',
+  -- 'pyright',
   'yamlls',
   'bashls',
   'taplo', -- Toml
