@@ -9,8 +9,6 @@
 
 (float) @number.float
 
-(comment) @comment @spell
-
 ;; ((comment) @comment.documentation
 ;;   (#lua-match? @comment.documentation "^[%%][%%]"))
 
@@ -93,8 +91,8 @@
   lhs: _ @constant.macro
   (#set! "priority" 101))
 
-(_preprocessor_directive) @keyword.directive
-(#set! "priority" 99)
+;; (_preprocessor_directive) @keyword.directive
+;; (#set! "priority" 99)
 
 ; Attributes
 (pp_include) @keyword.import
@@ -182,3 +180,5 @@
 
 (fa
   fun: (atom) @function)
+
+(comment) @comment @spell
