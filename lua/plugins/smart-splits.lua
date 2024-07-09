@@ -3,16 +3,16 @@ return {
 
   config = function()
     require('smart-splits').setup({
-        -- Ignored filetypes (only while resizing)
-        ignored_filetypes = {
-            'nofile',
-            'quickfix',
-            'prompt',
-        },
-        -- Ignored buffer types (only while resizing)
-        ignored_buftypes = { 'NvimTree' },
-        -- the default number of lines/columns to resize by at a time
-        default_amount = 3,
+      -- Ignored filetypes (only while resizing)
+      ignored_filetypes = {
+        'nofile',
+        'quickfix',
+        'prompt',
+      },
+      -- Ignored buffer types (only while resizing)
+      ignored_buftypes = { 'NvimTree' },
+      -- the default number of lines/columns to resize by at a time
+      default_amount = 3,
     })
 
     -- recommended mappings

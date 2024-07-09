@@ -1,8 +1,8 @@
 local opts = {
-    cmd = {
-        "grammarly-languageserver",
-        "--stdio",
-    },
+  cmd = {
+    "grammarly-languageserver",
+    "--stdio",
+  },
 }
 
 return opts
