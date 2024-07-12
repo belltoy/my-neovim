@@ -4,15 +4,17 @@
 
 ((record_decl) @erlang.record_decl)
 
-((macro_call_expr
-   ((var) @constant.macro))
- (#match? @constant.macro "^LOG_")
- (#set! "priority" 102))
-
-((macro_call_expr
-   ((var) @constant.macro))
- (#not-match? @constant.macro "^LOG_")
- (#set! "priority" 102))
+;; ((macro_call_expr
+;;    name: ((var) @constant.macro)
+;;    args: (macro_call_args))
+;;  (#match? @constant.macro "^LOG_")
+;;  (#set! "priority" 102))
+;;
+;; ((macro_call_expr
+;;    name: ((var) @constant.macro)
+;;    args: (macro_call_args))
+;;  (#not-match? @constant.macro "^LOG_")
+;;  (#set! "priority" 102))
 
 ((export_type_attribute) @keyword.import)
 
@@ -47,17 +49,25 @@
   funs: (fa
           fun: (atom) @exported_fun))
 
-(type_alias
-  ty: (map_expr
-        fields: (map_field
-                  key: (atom) @type.definition.key)))
-
 (list
   exprs: (tuple
            expr: (atom) @lists.key
            expr: (_)))
 
+(type_alias
+  ty: (map_expr
+        fields: (map_field
+                  key: (_) @type.definition.key)))
+
 (map_expr
+  fields: (map_field
+            key: (binary) @string))
+(map_expr
+  fields: (map_field
+            key: (_) @maps.key)
+  (#set! "priority" 99))
+
+(map_expr_update
   fields: (map_field
             key: (_) @maps.key))
 
@@ -68,3 +78,14 @@
 (opaque
   name: (type_name
           name: (atom) @type_name))
+
+(macro_call_expr
+  name: (atom) @macro_call
+  args: (macro_call_args))
+
+(macro_call_expr
+  name: (var) @macro_call
+  args: (macro_call_args))
+
+(macro_call_expr
+  name: (var) @macro_call)

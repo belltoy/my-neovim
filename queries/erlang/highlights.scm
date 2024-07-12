@@ -130,8 +130,8 @@
   "#" @type
   name: _ @type) @type
 
-(record_decl
-  name: _ @type) @type.definition
+;; (record_decl
+;;   name: _ @type) @type.definition
 
 (record_field
   name: _ @variable.member)
@@ -141,8 +141,8 @@
   ty: _ @type)
 
 ; Type alias
-(type_alias
-  name: _ @type) @type.definition
+;; (type_alias
+;;   name: _ @type) @type.definition
 
 (spec) @type.definition
 
@@ -181,4 +181,4 @@
 (fa
   fun: (atom) @function)
 
-(comment) @comment @spell
+;; (comment) @comment @spell

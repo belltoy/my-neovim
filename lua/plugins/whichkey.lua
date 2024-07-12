@@ -59,8 +59,8 @@ local setup = {
     -- list of mode / prefixes that should never be hooked by WhichKey
     -- this is mostly relevant for key maps that start with a native binding
     -- most people should not need to change this
-    i = { 'j', 'k' },
-    v = { 'j', 'k' },
+    i = { 'j', 'j' },
+    v = { 'j', 'j' },
   },
 }
 
@@ -75,26 +75,26 @@ local opts = {
 
 local mappings = {
   ["<Space>"] = { '<cmd>Startify<CR>',   "Startify" },
-  e = { '<cmd>NvimTreeToggle<cr>',   'Explorer' },
   w = { '<cmd>w!<CR>',               'Save' },
   q = { '<cmd>q!<CR>',               'Quit' },
-  c = { '<cmd>Bdelete!<CR>',         'Close Buffer' },
+  d = { '<cmd>Bdelete!<CR>',         'Close Buffer' },
   h = { '<cmd>nohlsearch<CR>',       'No Highlight' },
   u = { "<cmd>UrlView<CR>",          'Open URL' },
-  o = { '<cmd>AerialToggle<CR>',     'Toggle Outline (Aerial)' },
   s = { '<cmd>split<CR>',            "Split window — "},
   v = { '<cmd>vsplit<CR>',           "Split window | (Current Buffer)"},
   V = { '<cmd>vsplit +Startify<CR>', "Split window | (Startify Page)"},
-  W = { '<cmd>FixWhitespace<<CR>',   "Fix Whitespace"},
+  W = { '<cmd>Trim<CR>',             "Trim Trailing Spaces"},
   P = { "<cmd>lua require'telescope'.extensions.projects.projects{}<CR>", "Selete Project"},
+  b = { "<cmd>lua require 'gitsigns'.blame_line()<cr>",      'Git Blame Current Line' },
 
-  G = {
+  g = {
     name = 'Git',
     g = { '<cmd>lua _LAZYGIT_TOGGLE()<CR>',                    'Lazygit' },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>",       'Next Hunk' },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>",       'Prev Hunk' },
-    l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>",      'Blame' },
+    l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>",      'Blame Whole File' },
     p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>",    'Preview Hunk' },
+    h = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>",    'Preview Hunk' },
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>",      'Reset Hunk' },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>",    'Reset Buffer' },
     s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>",      'Stage Hunk' },
@@ -112,7 +112,7 @@ local mappings = {
     a = { '<cmd>lua vim.lsp.buf.code_action()<cr>',           'Code Action' },
     d = { '<cmd>Telescope diagnostics bufnr=0<cr>',           'Diagnostics (Current Buffer)' },
     w = { '<cmd>Telescope diagnostics<cr>',                   'Diagnostics (Workspace)' },
-    f = { '<cmd>lua vim.lsp.buf.format { async = true }<cr>', 'Format' },
+    f = { '<cmd>lua vim.lsp.buf.format { async = true }<cr>', 'Format (conform)' },
     i = { '<cmd>LspInfo<cr>',                                 'Info' },
     I = { '<cmd>Mason<cr>',                                   'Installer Info' },
     j = { '<cmd>lua vim.diagnostic.goto_next()<CR>',          'Next Diagnostic' },
@@ -151,16 +151,21 @@ local mappings = {
   },
 }
 
+vim.api.nvim_set_hl(0, "WhichKeyBorder", { fg = "#A16600" })
+-- vim.cmd [[ hi WhichKeyBorder guifg=#A16600 ]]
+
 return {
   'folke/which-key.nvim',
+
   event = "VeryLazy",
+
   init = function()
     vim.o.timeout = true
     vim.o.timeoutlen = 300
   end,
-  opts = setup,
+
+  -- opts = setup,
   config = function()
-    vim.cmd [[ hi WhichKeyBorder guifg=#A16600 ]]
     local which_key = require('which-key')
     which_key.setup(setup)
     which_key.register(mappings, opts)

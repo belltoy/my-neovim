@@ -17,7 +17,7 @@ return {
   {
     'mrcjkb/rustaceanvim',
     version = '^4', -- Recommended
-    lazy = false, -- This plugin is already lazy
+    lazy = false,   -- This plugin is already lazy
     config = function()
       local opts = {
         -- Plugin configuration
@@ -36,9 +36,9 @@ return {
           default_settings = {
             -- rust-analyzer language server configuration
             ['rust-analyzer'] = {
-                checkOnSave = {
-                  command = "clippy"
-                },
+              checkOnSave = {
+                command = "clippy"
+              },
             },
           },
         },

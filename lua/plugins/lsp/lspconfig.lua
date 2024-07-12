@@ -52,7 +52,7 @@ local setup = function()
   }
 
   vim.lsp.handlers['window/showMessage'] = function(_ --[[ err ]], method, params, _ --[[ client_id ]])
-    vim.notify(method.message, severity[params.type])
+    vim.notify(method.message, severity[params.type or 'info'])
   end
 end
 

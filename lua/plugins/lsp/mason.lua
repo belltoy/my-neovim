@@ -26,8 +26,6 @@ local servers = {
   'elixirls',
 }
 
--- local on_attach = require('user.mason_settings').on_attach
-
 return {
   'williamboman/mason.nvim', -- simple to use language server installer, replaced williamboman/nvim-lsp-installer
   dependencies = {
@@ -77,23 +75,26 @@ return {
         -- end
     }
 
+    local on_attach = require('user.mason_settings').on_attach
+    local opts = {
+      on_attach = on_attach,
+      -- capabilities = require('user.lsp.handlers').capabilities,
+    }
+
     for _, server in pairs(servers) do
-      local opts = {
-        -- on_attach = on_attach,
-        -- capabilities = require('user.lsp.handlers').capabilities,
-      }
+      local opts0 = opts
 
       local has_custom_opts, server_custom_opts = pcall(require, 'plugins.lsp.settings.' .. server)
 
       if has_custom_opts then
-        opts = vim.tbl_deep_extend('force', server_custom_opts, opts)
+        opts0 = vim.tbl_deep_extend('force', server_custom_opts, opts0)
       end
 
-      lspconfig[server].setup(opts)
+      lspconfig[server].setup(opts0)
     end
 
     -- Manually installed lsp
-    lspconfig['elp'].setup({})
-    lspconfig['ltex'].setup({})
+    lspconfig['elp'].setup(opts)
+    lspconfig['ltex'].setup(opts)
   end
 }

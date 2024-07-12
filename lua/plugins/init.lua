@@ -30,6 +30,7 @@ return {
   'sheerun/vim-polyglot',
 
   'github/copilot.vim',
+
   'junegunn/vim-easy-align',
 
   -- tmux integration
@@ -37,20 +38,6 @@ return {
   'christoomey/vim-tmux-navigator',
   -- "alexghergh/nvim-tmux-navigation",
   -- "edkolev/tmuxline.vim",
-
-  -- Colorschemes
-  -- 'lunarvim/darkplus.nvim',
-  'EdenEast/nightfox.nvim',
-  'folke/tokyonight.nvim',
-  {
-    'belltoy/molokai',
-    config = function()
-      vim.cmd('colorscheme molokai')
-      vim.cmd [[
-        hi! link @variable Identifier
-      ]]
-    end
-  },
 
   -- Conflict with Copilot, disable for now
   -- cmp plugins
@@ -69,24 +56,27 @@ return {
 
   -- Vim plugin for automatically highlighting other uses of the word under the cursor.
   -- Integrates with Neovim's LSP client for intelligent highlighting.
-  'RRethy/vim-illuminate',
+  {
+    'RRethy/vim-illuminate',
+    config = function()
+      require('illuminate').configure({
+        filetypes_denylist = {
+          'NvimTree',
+          'aerial',
+          'trouble',
+          'markdown',
+          'help',
+          'lazy',
+          'checkhealth',
+          'neo-tree',
+        }
+      })
+    end
+  },
 
   'ckipp01/stylua-nvim', -- Lua code formatter
-  'gpanders/editorconfig.nvim',
 
-  -- Smooth scrolling
-  -- {'declancm/cinnamon.nvim',
-  --     config = function()
-  --         require('cinnamon').setup({})
-  --     end
-  -- },
-  -- {'karb94/neoscroll.nvim',
-  --     config = function()
-  --         require('neoscroll').setup({
-  --             easing_function = 'sine',
-  --         })
-  --     end
-  -- },
+  'gpanders/editorconfig.nvim',
 
   'rainbowhxch/accelerated-jk.nvim',
 
@@ -96,7 +86,7 @@ return {
 
   'wakatime/vim-wakatime',
 
-  'bronson/vim-trailing-whitespace',
+  -- 'bronson/vim-trailing-whitespace',
 
   -- Standalone UI for nvim-lsp progress
   {
@@ -125,7 +115,12 @@ return {
 
   'imsnif/kdl.vim',
 
-  -- { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-
-  -- 'f-person/git-blame.nvim',
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    opts = {
+      direction = 'float',
+      open_mapping = [[<M-\>]],
+    },
+  },
 }

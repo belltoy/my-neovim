@@ -9,5 +9,6 @@ hi link @exported_fun.erlang Function
 hi @fun_decl.erlang guifg=#f8f8f2
 hi link @type.definition.key.erlang @property
 hi link @lists.key.erlang @property
-hi link @maps.key.erlang @property
+hi link @maps.key.erlang @constant
 hi link @type_name.erlang @property
+hi link @macro_call.erlang Macro

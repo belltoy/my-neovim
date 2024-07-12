@@ -79,125 +79,125 @@ local function on_attach(bufnr)
 end
 
 return {
-  "nvim-tree/nvim-tree.lua",
-  version = "*",
-  lazy = false,
-  dependencies = {
-    "nvim-tree/nvim-web-devicons",
-  },
-  config = function()
-    vim.api.nvim_create_autocmd('BufEnter', {
-      nested = true,
-      callback = function()
-        if #vim.api.nvim_list_wins() == 1 and vim.api.nvim_buf_get_name(0):match('NvimTree_') ~= nil then
-          vim.cmd('quit')
-        end
-      end,
-    })
-
-    require("nvim-tree").setup {
-        prefer_startup_root = true,
-        disable_netrw = true,
-        hijack_netrw = true,
-        -- open_on_tab = false,
-        hijack_cursor = false,
-        -- update_cwd = false,
-        respect_buf_cwd = true,
-        on_attach = on_attach,
-        diagnostics = {
-          enable = true,
-          icons = {
-            hint = '',
-            info = '',
-            warning = '',
-            error = '',
-          },
-        },
-        update_focused_file = {
-          enable = true,
-          -- update_cwd = false,
-          update_root = false,
-          ignore_list = {},
-        },
-        system_open = {
-          cmd = 'open',
-          args = {},
-        },
-        filters = {
-          git_ignored = true,
-          dotfiles = true,
-          custom = {},
-        },
-        git = {
-          enable = true,
-          -- ignore = true,
-          timeout = 500,
-        },
-        renderer = {
-          special_files = {
-          "Cargo.toml", "Makefile", "README.md", "readme.md",
-          "package.json", "yarn.lock", "package-lock.json",
-          "rebar.config", "mix.exs", "Dockerfile", "docker-compose.yml",
-          },
-          highlight_opened_files = 'name',
-          highlight_diagnostics = 'icon',
-          -- root_folder_label = false,
-          icons = {
-            git_placement = 'after',
-            glyphs = {
-              default = '',
-              symlink = '',
-              modified = "●",
-              git = {
-                unstaged = '',
-                staged = 'S',
-                unmerged = '',
-                renamed = '➜',
-                deleted = '',
-                untracked = 'U',
-                ignored = '◌',
-              },
-              folder = {
-                default = '',
-                open = '',
-                empty = '',
-                empty_open = '',
-                symlink = '',
-              },
-            },
-          },
-        },
-        view = {
-          width = 30,
-          -- height = 30,
-          side = 'left',
-          number = false,
-          relativenumber = false,
-        },
-        trash = {
-          cmd = 'trash',
-          require_confirm = true,
-        },
-        actions = {
-          open_file = {
-            quit_on_open = false,
-            resize_window = false,
-            window_picker = {
-              enable = false,
-            },
-          },
-        },
-
-        --  unknown options as of 22.05
-        --
-        --  update_to_buf_dir = {
-        --    enable = true,
-        --    auto_open = true,
-        --  },
-        --  auto_resize = true,
-        --  git_hl = 1,
-        --  root_folder_modifier = ":t",
-
-    }
-  end,
+  -- "nvim-tree/nvim-tree.lua",
+  -- version = "*",
+  -- lazy = false,
+  -- dependencies = {
+  --   "nvim-tree/nvim-web-devicons",
+  -- },
+  -- config = function()
+  --   vim.api.nvim_create_autocmd('BufEnter', {
+  --     nested = true,
+  --     callback = function()
+  --       if #vim.api.nvim_list_wins() == 1 and vim.api.nvim_buf_get_name(0):match('NvimTree_') ~= nil then
+  --         vim.cmd('quit')
+  --       end
+  --     end,
+  --   })
+  --
+  --   require("nvim-tree").setup {
+  --       prefer_startup_root = true,
+  --       disable_netrw = true,
+  --       hijack_netrw = true,
+  --       -- open_on_tab = false,
+  --       hijack_cursor = false,
+  --       -- update_cwd = false,
+  --       respect_buf_cwd = true,
+  --       on_attach = on_attach,
+  --       diagnostics = {
+  --         enable = true,
+  --         icons = {
+  --           hint = '',
+  --           info = '',
+  --           warning = '',
+  --           error = '',
+  --         },
+  --       },
+  --       update_focused_file = {
+  --         enable = true,
+  --         -- update_cwd = false,
+  --         update_root = false,
+  --         ignore_list = {},
+  --       },
+  --       system_open = {
+  --         cmd = 'open',
+  --         args = {},
+  --       },
+  --       filters = {
+  --         git_ignored = true,
+  --         dotfiles = true,
+  --         custom = {},
+  --       },
+  --       git = {
+  --         enable = true,
+  --         -- ignore = true,
+  --         timeout = 500,
+  --       },
+  --       renderer = {
+  --         special_files = {
+  --         "Cargo.toml", "Makefile", "README.md", "readme.md",
+  --         "package.json", "yarn.lock", "package-lock.json",
+  --         "rebar.config", "mix.exs", "Dockerfile", "docker-compose.yml",
+  --         },
+  --         highlight_opened_files = 'name',
+  --         highlight_diagnostics = 'icon',
+  --         -- root_folder_label = false,
+  --         icons = {
+  --           git_placement = 'after',
+  --           glyphs = {
+  --             default = '',
+  --             symlink = '',
+  --             modified = "●",
+  --             git = {
+  --               unstaged = '',
+  --               staged = 'S',
+  --               unmerged = '',
+  --               renamed = '➜',
+  --               deleted = '',
+  --               untracked = 'U',
+  --               ignored = '◌',
+  --             },
+  --             folder = {
+  --               default = '',
+  --               open = '',
+  --               empty = '',
+  --               empty_open = '',
+  --               symlink = '',
+  --             },
+  --           },
+  --         },
+  --       },
+  --       view = {
+  --         width = 30,
+  --         -- height = 30,
+  --         side = 'left',
+  --         number = false,
+  --         relativenumber = false,
+  --       },
+  --       trash = {
+  --         cmd = 'trash',
+  --         require_confirm = true,
+  --       },
+  --       actions = {
+  --         open_file = {
+  --           quit_on_open = false,
+  --           resize_window = false,
+  --           window_picker = {
+  --             enable = false,
+  --           },
+  --         },
+  --       },
+  --
+  --       --  unknown options as of 22.05
+  --       --
+  --       --  update_to_buf_dir = {
+  --       --    enable = true,
+  --       --    auto_open = true,
+  --       --  },
+  --       --  auto_resize = true,
+  --       --  git_hl = 1,
+  --       --  root_folder_modifier = ":t",
+  --
+  --   }
+  -- end,
 }

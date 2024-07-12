@@ -36,6 +36,10 @@ return {
   },
 
   keys = {
+    -- {
+    --   "<leader>x",
+    --   desc = "Trouble",
+    -- },
     {
       "<leader>xx",
       "<cmd>Trouble diagnostics toggle focus=true win.size=30<cr>",
