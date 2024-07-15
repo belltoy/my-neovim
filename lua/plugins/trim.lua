@@ -11,6 +11,9 @@ return {
         "TelescopePrompt",
         "toggleterm",
         "lspinfo",
+        "alpha",
+        "startify",
+        "lazy",
       },
     }
   end
