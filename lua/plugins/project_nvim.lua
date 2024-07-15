@@ -8,7 +8,7 @@ local opts = {
   ---@usage set to true to disable setting the current-woriking directory
   --- Manual mode doesn't automatically change your root directory, so you have
   --- the option to manually do so using `:ProjectRoot` command.
-  manual_mode = true,
+  manual_mode = false,
 
   ---@usage Methods of detecting the root directory
   --- Allowed values: **"lsp"** uses the native neovim lsp
@@ -20,11 +20,11 @@ local opts = {
   detection_methods = { --[[ "lsp", ]] "pattern" },
 
   ---@usage patterns used to detect root dir, when **"pattern"** is in detection_methods
-  patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "Cargo.toml", "rebar.config" },
+  patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "Cargo.toml", "rebar.config", "mix.exs" },
 
   -- Don't calculate root dir on specific directories
   -- Ex: { "~/.cargo/*", ... }
-  exclude_dirs = { "~/.cargo/*", "_build/*", "/opt/*", "target/*" },
+  exclude_dirs = { "~/.cargo/*", "*/_build/*", "/opt/*", "*/target/*", "*/deps/*" },
 
 
   ---@ Show hidden files in telescope when searching for files in a project
