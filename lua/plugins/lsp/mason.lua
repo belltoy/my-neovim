@@ -8,7 +8,7 @@ local servers = {
   'bufls',
   'jqls',
 
-  -- 'ltex',
+  'ltex',
 
   -- python
 
@@ -56,7 +56,7 @@ return {
       -- auto-install configured servers (with lspconfig)
       automatic_installation = {
         exclude = {
-          "elp", "ltex"
+          "elp",
         },
       }, -- not the same as ensure_installed
     })
@@ -95,6 +95,5 @@ return {
 
     -- Manually installed lsp
     lspconfig['elp'].setup(opts)
-    lspconfig['ltex'].setup(opts)
   end
 }
