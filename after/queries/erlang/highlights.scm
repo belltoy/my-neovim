@@ -18,12 +18,12 @@
 
 ((export_type_attribute) @keyword.import)
 
-((comment) @comment.documentation
-           (#set! "priority" 101))
-
-((comment) @comment.documentation
-           (#lua-match? @comment.documentation "^[%%][%%] @doc")
-           (#set! "priority" 102))
+;; ((comment) @comment.documentation
+;;            (#set! "priority" 101))
+;;
+;; ((comment) @comment.documentation
+;;            (#lua-match? @comment.documentation "^[%%][%%] @doc")
+;;            (#set! "priority" 102))
 
 ((feature_attribute
    (atom) @features.feature

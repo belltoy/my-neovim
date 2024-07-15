@@ -1,4 +1,5 @@
 vim.cmd [[
+hi link @comment.documentation.identifier.elixir Identifier
 syn keyword elixirKeyword defapi defcall test setup setup_all
 syn keyword elixirCustomDefine defapi defcall nextgroup=elixirFunctionDeclaration skipwhite skipnl
 if exists("loaded_matchit")
