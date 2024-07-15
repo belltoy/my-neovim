@@ -14,11 +14,6 @@ return {
 
   'antoinemadec/FixCursorHold.nvim', -- This is needed to fix lsp doc highlight
 
-  -- Start screen
-  -- "goolord/alpha-nvim",
-  -- 'mhinz/vim-startify',
-  -- "glepnir/dashboard-nvim",
-
   'godlygeek/tabular',
 
   'preservim/vim-markdown',
@@ -69,6 +64,7 @@ return {
           'lazy',
           'checkhealth',
           'neo-tree',
+          'alpha',
         }
       })
     end
