@@ -11,12 +11,12 @@ local opts = { noremap = true, silent = true }
 -- Shorten function name
 local keymap = vim.keymap.set
 
-local ext = function(table, key, value)
+local desc = function(table, value)
   local tbl = {}
   for k, v in pairs(table) do
     tbl[k] = v
   end
-  tbl[key] = value
+  tbl["desc"] = value
   return tbl
 end
 
@@ -49,19 +49,19 @@ keymap('n', '<a-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,w
 
 -- EasyAlign
 keymap("v", "<Enter>", "<Plug>(EasyAlign)", opts)
-keymap("n", "<Leader>aa", "<Plug>(EasyAlign)", opts)
+-- keymap("n", "<Leader>aa", "<Plug>(EasyAlign)", opts)
 vim.cmd([[
 " Align GitHub-flavored Markdown tables
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 ]])
 
-keymap("n", "<Leader>n", "<cmd>Neotree toggle<CR>", ext(opts, "desc", "File Explorer"))
+keymap("n", "<Leader>n", "<cmd>Neotree toggle<CR>", desc(opts, "File Explorer"))
 
 -- GUI Tools integration
-keymap("n", "<Leader>gt", "<cmd>!tower .<CR><CR>", ext(opts, "desc", "Tower"))
+keymap("n", "<Leader>gt", "<cmd>!tower .<CR><CR>", desc(opts, "Tower"))
 
 -- Only current buffer
-keymap("n", "<Leader>O", ":only<CR>", ext(opts, "desc", "Only Current Buffer"))
+-- keymap("n", "<Leader>O", ":only<CR>", desc(opts, "Only Current Buffer"))
 
 -- Insert --
 -- Press jj fast to enter
@@ -92,8 +92,6 @@ keymap("v", "p", '"_dP', opts)
 
 keymap("v", "/", "y/<C-R>\"<CR>", opts)
 keymap("v", "?", "y?<C-R>\"<CR>", opts)
--- turn off highlight search
-keymap("n", "<Leader>.", ":nohlsearch<CR>", opts)
 
 -- Visual Block --
 -- Move text up and down
