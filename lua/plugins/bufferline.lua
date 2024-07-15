@@ -36,9 +36,9 @@ local opts = {
     tab_size = 24,
     diagnostics = "nvim_lsp", -- | "nvim_lsp" | "coc",
     diagnostics_update_in_insert = false,
-    -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
-    --   return "("..count..")"
-    -- end,
+    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+      return "("..count..")"
+    end,
     -- NOTE: this will be called a lot so don't do any heavy processing here
     -- custom_filter = function(buf_number)
     --   -- filter out filetypes you don't want to see
@@ -55,7 +55,7 @@ local opts = {
     --     return true
     --   end
     -- end,
-    offsets = { { filetype = 'neo-tree', text = '', padding = 1 } },
+    offsets = { { filetype = 'neo-tree', text = 'File Explorer', padding = 1 } },
     -- offsets = {
     --     {
     --         filetype = "NvimTree",
@@ -87,6 +87,8 @@ local opts = {
     }
   },
 
+  -- TabLine        xxx guifg=#808080 guibg=#1B1D1E
+
   highlights = {
     fill = {
       fg = { attribute = 'fg', highlight = 'TabLine' },
@@ -97,116 +99,24 @@ local opts = {
       bg = { attribute = 'bg', highlight = 'TabLine' },
     },
 
-    buffer_selected = {
-      -- fg = {attribute='fg', highlight='Visual'},
-      -- bg = '#303030',
-      fg = '#005f00',
-      -- fg = {attribute='fg', highlight='lualine_a_normal'},
-      bg = '#afdf00',
-      -- gui = 'none'
-    },
-    buffer_visible = {
-      fg = { attribute = 'fg', highlight = 'TabLine' },
-      bg = { attribute = 'bg', highlight = 'TabLine' },
-    },
+    buffer_selected             = { bg = '#606060' },
+    close_button_selected       = { bg = '#606060' },
 
-    close_button = {
-      fg = { attribute = 'fg', highlight = 'TabLine' },
-      bg = { attribute = 'bg', highlight = 'TabLine' },
-    },
-    close_button_visible = {
-      fg = { attribute = 'fg', highlight = 'TabLine' },
-      bg = { attribute = 'bg', highlight = 'TabLine' },
-    },
-    close_button_selected = {
-      fg = {attribute='fg', highlight='TabLineSel'},
-      -- bg ={attribute='bg', highlight='TabLineSel'}
-      -- bg ={attribute='bg', highlight='#303030'},
-      -- bg = "#303030",
-        bg = '#afdf00'
-      },
+    hint_selected               = { bg = '#606060' },
+    info_selected               = { bg = '#606060' },
+    error_selected              = { bg = '#606060' },
+    warning_selected            = { bg = '#606060' },
 
-    error_selected = {
-      fg = 'red',
-      bg = '#afdf00',
-    },
+    tab_selected                = { bg = '#606060' },
+    duplicate_selected          = { bg = '#606060' },
+    separator                   = { fg = '#191919', bg = '#191919' },
+    indicator_selected          = { fg = '#606060', bg = '#606060' },
 
-    warning_selected = {
-      fg = '#DFA200',
-      bg = '#afdf00',
-      -- bg = '#e6db74',
-    },
-
-    tab_selected = {
-      fg = { attribute = 'fg', highlight = 'Normal' },
-      bg = { attribute = 'bg', highlight = 'Normal' },
-    },
-    tab = {
-      fg = { attribute = 'fg', highlight = 'TabLine' },
-      bg = { attribute = 'bg', highlight = 'TabLine' },
-    },
-    tab_close = {
-      -- fg = {attribute='fg',highlight='LspDiagnosticsDefaultError'},
-      fg = { attribute = 'fg', highlight = 'TabLineSel' },
-      bg = { attribute = 'bg', highlight = 'Normal' },
-    },
-
-    duplicate_selected = {
-      fg = { attribute = 'fg', highlight = 'TabLineSel' },
-      bg = { attribute = 'bg', highlight = 'TabLineSel' },
-      --[[ underline = true, undercurl = true, ]]
-      italic = true
-    },
-    duplicate_visible = {
-      fg = { attribute = 'fg', highlight = 'TabLine' },
-      bg = { attribute = 'bg', highlight = 'TabLine' },
-      italic = true
-    },
-    duplicate = {
-      fg = { attribute = 'fg', highlight = 'TabLine' },
-      bg = { attribute = 'bg', highlight = 'TabLine' },
-      italic = true
-    },
-
-    modified = {
-      fg = { attribute = 'fg', highlight = 'TabLine' },
-      bg = { attribute = 'bg', highlight = 'TabLine' },
-    },
-    modified_selected = {
-      fg = { attribute = 'fg', highlight = 'Normal' },
-      bg = { attribute = 'bg', highlight = 'Normal' },
-    },
-    modified_visible = {
-      fg = { attribute = 'fg', highlight = 'TabLine' },
-      bg = { attribute = 'bg', highlight = 'TabLine' },
-    },
-
-    separator = {
-      -- fg = 'red',
-      fg = { attribute = 'bg', highlight = 'TabLine' },
-      bg = { attribute = 'bg', highlight = 'TabLine' },
-    },
-    separator_selected = {
-      -- fg = '#afdf00',
-      -- fg = { attribute = 'bg', highlight = 'Normal' },
-      -- bg = { attribute = 'bg', highlight = 'Normal' },
-      fg = { attribute = 'bg', highlight = 'lualine_a_normal' },
-      bg = { attribute = 'bg', highlight = 'lualine_a_normal' },
-      -- fg = '#afdf00',
-      -- bg = '#afdf00',
-    },
-    -- separator_visible = {
-    --   fg = {attribute='bg',highlight='TabLine'},
-    --   bg = {attribute='bg',highlight='TabLine'}
-    --   },
-    indicator_selected = {
-      -- fg = { attribute = 'fg', highlight = 'LspDiagnosticsDefaultHint' },
-      -- bg = { attribute = 'bg', highlight = 'Normal' },
-      -- fg = '#afdf00',
-      -- fg = { attribute = 'bg', highlight = 'lualine_a_normal' },
-      fg = '#afdf00',
-      bg = '#afdf00',
-    },
+    diagnostic_selected         = { bg = '#606060' },
+    hint_diagnostic_selected    = { bg = '#606060' },
+    info_diagnostic_selected    = { bg = '#606060' },
+    warning_diagnostic_selected = { bg = '#606060' },
+    error_diagnostic_selected   = { bg = '#606060' },
   },
 }
 
