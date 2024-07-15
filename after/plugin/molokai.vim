@@ -10,3 +10,7 @@ hi NeoTreeTabActive gui=bold guibg=cyan guifg=black
 hi NeoTreeTabInactive guibg=#2B2B2B
 hi NeoTreeTabSeparatorActive guibg=cyan
 hi NeoTreeTabSeparatorInactive guibg=#2B2B2B
+
+hi link @unwrap_call.rust TodoBgFIX
+hi @keyword.unsafe.rust guibg=#741A1A
+hi link @pointer_type.rust TodoFgFIX
