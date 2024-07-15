@@ -18,13 +18,13 @@ return {
         highlight_separator = "NeoTreeTabSeparatorInactive",      -- string
         highlight_separator_active = "NeoTreeTabSeparatorActive", -- string
       },
-      close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
+      close_if_last_window = false,                               -- Close Neo-tree if it is the last window left in the tab
       popup_border_style = "rounded",
       enable_git_status = true,
       enable_diagnostics = true,
       open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
-      sort_case_insensitive = false, -- used when sorting files and directories in the tree
-      sort_function = nil , -- use a custom function for sorting files and directories in the tree
+      sort_case_insensitive = false,                                     -- used when sorting files and directories in the tree
+      sort_function = nil,                                               -- use a custom function for sorting files and directories in the tree
       -- sort_function = function (a,b)
       --       if a.type == b.type then
       --           return a.path > b.path
@@ -36,6 +36,22 @@ return {
         container = {
           enable_character_fade = true
         },
+        -- diagnostics = {
+        --   symbols = {
+        --     -- hint = "H",
+        --     -- info = "I",
+        --     -- warn = "!",
+        --     -- error = "X",
+        --     -- warn = "",
+        --     -- error = "󰅙",
+        --   },
+        --   highlights = {
+        --     hint = "DiagnosticSignHint",
+        --     info = "DiagnosticSignInfo",
+        --     warn = "DiagnosticSignWarn",
+        --     error = "DiagnosticSignError",
+        --   },
+        -- },
         indent = {
           indent_size = 2,
           padding = 1, -- extra padding on left hand side
@@ -70,18 +86,29 @@ return {
         },
         git_status = {
           symbols = {
-            -- Change type
-            added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-            modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-            deleted   = "✖",-- this can only be used in the git_status source
-            renamed   = "󰁕",-- this can only be used in the git_status source
-            -- Status type
-            untracked = "",
-            ignored   = "",
-            unstaged  = "󰄱",
-            staged    = "",
-            conflict  = "",
-          }
+            added = "󰬈",
+            modified = "󰬔",
+            deleted = "󰬋",
+            renamed = "󰬙",
+            untracked = "󰬛",
+            ignored = "󰬐",
+            unstaged = "󰬜",
+            staged = "󰬚",
+            conflict = "󰬊",
+          },
+          -- symbols = {
+          --   -- Change type
+          --   added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+          --   modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
+          --   deleted   = "✖",-- this can only be used in the git_status source
+          --   renamed   = "󰁕",-- this can only be used in the git_status source
+          --   -- Status type
+          --   untracked = "",
+          --   ignored   = "",
+          --   unstaged  = "",
+          --   staged    = "",
+          --   conflict  = "",
+          -- }
         },
         -- If you don't want to use these columns, you can set `enabled = false` for each of them individually
         file_size = {
@@ -117,8 +144,8 @@ return {
         },
         mappings = {
           ["<space>"] = {
-              "toggle_node",
-              nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+            "toggle_node",
+            nowait = false,   -- disable `nowait` if you have existing combos starting with this char that you want to use
           },
           ["<2-LeftMouse>"] = "open",
           ["<cr>"] = "open",
@@ -135,9 +162,9 @@ return {
           -- ["t"] = "open_tab_drop",
           ["w"] = "open_with_window_picker",
           ["x"] = "close_node",
-          ["o"] = {"open", nowait = true},
+          ["o"] = { "open", nowait = true },
           -- ['C'] = 'close_all_subnodes',
-          ["z"] = "close_all_nodes",
+          -- ["z"] = "close_all_nodes",
           --["Z"] = "expand_all_nodes",
           ["a"] = {
             "add",
@@ -200,18 +227,18 @@ return {
           },
         },
         follow_current_file = {
-          enabled = true, -- This will find and focus the file in the active buffer every time
+          enabled = true,                       -- This will find and focus the file in the active buffer every time
           --               -- the current file is changed while the tree is open.
-          leave_dirs_open = true, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+          leave_dirs_open = true,               -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
-        group_empty_dirs = false, -- when true, empty folders will be grouped together
+        group_empty_dirs = false,               -- when true, empty folders will be grouped together
         hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
-                                                -- in whatever position is specified in window.position
-                              -- "open_current",  -- netrw disabled, opening a directory opens within the
-                                                -- window like netrw would, regardless of window.position
-                              -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
+        -- in whatever position is specified in window.position
+        -- "open_current",  -- netrw disabled, opening a directory opens within the
+        -- window like netrw would, regardless of window.position
+        -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
         use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
-                                        -- instead of relying on nvim autocmd events.
+        -- instead of relying on nvim autocmd events.
         window = {
           mappings = {
             ["<bs>"] = "navigate_up",
@@ -225,8 +252,9 @@ return {
             ["<c-x>"] = "clear_filter",
             ["[g"] = "prev_git_modified",
             ["]g"] = "next_git_modified",
-            ["o"] = {"open", nowait = true},
+            ["o"] = { "open", nowait = true },
             ["x"] = "close_node",
+            ["z"] = "",
             -- ["o"] = { "show_help", nowait=false, config = { title = "Order by", prefix_key = "o" }},
             -- ["oc"] = { "order_by_created", nowait = false },
             -- ["od"] = { "order_by_diagnostics", nowait = false },
@@ -250,18 +278,18 @@ return {
       },
       buffers = {
         follow_current_file = {
-          enabled = true, -- This will find and focus the file in the active buffer every time
+          enabled = true,          -- This will find and focus the file in the active buffer every time
           --              -- the current file is changed while the tree is open.
           leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
-        group_empty_dirs = true, -- when true, empty folders will be grouped together
+        group_empty_dirs = true,   -- when true, empty folders will be grouped together
         show_unloaded = true,
         window = {
           mappings = {
             ["bd"] = "buffer_delete",
             ["<bs>"] = "navigate_up",
             ["."] = "set_root",
-            ["o"] = { "show_help", nowait=false, config = { title = "Order by", prefix_key = "o" }},
+            ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
             ["oc"] = { "order_by_created", nowait = false },
             ["od"] = { "order_by_diagnostics", nowait = false },
             ["om"] = { "order_by_modified", nowait = false },
@@ -282,7 +310,7 @@ return {
             ["gc"] = "git_commit",
             ["gp"] = "git_push",
             ["gg"] = "git_commit_and_push",
-            ["o"] = { "show_help", nowait=false, config = { title = "Order by", prefix_key = "o" }},
+            ["o"]  = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
             ["oc"] = { "order_by_created", nowait = false },
             ["od"] = { "order_by_diagnostics", nowait = false },
             ["om"] = { "order_by_modified", nowait = false },
