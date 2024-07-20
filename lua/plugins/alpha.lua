@@ -84,6 +84,11 @@ return {
       { "Ignore", 0, 3 },
       { "Ignore", 6, 10 },
     }
+    local btn_neorg = startify.button( "N", "  Neorg" , ":Neorg index<CR>")
+    btn_neorg.opts.hl = {
+      { "ErrorMsg", 0, 3 },
+      { "ErrorMsg", 5, 6 },
+    }
     local btn_edit_nvim = startify.button( "E", "  Edit   NVIM Config" , ":Neotree ~/.config/nvim/<CR>")
     btn_edit_nvim.opts.hl = {
       { "ErrorMsg", 0, 3 },
@@ -102,6 +107,7 @@ return {
       btn_file,
       btn_grep,
       btn_git,
+      btn_neorg,
       btn_edit_nvim,
       btn_reload_nvim,
       btn_quit_alpha,

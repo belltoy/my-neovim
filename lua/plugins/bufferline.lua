@@ -99,8 +99,10 @@ local opts = {
       bg = { attribute = 'bg', highlight = 'TabLine' },
     },
 
+    modified_selected           = { bg = '#606060' },
     buffer_selected             = { bg = '#606060' },
     close_button_selected       = { bg = '#606060' },
+    close_button_visible        = { bg = '#606060' },
 
     hint_selected               = { bg = '#606060' },
     info_selected               = { bg = '#606060' },

@@ -8,6 +8,7 @@ return {
       return
     end
     url_open.setup({})
-    vim.keymap.set("n", "gx", "<esc>:URLOpenUnderCursor<cr>")
+    vim.keymap.set("n", "go", "<esc>:URLOpenUnderCursor<cr>", { desc = "Open URL" })
+    vim.keymap.set("n", "<leader>u", "<esc>:URLOpenUnderCursor<cr>", { desc = "Open URL" })
   end,
 }

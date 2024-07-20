@@ -13,6 +13,9 @@ return {
         "lspinfo",
         "alpha",
         "startify",
+        "prompt",
+        "checkhealth",
+        "mason",
         "lazy",
       },
     }

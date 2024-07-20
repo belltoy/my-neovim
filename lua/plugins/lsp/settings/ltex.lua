@@ -5,7 +5,9 @@ for word in io.open(vim.fn.stdpath("config") .. "/spell/en.utf-8.add", "r"):line
 end
 
 local opts = {
-  cmd = { 'ltex-ls' },   -- add this if you install ltex-ls yourself
+  cmd = {
+    'ltex-ls', '--log-file', vim.fn.stdpath('log') .. '/ltex.log'
+  },   -- add this if you install ltex-ls yourself
   settings = {
     ltex = {
       enabled = {

@@ -9,8 +9,8 @@ return {
   event = { "BufWritePre" },
   cmd = { "ConformInfo" },
   keys = {
-    { "F", f, mode = "v", desc = "Range Format" },
-    { "<leader>F", format, mode = "", desc = "Format buffer" },
+    { "F",         f,      mode = "v", desc = "Range Format" },
+    { "<leader>F", format, mode = "",  desc = "Format buffer" },
   },
   opts = {
     format_on_save = nil,

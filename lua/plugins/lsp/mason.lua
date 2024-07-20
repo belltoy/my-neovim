@@ -94,6 +94,15 @@ return {
     end
 
     -- Manually installed lsp
-    lspconfig['elp'].setup(opts)
+    lspconfig['elp'].setup({
+      on_attach = on_attach,
+      -- capabilities = require('user.lsp.handlers').capabilities,
+      cmd = {
+        'elp', '--log-file', vim.fn.stdpath('log') .. '/elp.log', 'server'
+      },
+      flags = {
+        exit_timeout = 0,
+      },
+    })
   end
 }

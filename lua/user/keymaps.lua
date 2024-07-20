@@ -45,7 +45,9 @@ keymap("n", "<M-l>", ":bnext<CR>", opts)
 -- Illuminate
 -- You can cycle through these document highlights with these mappings:
 keymap('n', '<a-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', opts)
+keymap('n', '<c-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', opts)
 keymap('n', '<a-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', opts)
+keymap('n', '<c-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', opts)
 
 -- EasyAlign
 keymap("v", "<Enter>", "<Plug>(EasyAlign)", opts)
@@ -58,13 +60,13 @@ au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 keymap("n", "<Leader>n", "<cmd>Neotree toggle<CR>", desc(opts, "File Explorer"))
 
 -- GUI Tools integration
-keymap("n", "<Leader>gt", "<cmd>!tower .<CR><CR>", desc(opts, "Tower"))
+keymap("n", "<Leader>gt", "<cmd>!tower .<CR><CR>", desc(opts, "Git Tower"))
 
 -- Only current buffer
 -- keymap("n", "<Leader>O", ":only<CR>", desc(opts, "Only Current Buffer"))
 
 -- Insert --
--- Press jj fast to enter
+-- Press jj fast to escape insert mode
 -- timeout in 300ms
 vim.opt.timeoutlen = 300
 keymap("i", "jj", "<ESC>", opts)
@@ -73,15 +75,15 @@ keymap("i", "..", "->", opts)
 keymap("i", ",,", "<-", opts)
 keymap("i", "hh", "=>", opts)
 keymap("i", "aa", "@", opts)
-keymap("i", "<up>", "<C-o>gk", opts)
-keymap("i", "<down>", "<C-o>gj", opts)
+-- keymap("i", "<up>", "<C-o>gk", opts)
+-- keymap("i", "<down>", "<C-o>gj", opts)
 
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
-keymap("n", ">", "v><Esc>", opts)
-keymap("n", "<", "v<<Esc>", opts)
+keymap("n", ">", "v><Esc>", desc(opts, "Increase Indent"))
+keymap("n", "<", "v<<Esc>", desc(opts, "Decrease Indent"))
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==<Esc>", opts)

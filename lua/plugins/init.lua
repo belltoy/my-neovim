@@ -7,11 +7,6 @@ return {
   -- Bbye allows you to do delete buffers (close files) without closing your windows or messing up your layout.
   'moll/vim-bbye',
 
-  -- Speed up loading Lua modules in Neovim to improve startup time.
-  -- As of Neovim 0.9, this plugin is no longer required. Instead run:
-  -- vim.loader.enable()
-  --'lewis6991/impatient.nvim',
-
   'antoinemadec/FixCursorHold.nvim', -- This is needed to fix lsp doc highlight
 
   'godlygeek/tabular',
@@ -31,23 +26,6 @@ return {
   -- tmux integration
   'tmux-plugins/vim-tmux',
   'christoomey/vim-tmux-navigator',
-  -- "alexghergh/nvim-tmux-navigation",
-  -- "edkolev/tmuxline.vim",
-
-  -- Conflict with Copilot, disable for now
-  -- cmp plugins
-  -- "hrsh7th/nvim-cmp",         -- The completion plugin
-  -- "hrsh7th/cmp-buffer",       -- buffer completions
-  -- "hrsh7th/cmp-path",         -- path completions
-  -- "hrsh7th/cmp-cmdline",      -- cmdline completions
-  -- "saadparwaiz1/cmp_luasnip", -- snippet completions
-  -- "uga-rosa/cmp-dictionary",  -- dictionary completions
-  -- "hrsh7th/cmp-nvim-lsp",
-  -- "dmitmel/cmp-cmdline-history",
-
-  -- snippets
-  'L3MON4D3/LuaSnip', --snippet engine
-  'rafamadriz/friendly-snippets', -- a bunch of snippets to use
 
   -- Vim plugin for automatically highlighting other uses of the word under the cursor.
   -- Integrates with Neovim's LSP client for intelligent highlighting.
@@ -64,7 +42,9 @@ return {
           'lazy',
           'checkhealth',
           'neo-tree',
+          'lspinfo',
           'alpha',
+          'toggleterm',
         }
       })
     end
@@ -76,29 +56,16 @@ return {
 
   'rainbowhxch/accelerated-jk.nvim',
 
-  'tiagovla/scope.nvim',
+  'tiagovla/scope.nvim', -- Enhanced Tab Scoping
 
   'norcalli/nvim-colorizer.lua',
 
   'wakatime/vim-wakatime',
 
-  -- 'bronson/vim-trailing-whitespace',
-
-  -- Standalone UI for nvim-lsp progress
-  {
-      'j-hui/fidget.nvim',
-      tag = "legacy",
-      event = "LspAttach",
-      opts = {
-        -- options
-      },
-  },
-
   -- Rusty Object Notation
   'ron-rs/ron.vim',
 
   'folke/zen-mode.nvim',
-  -- 'nicwest/vim-http',
   'skreuzer/vim-prometheus',
 
   'mrjones2014/smart-splits.nvim',
@@ -119,4 +86,6 @@ return {
       open_mapping = [[<M-\>]],
     },
   },
+
+  'mikinovation/nvim-gitui',
 }

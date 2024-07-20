@@ -1,8 +1,11 @@
 ;; extends
 
-((spec) @erlang.spec)
+((spec) @attribute.spec)
+("-" ("spec" @spec)) @spec
+(spec
+    fun: (atom) @spec.function)
 
-((record_decl) @erlang.record_decl)
+((record_decl) @record_decl)
 
 ;; ((macro_call_expr
 ;;    name: ((var) @constant.macro)
@@ -36,8 +39,7 @@
 (fun_decl
   (function_clause
     name: (atom)
-    guard: (guard
-             (guard_clause
+    guard: (guard (guard_clause
                exprs: (call
                         expr: ((atom) @keyword))))))
 
@@ -79,13 +81,12 @@
   name: (type_name
           name: (atom) @type_name))
 
-(macro_call_expr
-  name: (atom) @macro_call
-  args: (macro_call_args))
+((macro_call_expr
+    name: (var)
+    .) @constant.macro
+ (#set! "priority" 102))
 
 (macro_call_expr
-  name: (var) @macro_call
-  args: (macro_call_args))
+    name: (_) @macro_call
+    args: (macro_call_args))
 
-(macro_call_expr
-  name: (var) @macro_call)

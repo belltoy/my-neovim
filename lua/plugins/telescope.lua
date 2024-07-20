@@ -13,6 +13,12 @@ return {
     local action_layout = require('telescope.actions.layout')
 
     telescope.setup({
+      pickers = {
+        colorscheme = {
+          enable_preview = true,
+          -- previewer = true,
+        },
+      },
       defaults = {
         mappings = {
           i = {

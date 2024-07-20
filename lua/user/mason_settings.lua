@@ -14,7 +14,6 @@ local lsp_keymaps = function(bufnr)
   vim.keymap.set('n', '<M-o>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', ext(opts, "desc", "Signature Help"))
 
   vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", ext(opts, "desc", "Rename"))
-  vim.keymap.set('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', ext(opts, "desc", "Quickfix"))
 
   vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', ext(opts, "desc", "Goto Declaration"))
   vim.keymap.set('n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', ext(opts, "desc", "Goto Type Definition"))

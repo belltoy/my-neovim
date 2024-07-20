@@ -144,7 +144,7 @@
 ;; (type_alias
 ;;   name: _ @type) @type.definition
 
-(spec) @type.definition
+;; (spec) @type.definition
 
 [
   (string)
@@ -157,7 +157,7 @@
     (atom)
     (remote)
     (var)
-  ] @function)
+  ] @function.call)
 
 (call
   (atom) @keyword.exception

@@ -1,7 +1,9 @@
 hi! link IlluminatedWordText  LspReferenceText
 hi! link IlluminatedWordRead  LspReferenceRead
-" hi! link IlluminatedWordWrite LspReferenceWrite
-hi IlluminatedWordWrite  gui=none guibg=#0C6917
+hi! link IlluminatedWordWrite LspReferenceWrite
+hi LspReferenceWrite  gui=none guibg=#5C7B36
+hi LspReferenceRead gui=none guibg=#3C5BB1
+hi LspReferenceText gui=none guibg=#4f5a62
 
 hi AerialLine guibg=#1B3030
 hi Normal guifg=#f8f8f2 guibg=#101010
@@ -11,6 +13,6 @@ hi NeoTreeTabInactive guibg=#2B2B2B
 hi NeoTreeTabSeparatorActive guibg=cyan
 hi NeoTreeTabSeparatorInactive guibg=#2B2B2B
 
-hi link @unwrap_call.rust TodoBgFIX
-hi @keyword.unsafe.rust guibg=#741A1A
-hi link @pointer_type.rust TodoFgFIX
+hi WhichKeyBorder guifg=#A16600
+
+hi DiagnosticWarn guifg=yellow

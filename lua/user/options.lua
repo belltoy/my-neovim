@@ -1,3 +1,37 @@
+local guifont_family = 'DejaVuSansM Nerd Font'
+local guifont_size = 13
+
+local current_font = function()
+  local font = vim.opt.guifont._value
+  local font_family, font_size = string.gmatch(font, '([^:]+):h(%d+)')()
+  return font_family, font_size
+end
+
+-- Set the guifont on macOS
+local guifont_set = function(family, size)
+  vim.opt.guifont = family .. ':h' .. size
+end
+
+local guifont_default = function()
+  guifont_set(guifont_family, guifont_size)
+end
+
+local guifont_increase = function()
+  local font_family, font_size = current_font()
+  font_size = font_size + 1
+  guifont_set(font_family, font_size)
+end
+
+local guifont_decrease = function()
+  local font_family, font_size = current_font()
+  font_size = font_size - 1
+  guifont_set(font_family, font_size)
+end
+
+local guifont_reset = function()
+  guifont_default()
+end
+
 local options = {
   backup = false,                          -- creates a backup file
   clipboard = 'unnamedplus',               -- allows neovim to access the system clipboard
@@ -33,7 +67,7 @@ local options = {
   wrap = false,                            -- display lines as one long line
   scrolloff = 0,                           -- is one of my fav
   sidescrolloff = 8,
-  guifont = 'DejaVuSansM Nerd Font:h13', -- the font used in graphical neovim applications
+  guifont = guifont_default(),             -- the font used in graphical neovim applications
   mousemoveevent = true,
 }
 
@@ -48,8 +82,6 @@ vim.opt.iskeyword:append('-')
 -- vim.cmd([[set iskeyword+=-]])
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 vim.o.colorcolumn = '100'
-
-vim.g.copilot_node_command = '~/.nvm/versions/node/v17.8.0/bin/node'
 
 if vim.g.neovide then
   -- let g:neovide_padding_top = 30
@@ -84,9 +116,13 @@ if vim.g.neovide then
   vim.g.terminal_color_14 = '#66D9EF'
   vim.g.terminal_color_15 = '#F8F8F2'
 
-  local keymap = vim.api.nvim_set_keymap
-  keymap('n', '<M-f>', '<cmd>lua vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen<cr>',
-    { noremap = true, silent = true })
+  local keymap = vim.keymap.set
+
+  keymap('n', '<M-f>', '<cmd>lua vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen<cr>', { noremap = true, silent = true })
+  keymap('c', '<D-v>', '<C-R>+') -- Paste command mode
+  keymap('t', '<D-v>', '<C-\\><c-n>"+pi') -- Paste term mode
+
+  vim.g.neovide_fullscreen = true
 
   local autocmd = vim.api.nvim_create_autocmd
 
@@ -97,12 +133,19 @@ if vim.g.neovide then
   autocmd({'BufRead', 'BufNewFile'}, { pattern = "*.log{.\\d}\\{0,\\}", command = 'setlocal filetype=log', })
   vim.g.vim_markdown_fenced_languages = { 'sh=bash', 'erlang-repl=erlang', 'ini=dosini' }
   vim.g.markdown_fenced_languages = { 'sh=bash', 'erlang-repl=erlang', 'ini=dosini' }
+
+  vim.api.nvim_create_user_command("ToggleFullscreen", function()
+    vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
+  end, { nargs = 0 })
+
+  keymap('n', '<C-+>', guifont_increase, { noremap = true, silent = true })
+  keymap('n', '<C-=>', guifont_increase, { noremap = true, silent = true })
+  keymap('n', '<D-=>', guifont_increase, { noremap = true, silent = true })
+  keymap('n', '<C-->', guifont_decrease, { noremap = true, silent = true })
+  keymap('n', '<D-->', guifont_decrease, { noremap = true, silent = true })
+  keymap('n', '<C-0>', guifont_reset, { noremap = true, silent = true })
+  keymap('n', '<D-0>', guifont_reset, { noremap = true, silent = true })
 end
 
 vim.g.vim_markdown_folding_disabled = 1
-
-vim.g.extra_whitespace_ignored_filetypes = {
-  'NvimTree', 'alpha', 'dashboard', 'TelescopePrompt', 'lspinfo',
-  'Trouble', 'aerial', 'lsp-installer', 'help',
-}
 vim.g.tmux_navigator_disable_when_zoomed = 0

@@ -28,6 +28,18 @@ return {
       filter_kind = false,
       autojump = true,
 
+      show_guides = true,
+      guides = {
+        -- When the child item has a sibling below it
+        mid_item = "   ├─ ",
+        -- When the child item is the last in the list
+        last_item = "   └─ ",
+        -- When there are nested child guides to the right
+        nested_top = "   │ ",
+        -- Raw indentation
+        whitespace = "     ",
+      },
+
     })
 
     vim.keymap.set("n", "<leader>o", "<cmd>AerialToggle<cr>", { silent = true, desc = "Outline" })

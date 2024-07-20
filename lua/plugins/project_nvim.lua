@@ -24,7 +24,7 @@ local opts = {
 
   -- Don't calculate root dir on specific directories
   -- Ex: { "~/.cargo/*", ... }
-  exclude_dirs = { "~/.cargo/*", "*/_build/*", "/opt/*", "*/target/*", "*/deps/*" },
+  exclude_dirs = { "~/.cargo/*", "*/_build/*", "/opt/*", "*/target/*", "*/deps/*", "*/.rustup/*", "*/.local/*", "*/apps/*" },
 
 
   ---@ Show hidden files in telescope when searching for files in a project
@@ -37,7 +37,6 @@ local opts = {
   ---@usage list of lsp client names to ignore when using **lsp** detection. eg: { "efm", ... }
   ignore_lsp = {},
 
-  ---@type string
   ---@usage path to store the project history for use in telescope
   datapath = vim.fn.stdpath("data"),
 }

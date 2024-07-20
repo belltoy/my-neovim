@@ -2,7 +2,8 @@ require "user.options"
 require "user.keymaps"
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
+local fs_stat = vim.uv['fs_stat'] or vim.loop['fs_stat']
+if not fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
@@ -15,9 +16,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.polyglot_disabled = { 'autoindent' }
-
-vim.g.Illuminate_ftblacklist = { 'nerdtree', 'NvimTree' }
-vim.g.polyglot_disabled = {'autoindent'}
 
 vim.g.copilot_node_command = 'node'
 vim.g.loaded_perl_provider = 0
@@ -33,7 +31,10 @@ require('lazy').setup({
   change_detection = {
     enabled = false,
     notify = false,
-  }
+  },
+  rocks = {
+    enabled = true,
+  },
 })
 
 require "user.autocommands"
