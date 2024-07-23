@@ -1,4 +1,5 @@
 ;; extends
+;; vim:ft=query
 
 (unary_operator
   operator: ("@" @comment.documentation.identifier)

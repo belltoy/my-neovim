@@ -1,4 +1,5 @@
 ;; extends
+;; vim:ft=query
 
 ((spec) @attribute.spec)
 ("-" ("spec" @spec)) @spec

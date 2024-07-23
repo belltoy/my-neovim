@@ -1,3 +1,5 @@
+;; vim:ft=query
+
 ((atom) @constant
   (#set! "priority" "90"))
 
