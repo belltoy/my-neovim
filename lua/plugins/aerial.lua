@@ -12,8 +12,9 @@ return {
   config = function()
     require("aerial").setup({
       backends = {
-        ['_']  = {"treesitter", "lsp", "markdown", "man"},
-        markdown = {"markdown"},
+        ['_']    = { "lsp", "treesitter", "markdown", "asciidoc", "man" },
+        rust     = { "lsp", "treesitter" },
+        markdown = { "markdown" },
       },
 
       disable_max_lines = 25000,
@@ -31,13 +32,42 @@ return {
       show_guides = true,
       guides = {
         -- When the child item has a sibling below it
-        mid_item = "   ├─ ",
+        mid_item = "├──  ",
         -- When the child item is the last in the list
-        last_item = "   └─ ",
+        last_item = "└──  ",
         -- When there are nested child guides to the right
-        nested_top = "   │ ",
+        nested_top = "│  ",
         -- Raw indentation
-        whitespace = "     ",
+        whitespace = "   ",
+      },
+      icons = {
+        Array         = "󱡠 ",
+        Boolean       = "󰨙 ",
+        Class         = "󰆧 ",
+        Constant      = "󰏿",
+        Constructor   = " ",
+        Enum          = " ",
+        EnumMember    = " ",
+        Event         = "",
+        Field         = "",
+        File          = "󰈙",
+        Function      = "󰊕",
+        Interface     = "",
+        Key           = "󰌋",
+        Method        = "󰊕",
+        Module        = "",
+        Namespace     = "󰦮",
+        Null          = "󰟢",
+        Number        = "󰎠",
+        Object        = "",
+        Operator      = "󰆕",
+        Package       = "",
+        Property      = "",
+        String        = "",
+        Struct        = "󰆼",
+        TypeParameter = "󰗴",
+        Variable      = "󰀫",
+        Collapsed     = "",
       },
 
     })
