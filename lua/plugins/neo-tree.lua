@@ -150,6 +150,8 @@ return {
           ["<2-LeftMouse>"] = "open",
           ["<cr>"] = "open",
           ["<esc>"] = "cancel", -- close preview or floating neo-tree window
+          ["<c-f>"] = "none",
+          ["<c-b>"] = "none",
           ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
           -- Read `# Preview Mode` for more information
           ["l"] = "focus_preview",
@@ -243,18 +245,20 @@ return {
           mappings = {
             ["<bs>"] = "navigate_up",
             ["."] = "set_root",
-            ["H"] = "toggle_hidden",
-            ["/"] = "fuzzy_finder",
+            ["h"] = "toggle_hidden",
+            ["H"] = "none",
+            ["/"] = "none",
             ["D"] = "fuzzy_finder_directory",
             ["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
             -- ["D"] = "fuzzy_sorter_directory",
-            ["f"] = "filter_on_submit",
+            ["f"] = "fuzzy_finder",
+            ["F"] = "filter_on_submit",
             ["<c-x>"] = "clear_filter",
             ["[g"] = "prev_git_modified",
             ["]g"] = "next_git_modified",
             ["o"] = { "open", nowait = true },
             ["x"] = "close_node",
-            ["z"] = "",
+            ["z"] = "none",
             -- ["o"] = { "show_help", nowait=false, config = { title = "Order by", prefix_key = "o" }},
             -- ["oc"] = { "order_by_created", nowait = false },
             -- ["od"] = { "order_by_diagnostics", nowait = false },
