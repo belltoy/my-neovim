@@ -24,8 +24,9 @@ local opts = {
     separator = '➜', -- symbol used between a key and it's label
     group = '+ ', -- symbol prepended to a group
     rules = {
-      { pattern = "expand plain crate to inline table",  icon = "󰅪 ",  hl = "Function" },
-      { pattern = "extract crate into table",    icon = "󰅪 ",  hl = "Function" },
+      { pattern = "diagnostic",                 icon = "  ", color = "Red" },
+      { pattern = "expand plain crate to inline",  icon = "󰅪 ",  hl = "Function" },
+      { pattern = "extract crate into table",   icon = "󰅪 ",  hl = "Function" },
       { pattern = "toggle",                     icon = "  ", color = "Yellow" },
       { pattern = "update",                     icon = "  ", color = "Cyan" },
       { pattern = "upgrade",                    icon = "  ", hl = "Function" },
@@ -53,7 +54,7 @@ local opts = {
       { pattern = "decrease indent",            icon = "󰶢 ",  hl = "Function" },
       { pattern = "trim",                       icon = "󰁨 ",  color = "Red" },
       { pattern = "outline",                    icon = "󰊕 ",  hl = "Function" },
-      { pattern = "maximize/minimize a split",  icon = " ",  hl = "Function" },
+      { pattern = "maximize/minimize a split",  icon = "󰊓 ",  hl = "Function" },
     },
   },
   sort = { "manual" },
@@ -97,9 +98,9 @@ local opts = {
     { "<leader>gu",      "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",                           desc = "Undo Stage Hunk",               nowait = true,   remap = false },
     { "<leader>gU",      "<cmd>lua require('nvim-gitui').open_gitui()<cr>",                             desc = "GitUI",                         nowait = true,   remap = false },
 
-    { "<leader>s",       "<cmd>split<CR>",                                                              desc = "Split window —— ",              nowait = true,   remap = false,   icon = {icon = " ", hl = "VertSplit" }},
+    -- { "<leader>s",       "<cmd>split<CR>",                                                              desc = "Split window —— ",              nowait = true,   remap = false,   icon = {icon = " ", hl = "VertSplit" }},
     { "<leader>-",       "<cmd>split<CR>",                                                              desc = "Split window —— ",              nowait = true,   remap = false,   icon = {icon = " ", hl = "VertSplit" }},
-    { "<leader>v",       "<cmd>vsplit<CR>",                                                             desc = "Split window | Current Buffer", nowait = true,   remap = false,   icon = {icon = " ", hl = "VertSplit" }},
+    -- { "<leader>v",       "<cmd>vsplit<CR>",                                                             desc = "Split window | Current Buffer", nowait = true,   remap = false,   icon = {icon = " ", hl = "VertSplit" }},
     { "<leader>|",       "<cmd>vsplit<CR>",                                                             desc = "Split window | Current Buffer", nowait = true,   remap = false,   icon = {icon = " ", hl = "VertSplit" }},
     { "<leader>V",       "<cmd>SplitStartScreen<CR>",                                                   desc = "Split window | Start Screen",   nowait = true,   remap = false,   icon = {icon = " ", hl = "VertSplit" } },
     -- { "<leader>q",       "<cmd>q!<CR>",                                                                 desc = "Quit",                          nowait = true,   remap = false },
