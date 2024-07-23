@@ -3,7 +3,7 @@ hi! link IlluminatedWordRead  LspReferenceRead
 hi! link IlluminatedWordWrite LspReferenceWrite
 hi LspReferenceWrite  gui=none guibg=#5C7B36
 hi LspReferenceRead gui=none guibg=#3C5BB1
-hi LspReferenceText gui=none guibg=#4f5a62
+hi LspReferenceText gui=none guibg=#3333FF
 
 hi AerialLine guibg=#1B3030
 hi Normal guifg=#f8f8f2 guibg=#101010

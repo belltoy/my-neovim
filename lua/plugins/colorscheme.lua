@@ -9,8 +9,13 @@ local function link_aerial_highlight_groups()
   vim.api.nvim_set_hl(0, "AerialStruct",        { link = "Structure" })
   vim.api.nvim_set_hl(0, "AerialClassIcon",     { link = "Special" })
   vim.api.nvim_set_hl(0, "AerialFunction",      { link = "Function" })
+  vim.api.nvim_set_hl(0, "AerialField",         { link = "@lsp.type.variable" })
   vim.api.nvim_set_hl(0, "AerialTypeParameter", { link = "@lsp.type.parameter" })
   vim.api.nvim_set_hl(0, "AerialConstant",      { link = "Constant" })
+  vim.api.nvim_set_hl(0, "AerialMethod",        { link = "@lsp.type.method" })
+  vim.api.nvim_set_hl(0, "AerialEnum",          { link = "@lsp.type.enum" })
+  vim.api.nvim_set_hl(0, "AerialEnumMember",    { link = "@lsp.type.enumMember" })
+  vim.api.nvim_set_hl(0, "AerialObject",        { link = "Keyword" })
 end
 
 local function link_cmp_item_hl()
@@ -56,6 +61,11 @@ return {
   {
     "olimorris/onedarkpro.nvim",
     priority = 1000, -- Ensure it loads first
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
   },
   {
     'navarasu/onedark.nvim',
@@ -107,6 +117,7 @@ return {
       vim.cmd.colorscheme('molokai')
       link_aerial_highlight_groups()
       link_cmp_item_hl()
+      vim.api.nvim_set_hl(0, "@function.method",     { fg = "#47BBFF" })
     end
   },
 }

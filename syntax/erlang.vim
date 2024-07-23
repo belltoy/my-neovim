@@ -1,11 +1,11 @@
 hi Constant gui=none
-hi ErlangCallback guifg=#ffc8c8
-hi ErlangBehaviour guifg=#ffc8c8
+hi ErlangCallback guifg=#FFC8C8
+hi ErlangBehaviour guifg=#FFC8C8
 
 hi @attribute.spec.erlang guibg=#1D262A
 hi @record_decl.erlang guibg=#333666
 hi @record_decl.erlang guibg=#3C2600
-hi @fun_decl.erlang guifg=#f8f8f2
+hi @fun_decl.erlang guifg=#F8F8F2
 hi @behavirour.erlang guibg=NvimDarkYellow guifg=Yellow
 
 hi link @features.feature.enable.erlang PreCondit
