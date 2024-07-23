@@ -11,6 +11,7 @@ return {
         "TelescopePrompt",
         "toggleterm",
         "lspinfo",
+        "aerial",
         "alpha",
         "startify",
         "prompt",
