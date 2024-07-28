@@ -81,11 +81,22 @@ local setup = function(configs)
 end
 
 return {
-  'nvim-treesitter/nvim-treesitter',
-  build = ':TSUpdate',
-  config = function()
-    local configs = require('nvim-treesitter.configs')
-    setup(configs)
-    -- nvim-ts-context-commentstring is set up automatically
-  end
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    config = function()
+      local configs = require('nvim-treesitter.configs')
+      setup(configs)
+      -- nvim-ts-context-commentstring is set up automatically
+      setup_local_parser()
+      vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+        pattern = '*/queries/*.scm',
+        command = 'setlocal filetype=query',
+      })
+    end
+  },
+
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+  }
 }
