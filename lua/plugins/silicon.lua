@@ -2,9 +2,9 @@
 
 vim.cmd [[
 let g:silicon = {
-      \   'theme':              'OneHalfDark',
-      \   'font':                  'Hack',
-      \   'background':         '#AAAAFF',
+      \   'theme':          'OneHalfDark',
+      \   'font': 'DejaVuSansM Nerd Font',
+      \   'background':         '#FFFFFF',
       \   'shadow-color':       '#555555',
       \   'line-pad':                   2,
       \   'pad-horiz':                 80,
