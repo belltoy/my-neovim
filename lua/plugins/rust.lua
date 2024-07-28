@@ -29,12 +29,20 @@ local on_attach = function(bufnr)
   keymap("n", "<leader>rL", crates.open_lib_rs, opts("Open lib.rs"))
 end
 
+vim.g.rust_clip_command = 'pbcopy'
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '*.lalrpop',
+  command = 'setlocal filetype=rust',
+})
+
 return {
   'rust-lang/rust.vim',
 
   -- Debugging
   -- "mfussenegger/nvim-dap",
 
+  {'mattn/webapi-vim'},
   {
     'saecki/crates.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
@@ -63,6 +71,7 @@ return {
         -- Plugin configuration
         tools = {
           float_win_config = {
+            auto_focus = true,
             width = 80,
             border = "rounded",
           }
@@ -76,16 +85,31 @@ return {
             -- Use mason on_attach settings
             require('user.mason_settings').on_attach(client, bufnr)
 
+            local keymap = vim.keymap.set
+            local function opts(desc)
+              return { desc = desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+            end
+            keymap("n", "<leader>rL", "<cmd>:RustLsp! openDocs<cr>", opts("Open Rust documentation"))
+            keymap("n", "<leader>rC", "<cmd>:RustLsp! openCargo<cr>", opts("Open Cargo.toml"))
+            keymap("n", "<leader>rD", "<cmd>:RustLsp! renderDiagnostic current<cr>", opts("Render current diagnostic"))
+            keymap("n", "<leader>rE", "<cmd>:RustLsp! expandMacro<cr>", opts("Expand macros recursively"))
+            keymap("n", "<leader>rP", "<cmd>:RustLsp! parentModule<cr>", opts("Open parent module"))
+
             vim.api.nvim_set_option_value("formatexpr", "v:lua.vim.lsp.formatexpr()", {buf = bufnr})
             vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", {buf = bufnr})
             vim.api.nvim_set_option_value("tagfunc", "v:lua.vim.lsp.tagfunc", {buf = bufnr})
           end,
+
           capabilities = capabilities,
           default_settings = {
             -- rust-analyzer language server configuration
             ['rust-analyzer'] = {
-              checkOnSave = {
-                command = "clippy"
+              check = {
+                command = "check",
+                -- https://github.com/mrcjkb/rustaceanvim/issues/442
+                -- extraArgs = {
+                --   "--message-format=json-diagnostic-rendered-ansi",
+                -- },
               },
             },
           },
