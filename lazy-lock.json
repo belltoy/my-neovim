@@ -38,7 +38,7 @@
   "mason-lspconfig.nvim": { "branch": "main", "commit": "58bc9119ca273c0ce5a66fad1927ef0f617bd81b" },
   "mason.nvim": { "branch": "main", "commit": "e2f7f9044ec30067bc11800a9e266664b88cda22" },
   "material.nvim": { "branch": "main", "commit": "b5d0ff3ad37ba00cea3dc3dce0b0f555b481c6f4" },
-  "molokai": { "branch": "master", "commit": "327cd4984820756789f58e6e86c55064f568c32e" },
+  "molokai": { "branch": "master", "commit": "2e71a32fdd3d1c91f649bd862f4485692e98bd69" },
   "neo-tree.nvim": { "branch": "v3.x", "commit": "29f7c215332ba95e470811c380ddbce2cebe2af4" },
   "neorg": { "branch": "main", "commit": "32803baa367bfb4d3bef49e6ea58f8256ebc59cf" },
   "neorg-telescope": { "branch": "main", "commit": "2fe2780d539b961ef240f7907802754556ba7bb8" },
