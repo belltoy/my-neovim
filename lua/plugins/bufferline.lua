@@ -100,7 +100,7 @@ local opts = {
     },
 
     modified_selected           = { bg = '#606060' },
-    buffer_selected             = { bg = '#606060' },
+    buffer_selected             = { bg = '#606060', italic = false, },
     close_button_selected       = { bg = '#606060' },
     close_button_visible        = { bg = '#606060' },
 
