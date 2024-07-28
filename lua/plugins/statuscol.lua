@@ -19,18 +19,29 @@ return {
           sign = { namespace = { "diagnostic" }, name = { ".*" }, maxwidth = 1, auto = true },
           click = "v:lua.ScSa"
         },
+
+        -- TODO sign will show via diagnostic
         -- {
         --   sign = { namespace = { "todo-signs" }, name = { ".*" }, maxwidth = 2, auto = true },
         --   click = "v:lua.ScSa"
         -- },
+
         { text = { builtin.lnumfunc }, click = "v:lua.ScLa", auto = false },
+
+        -- Fold column
         {
-          sign = { namespace = { "gitsigns" }, maxwidth = 1, colwidth = 1, auto = false, wrap = true },
+          text = { builtin.foldfunc },
+          click = "v:lua.ScFa",
+          auto = false, maxwidth = 1, colwidth = 1,
+        },
+
+        {
+          sign = {
+            namespace = { "gitsigns" },
+            maxwidth = 1, colwidth = 1, auto = false, wrap = true,
+          },
           click = "v:lua.ScSa"
         },
-        -- { text = { builtin.foldfunc }, click = "v:lua.ScFa", auto = true, maxwidth = 1,
-        --   colwidth = 1,
-        -- },
       },
 
       -- -- Default segments (fold -> sign -> line number + separator)
@@ -41,7 +52,7 @@ return {
       --     text = { builtin.lnumfunc, " " },
       --     condition = { true, builtin.not_empty },
       --     click = "v:lua.ScLa",
-      --   }
+      --   },
       -- },
     })
   end,
