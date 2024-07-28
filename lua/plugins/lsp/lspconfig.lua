@@ -63,6 +63,13 @@ return {
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
+    vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+      pattern = { '*/tree-sitter-*/grammar.js' },
+      callback = function()
+        vim.diagnostic.enable(false)
+      end
+    })
+
     setup()
   end
 }
