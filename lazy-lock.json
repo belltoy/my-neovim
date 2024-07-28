@@ -84,7 +84,7 @@
   "tokyodark.nvim": { "branch": "master", "commit": "14bc1b3e596878a10647af7c82de7736300f3322" },
   "tokyonight.nvim": { "branch": "main", "commit": "7b6b1d9b22a5e04d86e6275326878fdd16736a4e" },
   "trim.nvim": { "branch": "master", "commit": "4fe47a46c02a58894ded8328ca81f6c214a892f5" },
-  "trouble.nvim": { "branch": "main", "commit": "e57250994e3d8630016176025b853110234a778b" },
+  "trouble.nvim": { "branch": "main", "commit": "6efc446226679fda0547c0fd6a7892fd5f5b15d8" },
   "twilight.nvim": { "branch": "main", "commit": "38dc017474ef05605ca14a2577e01e09f0db7133" },
   "url-open": { "branch": "main", "commit": "9f8f4a56ac709f26aa17d8ef921b272bf2262a30" },
   "vim-bbye": { "branch": "master", "commit": "25ef93ac5a87526111f43e5110675032dbcacf56" },
