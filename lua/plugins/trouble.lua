@@ -68,7 +68,7 @@ return {
       },
 
       symbols = {
-        mode = "symbols",
+        mode = "lsp_document_symbols",
         win = right_split_win,
       },
 
