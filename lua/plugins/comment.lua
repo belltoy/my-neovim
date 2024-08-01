@@ -52,6 +52,11 @@ return {
           -- block = 'gb',
         },
 
+        mappings = {
+          basic = true,
+          extra = false,
+        },
+
         ---LHS of toggle mappings in NORMAL + VISUAL mode
         ---@type table
         toggler = {
@@ -64,6 +69,7 @@ return {
 
       local ft = require('Comment.ft')
       ft.json5 = '//%s'
+      ft.vrl = '#%s'
     end,
   }
 }
