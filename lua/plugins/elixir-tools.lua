@@ -6,7 +6,7 @@ return {
   config = function()
     local elixir = require("elixir")
     local elixirls = require("elixir.elixirls")
-    local on_attach = require("user.mason_settings").on_attach
+    local on_attach = require("config.mason_settings").on_attach
 
     elixir.setup {
       nextls = {enable = false},

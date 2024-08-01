@@ -77,6 +77,7 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+vim.cmd [[ set shada=!,'500,<50,s10,h ]] -- See :h v:oldfiles
 vim.cmd('set whichwrap+=<,>,[,],h,l')
 vim.opt.iskeyword:append('-')
 -- vim.cmd([[set iskeyword+=-]])
@@ -130,6 +131,7 @@ if vim.g.neovide then
   autocmd({'BufRead', 'BufNewFile'}, { pattern = '*.kdl', command = 'setlocal filetype=kdl', })
   autocmd({'BufRead', 'BufNewFile'}, { pattern = '*.qml', command = 'setlocal filetype=qml', })
   autocmd({'BufRead', 'BufNewFile'}, { pattern = '*.eco', command = 'setlocal filetype=html', })
+  autocmd({'BufRead', 'BufNewFile'}, { pattern = '*/queries/*.scm', command = 'setlocal filetype=query', })
   autocmd({'BufRead', 'BufNewFile'}, { pattern = "*.log{.\\d}\\{0,\\}", command = 'setlocal filetype=log', })
   vim.g.vim_markdown_fenced_languages = { 'sh=bash', 'erlang-repl=erlang', 'ini=dosini' }
   vim.g.markdown_fenced_languages = { 'sh=bash', 'erlang-repl=erlang', 'ini=dosini' }

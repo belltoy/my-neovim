@@ -1,6 +1,5 @@
 return {
   -- My plugins here
-  'nvim-lua/popup.nvim', -- An implementation of the Popup API from vim in Neovim
   'nvim-lua/plenary.nvim', -- Useful lua functions used ny lots of plugins
   'nvim-tree/nvim-web-devicons',
 
@@ -11,8 +10,6 @@ return {
 
   'godlygeek/tabular',
 
-  'preservim/vim-markdown',
-
   -- vim-polyglot
   -- A sold language pack for vim
   -- Including ftdetect, indent, syntax, and plugins for many languages
@@ -22,33 +19,6 @@ return {
   'github/copilot.vim',
 
   'junegunn/vim-easy-align',
-
-  -- tmux integration
-  'tmux-plugins/vim-tmux',
-  'christoomey/vim-tmux-navigator',
-
-  -- Vim plugin for automatically highlighting other uses of the word under the cursor.
-  -- Integrates with Neovim's LSP client for intelligent highlighting.
-  {
-    'RRethy/vim-illuminate',
-    config = function()
-      require('illuminate').configure({
-        filetypes_denylist = {
-          'NvimTree',
-          'aerial',
-          'trouble',
-          'markdown',
-          'help',
-          'lazy',
-          'checkhealth',
-          'neo-tree',
-          'lspinfo',
-          'alpha',
-          'toggleterm',
-        }
-      })
-    end
-  },
 
   'ckipp01/stylua-nvim', -- Lua code formatter
 
@@ -77,15 +47,6 @@ return {
   'belltoy/vrl.vim',
 
   'imsnif/kdl.vim',
-
-  {
-    'akinsho/toggleterm.nvim',
-    version = "*",
-    opts = {
-      direction = 'float',
-      open_mapping = [[<M-\>]],
-    },
-  },
 
   'mikinovation/nvim-gitui',
 }

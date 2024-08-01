@@ -83,7 +83,7 @@ return {
           },
           on_attach = function(client, bufnr)
             -- Use mason on_attach settings
-            require('user.mason_settings').on_attach(client, bufnr)
+            require('config.mason_settings').on_attach(client, bufnr)
 
             local keymap = vim.keymap.set
             local function opts(desc)

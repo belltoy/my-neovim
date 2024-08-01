@@ -75,7 +75,7 @@ return {
         -- end
     }
 
-    local on_attach = require('user.mason_settings').on_attach
+    local on_attach = require('config.mason_settings').on_attach
     local opts = {
       on_attach = on_attach,
       -- capabilities = require('user.lsp.handlers').capabilities,

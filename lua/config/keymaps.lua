@@ -35,19 +35,19 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Navigate tabs
-keymap("n", "<M-1>", ":tabprevious<CR>", opts)
-keymap("n", "<M-2>", ":tabnext<CR>", opts)
+keymap("n", "<M-1>", ":tabprevious<CR>", desc(opts, "Previous Tab"))
+keymap("n", "<M-2>", ":tabnext<CR>", desc(opts, "Next Tab"))
 
 -- Navigate buffers
-keymap("n", "<M-h>", ":bprevious<CR>", opts)
-keymap("n", "<M-l>", ":bnext<CR>", opts)
+keymap("n", "<M-h>", ":bprevious<CR>", desc(opts, "Previous Buffer"))
+keymap("n", "<M-l>", ":bnext<CR>", desc(opts, "Next Buffer"))
 
 -- Illuminate
 -- You can cycle through these document highlights with these mappings:
-keymap('n', '<a-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', opts)
-keymap('n', '<c-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', opts)
-keymap('n', '<a-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', opts)
-keymap('n', '<c-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', opts)
+keymap('n', '<a-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', desc(opts, "Next Reference"))
+keymap('n', '<c-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', desc(opts, "Next Reference"))
+keymap('n', '<a-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', desc(opts, "Previous Reference"))
+keymap('n', '<c-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', desc(opts, "Previous Reference"))
 
 -- EasyAlign
 keymap("v", "<Enter>", "<Plug>(EasyAlign)", opts)
@@ -57,7 +57,7 @@ vim.cmd([[
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 ]])
 
-keymap("n", "<Leader>n", "<cmd>Neotree toggle<CR>", desc(opts, "File Explorer"))
+-- keymap("n", "<Leader>n", "<cmd>Neotree toggle<CR>", desc(opts, "File Explorer"))
 
 -- GUI Tools integration
 keymap("n", "<Leader>gt", "<cmd>!tower .<CR><CR>", desc(opts, "Git Tower"))
