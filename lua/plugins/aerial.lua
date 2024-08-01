@@ -32,13 +32,13 @@ return {
       show_guides = true,
       guides = {
         -- When the child item has a sibling below it
-        mid_item = "├──  ",
+        mid_item = " ├─ ",
         -- When the child item is the last in the list
-        last_item = "└──  ",
+        last_item = " └─ ",
         -- When there are nested child guides to the right
-        nested_top = "│  ",
+        nested_top = " │ ",
         -- Raw indentation
-        whitespace = "   ",
+        whitespace = "  ",
       },
       icons = {
         Array         = "󱡠 ",

@@ -123,7 +123,7 @@ local setup = function(configs)
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
           ["]m"] = "@function.outer",
-          ["]c"] = { query = "@case_clause", desc = "Next case clause"},
+          ["]c"] = { query = "@case_clause", desc = "Next case clause" },
           ["]]"] = { query = "@class.outer", desc = "Next class start" },
           --
           -- You can use regex matching (i.e. lua pattern) and/or pass a list in a "query" key to group multiple queires.
@@ -142,7 +142,7 @@ local setup = function(configs)
         goto_previous_start = {
           ["[m"] = "@function.outer",
           ["[["] = "@class.outer",
-          ["[c"] = { query = "@case_clause", desc = "Prev case clause"},
+          ["[c"] = { query = "@case_clause", desc = "Prev case clause" },
         },
         goto_previous_end = {
           ["[M"] = "@function.outer",
@@ -180,7 +180,6 @@ return {
       local configs = require('nvim-treesitter.configs')
       setup(configs)
       -- nvim-ts-context-commentstring is set up automatically
-      setup_local_parser()
       vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
         pattern = '*/queries/*.scm',
         command = 'setlocal filetype=query',

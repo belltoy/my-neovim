@@ -11,17 +11,17 @@ return {
       pattern = "norg",
       callback = function()
         local keymap = vim.keymap.set
-        keymap("n", "<leader>Nl", "<Plug>(neorg.pivot.list.toggle)", { desc = "Toggle a List from Ordered <-> Unordered", buffer = true })
-        keymap("n", "<localleader>fh", "<Plug>(neorg.telescope.search_headings)", {desc = "Search headings in the current file", buffer = true})
-        keymap("n", "<localleader>fb", "<Plug>(neorg.telescope.backlinks.file_backlinks)", {desc = "Search file backlinks", buffer = true})
-        keymap("n", "<localleader>fB", "<Plug>(neorg.telescope.backlinks.header_backlinks)", {desc = "Search header backlinks", buffer = true})
-        keymap("n", "<localleader>fl", "<Plug>(neorg.telescope.find_linkable)", {desc = "Find linkable", buffer = true})
-        keymap("n", "<localleader>ff", "<Plug>(neorg.telescope.find_norg_files)", {desc = "Find norg file", buffer = true})
-        keymap("n", "<localleader>il", "<Plug>(neorg.telescope.insert_link)", {desc = "Insert link", buffer = true})
-        keymap("n", "<localleader>iL", "<Plug>(neorg.telescope.insert_file_link)", {desc = "Insert file link", buffer = true})
-        keymap("n", "<localleader>nM", "<cmd>Neorg inject-metadata<cr>", {desc = "Inject Metadata", buffer = true})
-        keymap("n", "<localleader>W", "<Plug>(neorg.telescope.switch_workspace)", {desc = "Switch workspace", buffer = true})
-        keymap("n", "<localleader>o", "<cmd>Neorg toc<cr>", {desc = "TOC", buffer = true})
+        keymap("n", "<leader>Nl",      "<Plug>(neorg.pivot.list.toggle)",                    {desc = "Toggle a List from Ordered <-> Unordered",  buffer = true})
+        keymap("n", "<localleader>fh", "<Plug>(neorg.telescope.search_headings)",            {desc = "Search headings in the current file",       buffer = true})
+        keymap("n", "<localleader>fb", "<Plug>(neorg.telescope.backlinks.file_backlinks)",   {desc = "Search file backlinks",                     buffer = true})
+        keymap("n", "<localleader>fB", "<Plug>(neorg.telescope.backlinks.header_backlinks)", {desc = "Search header backlinks",                   buffer = true})
+        keymap("n", "<localleader>fl", "<Plug>(neorg.telescope.find_linkable)",              {desc = "Find linkable",                             buffer = true})
+        keymap("n", "<localleader>ff", "<Plug>(neorg.telescope.find_norg_files)",            {desc = "Find norg file",                            buffer = true})
+        keymap("n", "<localleader>il", "<Plug>(neorg.telescope.insert_link)",                {desc = "Insert link",                               buffer = true})
+        keymap("n", "<localleader>iL", "<Plug>(neorg.telescope.insert_file_link)",           {desc = "Insert file link",                          buffer = true})
+        keymap("n", "<localleader>nM", "<cmd>Neorg inject-metadata<cr>",                     {desc = "Inject Metadata",                           buffer = true})
+        keymap("n", "<localleader>W",  "<Plug>(neorg.telescope.switch_workspace)",           {desc = "Switch workspace",                          buffer = true})
+        keymap("n", "<localleader>o",  "<cmd>Neorg toc<cr>",                                 {desc = "TOC",                                       buffer = true})
       end,
     })
 
