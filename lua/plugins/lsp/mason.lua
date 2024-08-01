@@ -5,7 +5,8 @@ local servers = {
   -- 'cssmodules_ls',
   'dockerls',
   -- 'eslint',
-  'bufls',
+  -- 'buf',
+  -- 'pbls',
   'jqls',
 
   'ltex',
@@ -104,5 +105,8 @@ return {
         exit_timeout = 0,
       },
     })
+
+    -- lspconfig['buf'].setup({})
+    lspconfig['pbls'].setup({})
   end
 }
