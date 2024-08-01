@@ -325,5 +325,10 @@ return {
         }
       }
     })
+
+    local toggle = function()
+      require('neo-tree.command').execute({toggle = true})
+    end
+    vim.keymap.set('n', '<leader>n', toggle, { silent = true, desc = 'File Explorer' })
   end
 }
