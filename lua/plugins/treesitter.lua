@@ -174,6 +174,22 @@ end
 
 return {
   {
+    "nushell/tree-sitter-nu",
+    config = function()
+      vim.filetype.add({ extension = { nu = "nu" } })
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "nu",
+        callback = function(event) vim.bo[event.buf].commentstring = "# %s" end,
+      })
+      vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+        pattern = "*.nu",
+        command = 'setlocal filetype=nu',
+      })
+    end
+  },
+
+  {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     config = function()
