@@ -32,8 +32,6 @@ return {
 
   'norcalli/nvim-colorizer.lua',
 
-  'wakatime/vim-wakatime',
-
   -- Rusty Object Notation
   'ron-rs/ron.vim',
 
