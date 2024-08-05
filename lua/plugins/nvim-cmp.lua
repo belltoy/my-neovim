@@ -69,6 +69,10 @@ end
 return {
   {
     'L3MON4D3/LuaSnip', --snippet engine
+    version = "v2.*",
+    build = "make install_jsregexp",
+  },
+  {
     'saadparwaiz1/cmp_luasnip', -- snippet source for nvim-cmp
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',

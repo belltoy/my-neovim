@@ -18,6 +18,8 @@ return {
 
   'github/copilot.vim',
 
+  'juvenn/mustache.vim',
+
   'junegunn/vim-easy-align',
 
   'ckipp01/stylua-nvim', -- Lua code formatter
@@ -49,4 +51,6 @@ return {
   'imsnif/kdl.vim',
 
   'mikinovation/nvim-gitui',
+
+  'direnv/direnv.vim',
 }
