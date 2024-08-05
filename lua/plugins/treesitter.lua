@@ -31,6 +31,7 @@ local setup = function(configs)
       'html',
       'make',
       'python',
+      'promql',
       'ruby',
       'regex',
       'typescript',
@@ -41,6 +42,7 @@ local setup = function(configs)
       'scala',
       'proto',
       'norg',
+      'vrl',
       -- 'markdown', -- temporarily disabled due to a code block syntax highlight bug in nvim-treesitter
       'markdown_inline',
     },
