@@ -5,8 +5,6 @@ local servers = {
   -- 'cssmodules_ls',
   'dockerls',
   -- 'eslint',
-  -- 'buf',
-  -- 'pbls',
   'jqls',
 
   'ltex',
@@ -38,6 +36,12 @@ return {
     local mason_lspconfig = require('mason-lspconfig')
     local lspconfig = require('lspconfig')
 
+    -- NOTE: It's important that you set up the plugins in the following order:
+    --
+    -- 1. mason.nvim
+    -- 2. mason-lspconfig.nvim
+    -- 3. Setup servers via lspconfig
+
     -- enable mason and configure icons
     mason.setup({
       ui = {
@@ -59,22 +63,23 @@ return {
         exclude = {
           "elp",
         },
-      }, -- not the same as ensure_installed
+      },
     })
 
-    mason_lspconfig.setup_handlers {
-        -- The first entry (without a key) will be the default handler
-        -- and will be called for each installed server that doesn't have
-        -- a dedicated handler.
-        function (server_name) -- default handler (optional)
-            require("lspconfig")[server_name].setup {}
-        end,
-        -- Next, you can provide a dedicated handler for specific servers.
-        -- For example, a handler override for the `rust_analyzer`:
-        -- ["rust_analyzer"] = function ()
-        --     require("rust-tools").setup {}
-        -- end
-    }
+    -- mason_lspconfig.setup_handlers {
+    --     -- The first entry (without a key) will be the default handler
+    --     -- and will be called for each installed server that doesn't have
+    --     -- a dedicated handler.
+    --     -- function (server_name) -- default handler (optional)
+    --     --   lspconfig[server_name].setup {}
+    --     -- end,
+    --
+    --     -- Next, you can provide a dedicated handler for specific servers.
+    --     -- For example, a handler override for the `rust_analyzer`:
+    --     -- ["rust_analyzer"] = function ()
+    --     --     require("rust-tools").setup {}
+    --     -- end
+    -- }
 
     local on_attach = require('config.mason_settings').on_attach
     local opts = {
@@ -106,7 +111,8 @@ return {
       },
     })
 
-    -- lspconfig['buf'].setup({})
-    lspconfig['pbls'].setup({})
+    -- Setup manually until protols is supported by mason
+    -- Run `cargo install protols` firlst
+    lspconfig['protols'].setup(opts)
   end
 }
