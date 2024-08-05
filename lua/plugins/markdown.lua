@@ -15,6 +15,10 @@ return {
         latex = {
           enabled = false,
         },
+        heading = {
+          sign = false,
+          icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
+        },
         enabled = false,
         bullet = {
           -- Turn on / off list bullet rendering
