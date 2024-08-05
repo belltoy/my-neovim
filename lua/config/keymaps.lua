@@ -60,7 +60,7 @@ au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 -- keymap("n", "<Leader>n", "<cmd>Neotree toggle<CR>", desc(opts, "File Explorer"))
 
 -- GUI Tools integration
-keymap("n", "<Leader>gt", "<cmd>!tower .<CR><CR>", desc(opts, "Git Tower"))
+keymap("n", "<Leader>gT", "<cmd>!tower .<CR><CR>", desc(opts, "Git Tower"))
 
 -- Only current buffer
 -- keymap("n", "<Leader>O", ":only<CR>", desc(opts, "Only Current Buffer"))

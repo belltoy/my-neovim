@@ -120,7 +120,7 @@ return {
     keymap.set("n", "<leader>fr", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep_args<cr>", { desc = "Find string in cwd with args" })
     keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor" })
-    keymap.set("n", "<leader>fP", "<cmd>lua require('telescope').extensions.projects.projects()<cr>", { desc = "Find project" })
+    keymap.set("n", "<leader>fp", "<cmd>lua require('telescope').extensions.projects.projects()<cr>", { desc = "Find project" })
     keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find TODOs" })
   end
