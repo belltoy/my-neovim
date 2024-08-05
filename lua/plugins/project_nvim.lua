@@ -17,14 +17,28 @@ local opts = {
   --- can also delete or rearangne the detection methods.
   -- detection_methods = { "lsp", "pattern" },
   -- NOTE: lsp detection will get annoying with multiple langs in one project
-  detection_methods = { "lsp", "pattern" },
+  detection_methods = { "pattern", "lsp" },
 
   ---@usage patterns used to detect root dir, when **"pattern"** is in detection_methods
-  patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "Cargo.toml", "rebar.config", "mix.exs" },
+  patterns = { ".git", ".github", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "Cargo.toml", "rebar.config", "mix.exs" },
 
   -- Don't calculate root dir on specific directories
   -- Ex: { "~/.cargo/*", ... }
-  exclude_dirs = { "~/.cargo/*", "*/_build/*", "/opt/*", "*/target/*", "*/deps/*", "*/.rustup/*", "*/.local/*", "*/apps/*" },
+  exclude_dirs = {
+    "~/.cargo/*",
+    "*/_build/*",
+    "/opt/*",
+    "*/target/*",
+    "*/deps/*",
+    "*/.rustup/*",
+    "*/.local/*",
+    "*/apps/*",
+    "*/crates/*",
+    "*/erlang-language-platform/*",
+    "*/eqwalizer/*",
+    "~/dotfiles/*",
+  },
+
 
 
   ---@ Show hidden files in telescope when searching for files in a project
