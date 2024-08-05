@@ -46,8 +46,9 @@ local right_split_preview = {
   },
   -- relative = "editor",
   relative = "win",
+  border = "rounded",
   anchor = "NE",
-  position = { 0, -60 },
+  position = { 0, -80 },
   zindex = 200,
   -- when a buffer is not yet loaded, the preview window will be created
   -- in a scratch buffer with only syntax highlighting enabled.
@@ -58,23 +59,43 @@ local right_split_preview = {
 return {
   "folke/trouble.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons", "folke/todo-comments.nvim" },
+  cmd = "Trouble",
   opts = {
     auto_preview = false,
     preview = right_split_preview,
+    throttle = {
+      refresh = 20, -- fetches new data when needed
+      update = 10, -- updates the window
+      render = 10, -- renders the window
+      follow = 100, -- follows the current item
+      preview = { ms = 100, debounce = true }, -- shows the preview for the current item
+    },
     modes = {
       diagnostics = {
         mode = "diagnostics",
         win = right_split_win,
+        keys = {
+          x = "fold_toggle",
+          p = "toggle_preview",
+        },
       },
 
       symbols = {
         mode = "lsp_document_symbols",
         win = right_split_win,
+        keys = {
+          x = "fold_toggle",
+          p = "toggle_preview",
+        },
       },
 
       todo = {
         mode = "todo",
         win = right_split_win,
+        keys = {
+          x = "fold_toggle",
+          p = "toggle_preview",
+        },
       },
 
       lsp_incoming_calls = {
@@ -84,6 +105,7 @@ return {
           ["<esc>"] = "close",
         },
         win = float_win("Incoming Calls"),
+        auto_preview = true,
         preview = float_preview,
       },
 
@@ -93,6 +115,7 @@ return {
           ["<cr>"] = "jump_close",
           ["<esc>"] = "close",
         },
+        auto_preview = true,
         win = float_win("Outgoing Calls"),
         preview = float_preview,
       },
