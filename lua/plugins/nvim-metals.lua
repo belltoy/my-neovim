@@ -38,7 +38,9 @@ return {
       showImplicitArguments = true,
     }
     metals_config.init_options.statusBarProvider = "on"
+    local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
     -- metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+    metals_config.capabilities = capabilities
     local dap = require("dap")
     dap.configurations.scala = {
       {
