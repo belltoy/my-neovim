@@ -104,7 +104,7 @@ return {
       on_attach = on_attach,
       -- capabilities = require('user.lsp.handlers').capabilities,
       cmd = {
-        'elp', '--log-file', vim.fn.stdpath('log') .. '/elp.log', 'server'
+        'elp', 'server'
       },
       flags = {
         exit_timeout = 0,
