@@ -6,12 +6,12 @@ local opts = function()
     preselect = cmp.PreselectMode.Item,
     formatting = {
       expandable_indicator = false,
-      format = lspkind.cmp_format({
-        mode = 'symbol', -- show only symbol annotations
-        ellipsis_char = '...',
-        maxwidth = 50,
-        show_labelDetails = true,
-      }),
+      format = function(_, vim_item)
+        vim_item.kind = lspkind.presets.codicons[vim_item.kind]
+         .. "  "
+         .. vim_item.kind
+         return vim_item
+      end
     },
 
     view = {
