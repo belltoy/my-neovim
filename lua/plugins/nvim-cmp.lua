@@ -62,6 +62,7 @@ local opts = function()
       { name = 'luasnip' }, -- For luasnip users.
     }, {
       { name = 'buffer' },
+        { name = 'path' },
     }),
   }
 end
